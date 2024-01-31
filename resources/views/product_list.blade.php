@@ -54,7 +54,7 @@ ul {
     <div class="">
         <div class="sticky-sidebar-container row">
             <!-- Product Summery Start -->
-            <div class="col-lg-3 col-12 learts-mb-40 bags" >
+            <div class="col-lg-3 col-12 learts-mb-40 bags crystal" >
                 <div class="product-summery sticky-sidebar">
                     <div class="sticky-sidebar-inner">
                    
@@ -92,14 +92,14 @@ ul {
             <!-- Product Summery End -->
             <!-- Product Images Start -->
             <div class="col-lg-9 col-12 learts-mb-40">
-                <div class="product-images learts-mb-n10">
-                    <!-- Slider main container Start -->
+                <div class="product-images ">
+                   
                     <div class="home5-slider swiper-container section">
                         <div class="swiper-wrapper">
                             <div class="home5-slide-item swiper-slide" data-swiper-autoplay="5000">
                                 <div class="row align-items-center learts-mb-n20">
                                     <div class="home5-slide1-content col-12 learts-mb-50">
-                                        <span class="sub-title">Live out your life</span>
+                                        <span class="sub-title">Creating memories, not just presents</span>
                                         <h2 class="title">Little simple things</h2>
                                     </div>
                                     <div class="col-12 learts-mb-20">
@@ -112,26 +112,12 @@ ul {
                                                     alt="Home 5 Slider Image"></div>
                                         </div>
                                     </div>
-                                    <div class="home5-slide-collection">NEW COLLECTION</div>
+                                    <!-- <div class="home5-slide-collection">NEW COLLECTION</div>
                                     <div class="home5-slide-sale">30% OFF</div>
-                                    <div class="home5-slide-shop-link"><a href="shop.html">Online Store</a></div>
+                                    <div class="home5-slide-shop-link"><a href="shop.html">Online Store</a></div> -->
                                 </div>
                             </div>
-                            <div class="home5-slide-item swiper-slide" data-swiper-autoplay="5000">
-                                <div class="row align-items-center learts-mb-n20">
-                                    <div class="home5-slide2-content col-md-6 col-12 learts-mb-20">
-                                        <span class="sub-title">Large </span>
-                                        <h2 class="title">Marquetry Shelf</h2>
-                                        <div class="link"><a href="shop.html" class="btn">shop now</a></div>
-                                    </div>
-                                    <div class="home5-slide2-image col-md-6 col-12 learts-mb-20"><img
-                                            src="assets/images/slider/home5/slide2-1.webp" alt="Home 5 Slider Image">
-                                    </div>
-                                    <div class="home5-slide-collection">NEW COLLECTION</div>
-                                    <div class="home5-slide-sale">30% OFF</div>
-                                    <div class="home5-slide-shop-link"><a href="shop.html">Online Store</a></div>
-                                </div>
-                            </div>
+                           
                             <div class="home5-slide-item swiper-slide" data-swiper-autoplay="5000">
                                 <div class="row align-items-center learts-mb-n20">
                                     <div class="home5-slide3-content col-12 learts-mb-50">
@@ -141,9 +127,9 @@ ul {
                                     <div class="home5-slide3-image col-12 learts-mb-20">
                                         <img src="assets/images/slider/home5/slide3-1.webp" alt="Home 5 Slider Image">
                                     </div>
-                                    <div class="home5-slide-collection">NEW COLLECTION</div>
+                                    <!-- <div class="home5-slide-collection">NEW COLLECTION</div>
                                     <div class="home5-slide-sale">30% OFF</div>
-                                    <div class="home5-slide-shop-link"><a href="shop.html">Online Store</a></div>
+                                    <div class="home5-slide-shop-link"><a href="shop.html">Online Store</a></div> -->
                                 </div>
                             </div>
                         </div>
@@ -151,7 +137,7 @@ ul {
                         <div class="home5-slider-next swiper-button-next d-none"></div>
                         <div class="home5-slider-pagination swiper-pagination"></div>
                     </div>
-                    <!-- Slider main container End -->
+                    
 
 
                     <div class="section section-padding">
@@ -169,8 +155,8 @@ ul {
                                                         src="assets/images/banner/sale/sale-banner7-1.webp"
                                                         alt="Sale Banner Image"></div>
                                                 <div class="content">
-                                                    <h2 class="title">Spring sale</h2>
-                                                    <h3 class="sub-title">up to 10% all</h3>
+                                                    <!-- <h2 class="title">Spring sale</h2>
+                                                    <h3 class="sub-title">up to 10% all</h3> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -225,8 +211,8 @@ ul {
                                                         src="assets/images/banner/sale/sale-banner7-2.webp"
                                                         alt="Sale Banner Image"></div>
                                                 <div class="content">
-                                                    <h2 class="title">Caught</h2>
-                                                    <h3 class="sub-title">in the present</h3>
+                                                    <!-- <h2 class="title">Caught</h2>
+                                                    <h3 class="sub-title">in the present</h3> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -281,7 +267,7 @@ ul {
                                                         src="assets/images/banner/sale/sale-banner7-3.webp"
                                                         alt="Sale Banner Image"></div>
                                                 <div class="content">
-                                                    <h2 class="title">Cool summer</h2>
+                                                    <!-- <h2 class="title">Cool summer</h2> -->
                                                 </div>
                                             </div>
                                         </div>

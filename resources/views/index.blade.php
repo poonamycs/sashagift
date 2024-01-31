@@ -10,6 +10,7 @@
     mix-blend-mode:color-burn;
 
 }
+
 </style>
 @endsection('styles')
 
@@ -25,27 +26,30 @@
                         <div class="home3-slide-content">
                             <h5 class="sub-title">Curio Studio</h5>
                             <h2 class="title">Nuhas, Feel of <br>real Craftmenship</h2>
-                            <div class="link"><a href="{{url('/contact')}" class="btn btn-black btn-hover-primary">Connect</a></div>
-                            </div>
+                            <!-- <div class="link"></div> -->
+                            <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>
                         </div>
-                    </div>
+                     </div>
+                </div>
                     <div class="home3-slide-item swiper-slide" data-swiper-autoplay="5000" data-bg-image="assets/images/banner/home/Sasha_Banner_2.jpg">
                         <div class="container">
                             <div class="home3-slide-content">
                                 <h5 class="sub-title">Curio Studio</h5>
                                 <h2 class="title">Discover the real <br>essence of gifting now</h2>
-                                <div class="link"><a href="{{url('/contact')}" class="btn btn-black btn-hover-primary">Connect</a></div>
-                                </divc>
+                                <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>                     
                             </div>
                         </div>
+                      
                     </div>
                     <div class="home3-slide-item swiper-slide" data-swiper-autoplay="5000" data-bg-image="assets/images/slider/home3/slide-3.webp">
                         <div class="container">
                             <div class="home3-slide-content">
                                 <h5 class="sub-title">Curio Studio</h5>
                                 <h2 class="title">Classic gesture rendered <br>just right</h2>
-                                <div class="link"><a href="{{url('/contact')}" class="btn btn-black btn-hover-primary">Connect</a></div>
+                                <!-- <div class="link"><a href="{{url('/contact')}" class="btn btn-black btn-hover-primary">Connect</a></div> -->
+                                <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -55,7 +59,7 @@
         </div>
     </div>
     <!-- Slider main container End -->
-    <div class="section section-fluid section-padding bg-white border-top-dashed border-bottom-dashed">
+    <div class="section section-fluid section-padding bg-white ">
         <div class="container">
 
             <!-- Section Title Start -->
@@ -136,7 +140,7 @@
     <!-- Shop By Brands Section End -->
 
    <!-- Sale Banner Section Start -->
-   <div class="section section-padding bg-white">
+   <div class="section pb-4 bg-white">
         <div class="container">
 
             <!-- Section Title Start -->
@@ -166,12 +170,12 @@
                         <div class="inner">
                             <div class="image"><img src="assets/images/banner/gift_box.png" alt=""></div>
                             <div class="content row justify-content-between mb-n3">
-                                <div class="col-auto mb-2">
+                                <div class="col-auto mb-2 mt-3">
                                     <!-- <h2 class="sale-percent">10% off</h2> -->
                                     <span class="text">Sasha's Adventure Awaits </span>
                                 </div>
                                 <div class="col-auto mb-2">
-                                <div class="link"><a href="{{url('/contact')}" class="btn btn-black btn-hover-primary">Connect</a></div>
+                                <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +207,8 @@
                             <p>Seasoned craftsmanship, honed over years of dedication, transforms each creation into a masterpiece at our skilled artisan's hands. With an unwavering commitment to excellence, our focus remains unwaveringly fixed on delivering nothing short of the extraordinary in every meticulously crafted piece.</p>
                         </div>
                         <!-- <div class="countdown1" data-countdown="2024/01/01"></div> -->
-                        <a href="/nuhas" class="btn btn-black btn-hover-primary">View All</a>
+                        <!-- <a href="/nuhas" class="btn btn-black btn-hover-primary">View All</a> -->
+                        <button class="hexa"><a href="{{url('/nuhas')}" class="">View All</a> </button>
                     </div>
                 </div>
 
@@ -231,7 +236,7 @@
                         <a href="shop.html" class="inner">
                             <div class="image"><img src="assets/images/home_cat/bag.png" alt="category"></div>
                             <div class="content">
-                                <h3 class="title">Laptop Backpack</h3>
+                                <h3 class="title">Laptop <br>Backpack</h3>
                          
                             </div>
                         </a>
@@ -243,7 +248,8 @@
                         <a href="shop.html" class="inner">
                             <div class="image"><img src="assets/images/home_cat/paris.png" alt=""></div>
                             <div class="content">
-                                <h3 class="title">Perfumes & Fragrances</h3>
+                                <h3 class="title">Perfumes & <br>
+                                Fragrances</h3>
                               
                             </div>
                         </a>
@@ -255,7 +261,7 @@
                         <a href="shop.html" class="inner">
                             <div class="image"><img src="assets/images/home_cat/bajaj.png" alt=""></div>
                             <div class="content">
-                                <h3 class="title">Customized T-Shirts</h3>
+                                <h3 class="title">Customized <br>   T-Shirts</h3>
                                 
                             </div>
                         </a>
@@ -267,7 +273,7 @@
                         <a href="shop.html" class="inner">
                             <div class="image"><img src="assets/images/home_cat/trp.png" alt=""></div>
                             <div class="content">
-                                <h3 class="title">Trophy & Accolades</h3>
+                                <h3 class="title">Trophy & <br> Accolades</h3>
                               
                             </div>
                         </a>
@@ -279,7 +285,7 @@
                         <a href="/product-list" class="inner">
                             <div class="image"><img src="assets/images/home_cat/tifin_bag.png" alt=""></div>
                             <div class="content">
-                                <h3 class="title">Food Containers</h3>
+                                <h3 class="title">Food <br> Containers</h3>
                                
                             </div>
                         </a>
@@ -365,11 +371,11 @@
 
 
   <!-- Shop By Brands Section Start -->
-  <div class="section section-fluid section-padding bg-white border-top-dashed border-bottom-dashed">
+  <div class="section section-fluid section-padding bg-white ">
         <div class="container">
 
             <!-- Section Title Start -->
-            <div class="section-title text-center">
+            <div class="section-title text-center mb-4">
                 <h2 class="title title-icon-both">Pick by Brands</h2>
             </div>
             <!-- Section Title End -->

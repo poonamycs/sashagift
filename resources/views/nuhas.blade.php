@@ -14,7 +14,7 @@
                 <div class="col">
 
                     <div class="page-title">
-                        <h1 class="title">Shop</h1>
+                        <h1 class="title">Nuhas</h1>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                             <li class="breadcrumb-item active">Products</li>
