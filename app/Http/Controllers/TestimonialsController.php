@@ -42,7 +42,7 @@ class TestimonialsController extends Controller
     			if($image_tmp->isValid()){
     				$extension = $image_tmp->getClientOriginalExtension();
     				$filename = rand(111,99999).'.'.$extension;
-    				$image_path = 'images/backend_images/testimonials/'.$filename;
+    				$image_path = 'assets/admin/images/backend_images/testimonials/'.$filename;
 
     				// Resizes image
     				Image::make($image_tmp)->resize(300,300)->save($image_path);
@@ -70,7 +70,7 @@ class TestimonialsController extends Controller
     			if($image_tmp->isValid()){
     				$extension = $image_tmp->getClientOriginalExtension();
     				$filename = rand(111,99999).'.'.$extension;
-    				$image_path = 'images/backend_images/testimonials/'.$filename;
+    				$image_path = 'assets/admin/images/backend_images/testimonials/'.$filename;
     				Image::make($image_tmp)->resize(300,300)->save($image_path);    			
     			} 
             }else if(!empty($data['current_image'])){

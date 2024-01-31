@@ -10,6 +10,7 @@ use App\Models\Admin;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Search;
+use App\Models\VendorProduct;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -145,7 +146,24 @@ class AdminController extends Controller
         // echo "<pre>"; print_r($vendors); die;
         return view('admin.users.view_vendors')->with(compact('vendors'));
     }
-
+    public function productVendors(Request $request,$id){
+        $products = Product::where('admin_approved','=',1)->get();
+        $vendor_products = VendorProduct::where('vendor_id','=',$id)->get();
+        
+        return view('admin.users.vendor_product')->with(compact('id','products','vendor_products'));
+    }
+    public function deleteproductVendors($id = null){
+        VendorProduct::where(['id'=>$id])->delete();
+        return redirect()->back()->with('flash_message_success','Product Unassigned Successfully!');
+    }
+    public function addVendorProduct(Request $request)
+    {
+        $vendorproduct = new VendorProduct;
+        $vendorproduct->vendor_id = $request->vendor_id;
+        $vendorproduct->product_id = $request->product_id;
+        $vendorproduct->save();
+        return redirect()->back()->with('flash_message_success','Product Assigned Successfully!');
+    }
     public function confirmVendorAccount($email){
         $email = base64_decode($email);
         $vendorCount = Admin::where('email',$email)->count();

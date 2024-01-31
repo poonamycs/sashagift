@@ -97,7 +97,7 @@
                   @endif
                   
                   @if(!empty($productDetails->image))
-                  <a href="{{ asset('images/backend_images/products/large/'.$productDetails->image) }}"><img style="height: 50px;" src="{{ asset('images/backend_images/products/small/'.$productDetails->image) }}"></a> | <a href="{{ url('admin/delete-product-image/'.$productDetails->id) }}">Delete</a>
+                  <a href="{{ asset('assets/admin/images/backend_images/products/large/'.$productDetails->image) }}"><img style="height: 50px;" src="{{ asset('assets/admin/images/backend_images/products/small/'.$productDetails->image) }}"></a> | <a href="{{ url('admin/delete-product-image/'.$productDetails->id) }}">Delete</a>
                   @endif
                 </div>
               </div>

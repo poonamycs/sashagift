@@ -26,7 +26,7 @@
             <h5>Add Trustedby</h5>
           </div>
           <div class="widget-content nopadding">
-            <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/add-trustedby') }}" name="add_testimonial" id="add_testimonial" novalidate="novalidate"> {{ csrf_field() }}
+            <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/add-trustedby') }}" name="add_trustedby" id="add_trustedby" novalidate="novalidate"> {{ csrf_field() }}
               
               <div class="control-group">
                 <label class="control-label">Image :</label>
@@ -38,7 +38,7 @@
               <div class="control-group">
                 <label class="control-label">Name :</label>
                 <div class="controls">
-                  <input type="text" name="name" id="name" style="width: 65%" required>
+                  <input type="text" name="name" id="name" style="width: 65%">
                 </div>
               </div>
 

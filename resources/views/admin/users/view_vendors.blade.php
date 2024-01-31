@@ -72,7 +72,8 @@
                   </td>
                   <td class="text-center">
                     <a href="#myModal{{ $vendor->id }}" data-toggle="modal" class="btn btn-info btn-mini">View</a>
-                    <a href="{{ url('admin/view-vendor-stocks/'.$vendor->id) }}" class="btn btn-success btn-mini"> Vendor Stock</a>
+                    <!-- <a href="{{ url('admin/view-vendor-stocks/'.$vendor->id) }}" class="btn btn-success btn-mini"> Vendor Stock</a> -->
+                    <a href="{{ url('admin/vendor-product/'.$vendor->id) }}" class="btn btn-success btn-mini"> Vendor Product</a>
                   </td>
                 </tr>
 

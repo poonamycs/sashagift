@@ -47,5 +47,8 @@ class Product extends Model
         $shipping_charges = $shippingDetails->shipping_charges;
         return $shipping_charges;
     }
-
+    public function vendorproduct()
+    {
+        return $this->hasMany(VendorProduct::class);
+    }
 }

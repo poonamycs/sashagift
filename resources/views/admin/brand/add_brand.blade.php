@@ -26,7 +26,7 @@
             <h5>Add Brand</h5>
           </div>
           <div class="widget-content nopadding">
-            <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/add-brand') }}" name="add_testimonial" id="add_testimonial" novalidate="novalidate"> {{ csrf_field() }}
+            <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/add-brand') }}" name="add_brand" id="add_brand" novalidate="novalidate"> {{ csrf_field() }}
               
               <div class="control-group">
                 <label class="control-label">Image :</label>

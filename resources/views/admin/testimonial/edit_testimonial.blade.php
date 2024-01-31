@@ -28,7 +28,7 @@
             <h5>Edit Testimonial</h5>
           </div>
           <div class="widget-content nopadding">
-            <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/edit-testimonial/'.$testimonialDetails->id) }}" name="edit_banner" id="edit_banner" novalidate="novalidate"> {{ csrf_field() }}
+            <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/edit-testimonial/'.$testimonialDetails->id) }}" name="edit_testimonial" id="edit_testimonial" novalidate="novalidate"> {{ csrf_field() }}
               <div class="control-group">
                 <label class="control-label">Name :</label>
                 <div class="controls">
@@ -36,12 +36,12 @@
                 </div>
               </div>
               
-              {{-- <div class="control-group">
+              <div class="control-group">
                 <label class="control-label">Position :</label>
                 <div class="controls">
                   <input type="text" name="position" id="position" value="{{ $testimonialDetails->position }}" style="width: 65%">
                 </div>
-              </div> --}}
+              </div>
 
               <div class="control-group">
                 <label class="control-label">Testimonial :</label>

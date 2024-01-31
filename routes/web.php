@@ -118,7 +118,9 @@ Route::group(['middleware' => ['admin']],function(){
 
 	//view vendors
 	Route::match(['get','post'],'admin/view-vendors/',[App\Http\Controllers\AdminController::class, 'viewVendors']);
-
+	Route::match(['get','post'],'admin/add-vendor-product/',[App\Http\Controllers\AdminController::class, 'addVendorProduct']);
+	Route::match(['get','post'],'admin/vendor-product/{id}',[App\Http\Controllers\AdminController::class, 'productVendors']);
+	Route::match(['get','post'],'/admin/delete-vendor-product/{id}',[App\Http\Controllers\AdminController::class, 'deleteproductVendors']);
 	// Export users
 	Route::get('/admin/export-users/',[App\Http\Controllers\UsersController::class, 'exportUsers']);
 
@@ -176,7 +178,7 @@ Route::group(['middleware' => ['admin']],function(){
 	Route::get('admin/view-search-history',[App\Http\Controllers\AdminController::class, 'viewSearchHistory']);
 
 	Route::match(['get','post'], 'admin/add-vendor/',[App\Http\Controllers\AdminController::class, 'addVendor']);
-	Route::match(['get','post'], 'admin/view-vendor-stocks/{id}','StockController@viewVendorStocks');
+	Route::match(['get','post'], 'admin/view-vendor-stocks/{id}',[App\Http\Controllers\StockController::class, 'viewVendorStocks']);
 
 	// stock management
 	Route::match(['get','post'], 'admin/stock-category/', 'StockController@stockCategory');

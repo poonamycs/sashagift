@@ -50,7 +50,7 @@
                 <!-- <li <?php if(preg_match("/add-banner/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/add-banner')}}"><i class="fa fa-arrow-right"></i> Add Banner</a></li> -->
                 <li <?php if(preg_match("/view-banners/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/view-banners')}}"><i class="fa fa-arrow-right"></i> View Banners <span class="count label label-important"> {{ $banners }} </span></a> </li>
                 <!-- <li <?php if(preg_match("/add-offer-banner/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/add-offer-banner')}}"><i class="fa fa-arrow-right"></i> Add Offer Banner</a></li> -->
-                <li <?php if(preg_match("/view-offer-banners/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/view-offer-banners')}}"><i class="fa fa-arrow-right"></i> Weekly Basket Banners <span class="count label label-important"> {{ $offerBanners }} </span></a></li>
+                <!-- <li <?php if(preg_match("/view-offer-banners/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/view-offer-banners')}}"><i class="fa fa-arrow-right"></i> Weekly Basket Banners <span class="count label label-important"> {{ $offerBanners }} </span></a></li> -->
                 <!-- <li <?php if(preg_match("/offer-popup-banner/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/offer-popup-banner')}}"><i class="fa fa-arrow-right"></i> Offer popup Banner</a></li> -->
             </ul>
         </li>
@@ -91,18 +91,20 @@
         @endif
 
         
-        @if($auth->vname == 'Superadmin')
+        <!-- @if($auth->vname == 'Superadmin')
         <li class="submenu"> <a href="#"><i class="fa fa-users"></i> <span>Customers</span> <span class="label label-important"> <?php echo $users ?> </span> </a>
             <ul <?php if(preg_match("/user/i", $url)){ ?> style="display: block;" <?php } ?>>
                 <li <?php if(preg_match("/view-users/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/view-users')}}"><i class="fa fa-arrow-right"></i> View Customers</a></li>
             </ul>
         </li>
-        @endif
+        @endif -->
 
         @if($auth->vname == 'Superadmin')
         <li class="submenu"> <a href="#"><i class="fa fa-user-plus"></i> <span>Vendors</span> <span class="label label-important"> <?php echo $vendors ?> </span> </a>
             <ul <?php if(preg_match("/vendor/i", $url)){ ?> style="display: block;" <?php } ?>>
-                <li <?php if(preg_match("/add-vendor/i", $url)){ ?> class="active" <?php } ?>><a uhref="{{url('/admin/view-vendors')}}"><i class="fa fa-arrow-right"></i> View Vendors</a></li>
+                <li <?php if(preg_match("/add-vendor/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/add-vendor')}}"><i class="fa fa-arrow-right"></i> Add Vendor</a></li>
+                <li <?php if(preg_match("/view-vendor/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/view-vendors')}}"><i class="fa fa-arrow-right"></i> View Vendors</a></li>
+                <!-- <li <?php if(preg_match("/vendor-product/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/vendor-product')}}"><i class="fa fa-arrow-right"></i>Vendor Product</a></li> -->
             </ul>
         </li>
         @endif

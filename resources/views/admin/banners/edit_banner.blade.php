@@ -53,7 +53,7 @@
                   @endif
 
                   @if(!empty($bannerDetails->image))
-                  <img style="height: 50px;" src="{{ asset('images/frontend_images/banners/'.$bannerDetails->image) }}">
+                  <img style="height: 50px;" src="{{ asset('assets/admin/images/frontend_images/banners/'.$bannerDetails->image) }}">
                   @endif<br>
                   <small>Banner Size should be 1350x400px</small>
 

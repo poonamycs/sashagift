@@ -90,9 +90,9 @@ class ProductsController extends Controller
     			if($image_tmp->isValid()){
     				$extension = $image_tmp->getClientOriginalExtension();
     				$filename = rand(111,99999).'.'.$extension;
-    				$large_image_path = 'images/backend_images/products/large/'.$filename;
-    				$medium_image_path = 'images/backend_images/products/medium/'.$filename;
-    				$small_image_path = 'images/backend_images/products/small/'.$filename;
+    				$large_image_path = 'assets/admin/images/backend_images/products/large/'.$filename;
+    				$medium_image_path = 'assets/admin/images/backend_images/products/medium/'.$filename;
+    				$small_image_path = 'assets/admin/images/backend_images/products/small/'.$filename;
 
     				// Resizes image
     				Image::make($image_tmp)->save($large_image_path);
@@ -152,9 +152,9 @@ class ProductsController extends Controller
     			if($image_tmp->isValid()){
     				$extension = $image_tmp->getClientOriginalExtension();
     				$filename = rand(111,99999).'.'.$extension;
-    				$large_image_path = 'images/backend_images/products/large/'.$filename;
-    				$medium_image_path = 'images/backend_images/products/medium/'.$filename;
-    				$small_image_path = 'images/backend_images/products/small/'.$filename;
+    				$large_image_path = 'assets/admin/images/backend_images/products/large/'.$filename;
+    				$medium_image_path = 'assets/admin/images/backend_images/products/medium/'.$filename;
+    				$small_image_path = 'assets/admin/images/backend_images/products/small/'.$filename;
 
     				// Resizes image
     				Image::make($image_tmp)->save($large_image_path);
@@ -243,9 +243,9 @@ class ProductsController extends Controller
         $productImage = Product::where(['id'=>$id])->first();
 
         //get image path
-        $large_image_path  = 'images/backend_images/products/large/';
-        $medium_image_path = 'images/backend_images/products/medium/';
-        $small_image_path  = 'images/backend_images/products/small/';
+        $large_image_path  = 'assets/admin/images/backend_images/products/large/';
+        $medium_image_path = 'assets/admin/images/backend_images/products/medium/';
+        $small_image_path  = 'assets/admin/images/backend_images/products/small/';
 
         //delete large image if not exits in folder
         if(file_exists($large_image_path.$productImage->image)){
@@ -352,9 +352,9 @@ class ProductsController extends Controller
                     $extension = $file->getClientOriginalExtension();
                     $fileName = rand(111,99999).'.'.$extension;                  
 
-                    $large_image_path  = 'images/backend_images/products/large/'.$fileName;
-                    $medium_image_path = 'images/backend_images/products/medium/'.$fileName;
-                    $small_image_path  = 'images/backend_images/products/small/'.$fileName;   
+                    $large_image_path  = 'assets/admin/images/backend_images/products/large/'.$fileName;
+                    $medium_image_path = 'assets/admin/images/backend_images/products/medium/'.$fileName;
+                    $small_image_path  = 'assets/admin/images/backend_images/products/small/'.$fileName;   
 
                     Image::make($file)->save($large_image_path);
                     Image::make($file)->resize(600, 600)->save($medium_image_path);
@@ -377,9 +377,9 @@ class ProductsController extends Controller
         $productImage = ProductsImage::where(['id'=>$id])->first();
 
         //get image path
-        $large_image_path  = 'images/backend_images/products/large/';
-        $medium_image_path = 'images/backend_images/products/medium/';
-        $small_image_path  = 'images/backend_images/products/small/';
+        $large_image_path  = 'assets/admin/images/backend_images/products/large/';
+        $medium_image_path = 'assets/admin/images/backend_images/products/medium/';
+        $small_image_path  = 'assets/admin/images/backend_images/products/small/';
 
         //delete large image if not exits in folder
         if(file_exists($large_image_path.$productImage->image)){
@@ -774,7 +774,7 @@ class ProductsController extends Controller
         // fetch shipping charges
         $shippingCharges = Product::getShippingCharges($shippingDetails->pincode);
 
-        $meta_title = "Order Overview | Veggi Mart";
+        $meta_title = "Order Overview | Sasha";
         $categories = Category::with('categories')->where(['parent_id'=>0])->get();
 
         return view('products.order_review')->with(compact('userDetails','shippingDetails','userCart','codpincodeCount','prepaidpincodeCount','categories','meta_title','shippingCharges'));
@@ -912,7 +912,7 @@ class ProductsController extends Controller
     public function razorpay(Request $request){
         $user_email = Auth::user()->email;
         // DB::table('cart')->where('user_email',$user_email)->delete();
-        $meta_title = 'Make Payment | Veggi Mart';
+        $meta_title = 'Make Payment | Sasha';
         // return view('orders.payment_details')->with(compact('meta_title'));
         return view('orders.razorpay')->with(compact('meta_title'));
     }

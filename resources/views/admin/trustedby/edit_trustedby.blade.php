@@ -28,7 +28,7 @@
             <h5>Edit Trustedby</h5>
           </div>
           <div class="widget-content nopadding">
-            <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/edit-trustedby/'.$trustedby->id) }}" name="edit_banner" id="edit_banner" novalidate="novalidate"> {{ csrf_field() }}
+            <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/edit-trustedby/'.$trustedby->id) }}" name="edit_trustedby" id="edit_trustedby" novalidate="novalidate"> {{ csrf_field() }}
               <div class="control-group">
                 <label class="control-label">Name :</label>
                 <div class="controls">

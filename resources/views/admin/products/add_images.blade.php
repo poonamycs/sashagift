@@ -79,7 +79,7 @@
                 <tr class="gradeX">
                   <td style="text-align:center;">{{ $image->id }}</td>
                   <td style="text-align:center;">{{ $image->product_id }}</td>
-                  <td style="text-align:center;"><img width=100px src="{{ asset('images/backend_images/products/small/'.$image->image) }}"></td>
+                  <td style="text-align:center;"><img width=100px src="{{ asset('assets/admin/images/backend_images/products/small/'.$image->image) }}"></td>
                   <td style="text-align:center;"><a onclick="return confirm('Are you sure you want to delete this Product Image?');" href="{{ url('/admin/delete-alt-image/'.$image->id) }}" class="btn btn-danger btn-mini" title="Delete Product Image">Delete</a></td>
                 </tr>
                 @endforeach

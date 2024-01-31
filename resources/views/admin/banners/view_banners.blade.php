@@ -62,7 +62,7 @@ use Illuminate\Support\Facades\Crypt;
                   </td>
                   <td class="text-center">
                     @if(!empty($banner->image))
-                    <img src="{{ asset('/images/frontend_images/banners/'.$banner->image) }}" style="height: 70px;">
+                    <img src="{{ asset('/assets/admin/images/frontend_images/banners/'.$banner->image) }}" style="height: 70px;">
                     @endif
                   </td>
 
@@ -86,7 +86,7 @@ use Illuminate\Support\Facades\Crypt;
                     <p><b>Banner Status: </b> @if($banner->status==1)<span style="color: green; font-weight: bold;">Active</span>@else<span style="color: red; font-weight: bold;">Inactive</span>@endif</p>
                     <p><b>Updated On: </b>{{ date('D, d M Y, h:i a', strtotime($banner->updated_at)) }}</p>
                     <p><b>Banner Image: </b></p>
-                    <img src="{{ asset('/images/frontend_images/banners/'.$banner->image) }}">
+                    <img src="{{ asset('/assets/admin/images/frontend_images/banners/'.$banner->image) }}">
                   </div>
                 </div>
                 @endforeach

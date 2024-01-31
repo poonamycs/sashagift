@@ -64,7 +64,7 @@
                     <td class="text-center">₹ {{ $product->price }}@if(!empty($product->unit))/{{ $product->unit }}@endif</td>
                     <td class="text-center">
                         @if(!empty($product->image))
-                        <img src="{{ asset('/images/backend_images/products/small/'.$product->image) }}" style="height: 40px;">
+                        <img src="{{ asset('/assets/admin/images/backend_images/products/small/'.$product->image) }}" style="height: 40px;">
                         @endif
                     </td>
                     <td style="text-align: center;">
@@ -100,7 +100,7 @@
                         <p><b>Created On :</b> {{ date('d M Y | h:i a', strtotime($product->created_at)) }}</p>
                         <p><b>Updated On :</b> {{ date('d M Y | h:i a', strtotime($product->updated_at)) }}</p>
                         <p><b>Product Image: </b></p>
-                        <center><img src="{{ asset('/images/backend_images/products/small/'.$product->image) }}"></center>
+                        <center><img src="{{ asset('/assets/admin/images/backend_images/products/small/'.$product->image) }}"></center>
                     </div>
                 </div>
                 @endforeach

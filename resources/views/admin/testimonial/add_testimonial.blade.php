@@ -42,12 +42,12 @@
                 </div>
               </div>
 
-              {{-- <div class="control-group">
+              <div class="control-group">
                 <label class="control-label">Position :</label>
                 <div class="controls">
                   <input type="text" name="position" id="position" style="width: 65%">
                 </div>
-              </div> --}}
+              </div>
 
               <div class="control-group">
                 <label class="control-label">Testimonial :</label>
