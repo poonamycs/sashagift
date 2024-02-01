@@ -153,9 +153,9 @@
             <div class="row learts-mb-n40">
 
                 <div class="col-lg-5 col-md-6 col-12 me-auto learts-mb-40" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="2000">
-                    <div class="sale-banner1" data-bg-image="assets/images/sale-banner1-1.webp">
+                    <div class="sale-banner1 elevate" data-bg-image="assets/images/sasha.svg">
                         <div class="inner">
-                            <img src="assets/images/banner/sale/sale-banner1-1.1.webp" alt="Sale Banner Icon">
+                            <img src="assets/images/title/adv.png" alt="Sale Banner Icon">
                             <span class="sub-title"><h3>Sasha's Military Box:<br> Elevate Your  Adventure <br> with Strength and Style.</h3></span>
                             <!-- <h2 class="sale-percent">
                                 <span class="number">40</span> % <br> off
@@ -166,7 +166,7 @@
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-12 learts-mb-40" data-aos="fade-left" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="2000">
-                    <div class="sale-banner2">
+                    <div class="sale-banner2 pt-2">
                         <div class="inner">
                             <div class="image"><img src="assets/images/banner/gift_box.png" alt=""></div>
                             <div class="content row justify-content-between mb-n3">

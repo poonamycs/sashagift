@@ -32,50 +32,42 @@
     <div class="section section-padding border-bottom">
         <div class="container">
             <div class="row learts-mb-n40">
+            <div class="col-lg-1"></div>
 
                 <!-- Product Images Start -->
-                <div class="col-lg-6 col-12 learts-mb-40">
+                <div class="col-lg-4 col-12 learts-mb-40">
                     <div class="product-images">
-                        <button class="product-gallery-popup hintT-left" data-hint="Click to enlarge" data-images='[
-                            {"src": "assets/images/product/single/3/product-zoom-1.webp", "w": 700, "h": 1100},
-                            {"src": "assets/images/product/single/3/product-zoom-2.webp", "w": 700, "h": 1100},
-                            {"src": "assets/images/product/single/3/product-zoom-3.webp", "w": 700, "h": 1100},
-                            {"src": "assets/images/product/single/3/product-zoom-4.webp", "w": 700, "h": 1100}
-                        ]'><i class="fas fa-expand"></i></button>
+                      
                         <div class="product-gallery-slider">
-                            <div class="product-zoom" data-image="assets/images/product/single/3/product-zoom-1.webp">
-                                <img src="assets/images/product/single/3/product-1.webp" alt="">
+                            <div class="product-zoom" data-image="assets/images/product/utility/extra-05259461.png">
+                                <img src="assets/images/product/utility/extra-05259461.png" alt="">
                             </div>
-                            <div class="product-zoom" data-image="assets/images/product/single/3/product-zoom-2.webp">
-                                <img src="assets/images/product/single/3/product-2.webp" alt="">
+                            <div class="product-zoom" data-image="assets/images/product/utility/hand_bag.jpg">
+                                <img src="assets/images/product/utility/hand_bag.jpg" alt="">
                             </div>
-                            <div class="product-zoom" data-image="assets/images/product/single/3/product-zoom-3.webp">
-                                <img src="assets/images/product/single/3/product-3.webp" alt="">
+                            <div class="product-zoom" data-image="assets/images/product/utility/metal_box.jpg">
+                                <img src="assets/images/product/utility/metal_box.jpg" alt="">
                             </div>
-                            <div class="product-zoom" data-image="assets/images/product/single/3/product-zoom-4.webp">
-                                <img src="assets/images/product/single/3/product-4.webp" alt="">
-                            </div>
+                           
                         </div>
                         <div class="product-thumb-slider">
                             <div class="item">
-                                <img src="assets/images/product/single/3/product-thumb-1.webp" alt="">
+                                <img src="assets/images/product/utility/extra-05259461.png" alt="">
                             </div>
                             <div class="item">
-                                <img src="assets/images/product/single/3/product-thumb-2.webp" alt="">
+                                <img src="assets/images/product/utility/hand_bag.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img src="assets/images/product/single/3/product-thumb-3.webp" alt="">
+                                <img src="assets/images/product/utility/metal_box.jpg" alt="">
                             </div>
-                            <div class="item">
-                                <img src="assets/images/product/single/3/product-thumb-4.webp" alt="">
-                            </div>
+                          
                         </div>
                     </div>
                 </div>
                 <!-- Product Images End -->
 
                 <!-- Product Summery Start -->
-                <div class="col-lg-6 col-12 learts-mb-40">
+                <div class="col-lg-6   col-12 learts-mb-40">
                     <div class="product-summery">
                        
                        
@@ -85,7 +77,9 @@
                         </div>
                        
                         <div class="product-buttons">
-                            <a href="#" class="btn btn-dark btn-outline-hover-dark"><i class="fas fa-shopping-cart"></i> Send Enquiry</a>
+                            <!-- <a href="#" class="btn btn-dark btn-outline-hover-dark"><i class="fas fa-shopping-cart"></i> Send Enquiry</a> -->
+                            <div class="col-12 text-center learts-mb-30"> <button class="hexa"><a href="/contact" class="">Send Enquiry</a> </button></div>
+
                         </div>
                         
                         <div class="product-meta">
@@ -103,18 +97,7 @@
                                             </ul>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="label"><span>Tags</span></td>
-                                        <td class="value">
-                                            <ul class="product-tags">
-                                                <li><a href="#">handmade</a></li>
-                                                <li><a href="#">learts</a></li>
-                                                <li><a href="#">mug</a></li>
-                                                <li><a href="#">product</a></li>
-                                                <li><a href="#">learts</a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                    
                                    
                                 </tbody>
                             </table>
@@ -122,7 +105,7 @@
                     </div>
                 </div>
                 <!-- Product Summery End -->
-
+<div class="col-lg-1"></div>
             </div>
         </div>
 

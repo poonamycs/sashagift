@@ -9,7 +9,7 @@
 
 
     <!-- Page Title/Header Start -->
-    <div class="page-title-section section" data-bg-image="assets/images/bg/page-title-1.webp">
+    <div class="page-title-section section" data-bg-image="assets/images/login/login_banner.png">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -50,9 +50,8 @@
                                     <div class="col-12 learts-mb-50">
                                         <input type="password" placeholder="Password">
                                     </div>
-                                    <div class="col-12 text-center learts-mb-50">
-                                        <button class="btn btn-dark btn-outline-hover-dark">login</button>
-                                    </div>
+                                    
+                                <div class="col-12 text-center learts-mb-500"> <button class="hexa"><a href="{{url('/contact')}" class="text-white">login</a> </button></div>
                                    
                                 </div>
                             </form>

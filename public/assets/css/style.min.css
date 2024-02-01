@@ -10292,7 +10292,7 @@ body.offcanvas-open .sticky-header {
 }
 .product-deal-content .title::after {
     padding-left: 10px;
-    content: url("../images/title/title-decor-right.webp");
+    content: url("../images/title/title-decor-right-nuhas.png");
 }
 .product-deal-content .desc {
     max-width: 460px;
@@ -14409,4 +14409,13 @@ li.nav-item.active a {
     .crystal{
       display: none !important;
     }
+}
+.elevate{
+    background-size: contain;
+}
+.keep{
+    border: 1px solid #d0d1d2;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        /* border-radius: 10px; */
 }

@@ -15,10 +15,10 @@
                 <div class="col">
 
                     <div class="page-title">
-                        <h1 class="title">Contact us</h1>
+                        <h1 class="title">Contact Us</h1>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">Contact us</li>
+                            <li class="breadcrumb-item active">Contact Us</li>
                         </ul>
                     </div>
 
@@ -34,7 +34,7 @@
             <!-- Section Title Start -->
             <div class="section-title2 text-center">
                 <h2 class="title">Keep in touch with us</h2>
-                <p>Been tearing your hair out to find the perfect gift for your loved ones? Try visiting our nationwide local stores. You can also contact us to become partner or distributor. Call us, send us an email or make an appointment now.</p>
+                <p>Stay connected with Sasha's enchanting world of gifting magic! If you've been on a quest for the perfect gift, keep this place always on your checklist. Establish a blissful relationship by reaching out to us – a simple call, an email, or scheduling an appointment opens the door to a realm of extraordinary gifting possibilities. Let Sasha turn your gifting woes into moments of joy and seamless connections.</p>
             </div>
             <!-- Section Title End -->
 
@@ -84,7 +84,7 @@
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
-                                <div class="col-12 text-center learts-mb-30"><button class="btn btn-dark btn-outline-hover-dark">Submit</button></div>
+                                <div class="col-12 text-center learts-mb-30"> <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button></div>
                             </div>
                         </form>
                         <p class="form-messege"></p>
