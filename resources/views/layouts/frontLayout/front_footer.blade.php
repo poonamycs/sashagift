@@ -26,7 +26,7 @@
                         </div>
                         <div class="col">
                             <ul class="widget-list">
-                                <li><a href="/product-list">Products</a></li>
+                                <li><a href="/product_list">Products</a></li>
                                 <li><a href="/nuhas">Nuhas</a></li>
                                 <li><a href="/contact">Connect</a></li>
                          

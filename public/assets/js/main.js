@@ -542,7 +542,15 @@
             settings: {
                 slidesToShow: 1
             }
-        }]
+        
+        },
+    // New breakpoint for mobile with 2 slides
+    {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 2
+        }
+    }]
     });
 
     // Testimonial SLider/Carousel

@@ -10,6 +10,12 @@
     mix-blend-mode:color-burn;
 
 }
+@media screen(max-width:600px) {
+    .logos img{
+        aspct-ratio:2!important;
+    }
+    
+}
 
 </style>
 @endsection('styles')
@@ -27,7 +33,9 @@
                             <h5 class="sub-title">Curio Studio</h5>
                             <h2 class="title">Nuhas, Feel of <br>real Craftmenship</h2>
                             <!-- <div class="link"></div> -->
-                            <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>
+                           <!-- <div class=""> <button class="border-0" data-bg-image="assets/images/sashabutton.png">     <a href="{{url('/contact')}" class="">Connect</a> </button></div> -->
+                           <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>                     
+
                         </div>
                      </div>
                 </div>
@@ -59,12 +67,12 @@
         </div>
     </div>
     <!-- Slider main container End -->
-    <div class="section section-fluid section-padding bg-white ">
+    <div class="section section-fluid section-padding bg-white section-padding-mob">
         <div class="container">
 
             <!-- Section Title Start -->
             <div class="section-title text-center mb-4" >
-                <h2 class="title title-icon-both">Trusted By..... </h2>
+                <h2 class="title ">Trusted By </h2>
             </div>
             <!-- Section Title End -->
 
@@ -144,13 +152,13 @@
         <div class="container">
 
             <!-- Section Title Start -->
-            <div class="section-title text-center">
+            <div class="section-title text-center ">
                 <h3 class="sub-title" data-aos="fade-up" data-aos-duration="3000">Just for you</h3>
-                <h2 class="title title-icon-both" data-aos="fade-up" data-aos-duration="2000">Gifting & crafting</h2>
+                <h2 class="title " data-aos="fade-up" data-aos-duration="3000">Gifting & crafting</h2>
             </div>
             <!-- Section Title End -->
 
-            <div class="row learts-mb-n40">
+            <div class="row learts-mb-n70 learts-mt-n40">
 
                 <div class="col-lg-5 col-md-6 col-12 me-auto learts-mb-40" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="2000">
                     <div class="sale-banner1 elevate" data-bg-image="assets/images/sasha.svg">
@@ -169,15 +177,15 @@
                     <div class="sale-banner2 pt-2">
                         <div class="inner">
                             <div class="image"><img src="assets/images/banner/gift_box.png" alt=""></div>
-                            <div class="content row justify-content-between mb-n3">
+                            <!-- <div class="content row justify-content-between mb-n3">
                                 <div class="col-auto mb-2 mt-3">
-                                    <!-- <h2 class="sale-percent">10% off</h2> -->
+                                  
                                     <span class="text">Sasha's Adventure Awaits </span>
                                 </div>
                                 <div class="col-auto mb-2">
                                 <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -208,7 +216,7 @@
                         </div>
                         <!-- <div class="countdown1" data-countdown="2024/01/01"></div> -->
                         <!-- <a href="/nuhas" class="btn btn-black btn-hover-primary">View All</a> -->
-                        <button class="hexa"><a href="{{url('/nuhas')}" class="">View All</a> </button>
+                        <button class="hexa"><a href="/nuhas" class="">View All</a> </button>
                     </div>
                 </div>
 
@@ -225,7 +233,7 @@
             <!-- Section Title Start -->
             <div class="section-title text-center">
                 <h5 class="sub-title">Choose By Categories</h5>
-                <h2 class="title title-icon-both">Making & crafting</h2>
+                <h2 class="title ">Making & crafting</h2>
             </div>
             <!-- Section Title End -->
 
@@ -376,7 +384,7 @@
 
             <!-- Section Title Start -->
             <div class="section-title text-center mb-4">
-                <h2 class="title title-icon-both">Pick by Brands</h2>
+                <h2 class="title ">Pick by Brands</h2>
             </div>
             <!-- Section Title End -->
 

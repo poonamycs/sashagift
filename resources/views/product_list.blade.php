@@ -95,7 +95,7 @@ ul {
             <div class="col-lg-9 col-12 learts-mb-40">
 
                 <div class="product-images ">
-                    <div class="home5-slider swiper-container section">
+                    <!-- <div class="home5-slider swiper-container section">
                         <div class="swiper-wrapper">
                             <div class="home5-slide-item swiper-slide" data-swiper-autoplay="5000">
                                 <div class="row align-items-center learts-mb-n20">
@@ -128,141 +128,89 @@ ul {
                                     <div class="home5-slide3-image col-12 learts-mb-20">
                                         <img src="assets/images/slider/home5/slide3-1.webp" alt="Home 5 Slider Image">
                                     </div>
-                                    <!-- <div class="home5-slide-collection">NEW COLLECTION</div>
-                                    <div class="home5-slide-sale">30% OFF</div>
-                                    <div class="home5-slide-shop-link"><a href="shop.html">Online Store</a></div> -->
+                                  
                                 </div>
                             </div>
                         </div>
                         <div class="home5-slider-prev swiper-button-prev d-none"></div>
                         <div class="home5-slider-next swiper-button-next d-none"></div>
                         <div class="home5-slider-pagination swiper-pagination"></div>
-                    </div>
+                    </div> -->
 
 
 
-                    <div class="section section-padding">
+                    <div class="section product_padding">
                         <div class="container">
                             <div class="row row-cols-xl-3 row-cols-lg-3 row-cols-sm-2 row-cols-1 learts-mb-n30">
 
                                 <div class="col learts-mb-30">
-                                    <div class="portfolio keep">
-                                        <div class="thumbnail"><img src="https://cpimg.tistatic.com/05259461/b/5/extra-05259461.jpg"
-                                                alt="" style="width: 300px; height: 300px; object-fit: cover;"></div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="/product_list">Food Carrier</a>
-                                            </h4>
-                                            <div class="desc">
-                                                <p>I made this out of brushed stainless steel. It has…</p>
+                                    <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
+                                        <a href="/contact"><img src="https://cpimg.tistatic.com/05203297/b/5/Promotional-Crystal-Clock.jpeg"
+                                            class="card-img-top rounded-0" alt="..." style="height:250px;"></a>
+                                        <div class="card-body mt-1 mb-1">
+                                            <div class="row">
+                                            <a href="/contact"> <div class="col-10 d-flex justify-content-start align-items-center">
+                                                    <span>
+                                                        <h6 class="card-title">Bags</h6>
+                                                    </span>
+                                                    <span class="px-3">
+                                                        <i class="fa fa-long-arrow-right"></i>
+                                                    </span>
+                                                </div>
+                                           </a>
                                             </div>
-                                            <div class="link"><a href="/product_list">Read more</a></div>
                                         </div>
+
                                     </div>
                                 </div>
 
                                 <div class="col learts-mb-30">
-                                    <div class="portfolio keep">
-                                        <div class="thumbnail"><img src="https://cpimg.tistatic.com/07457020/b/6/extra-07457020.jpeg"
-                                                alt="" style="width: 300px; height: 300px; object-fit: cover;"></div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="/product_list">Citizen Watches</a>
-                                            </h4>
-                                            <div class="desc">
-                                                <p>My personalized Walnut or Maple Cutting Board makes a wonderful…</p>
+                                    <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
+                                        <img src="https://cpimg.tistatic.com/05203306/b/5/Promotional-Mug.jpeg"
+                                            class="card-img-top rounded-0" alt="..." style="height:250px;">
+                                        <div class="card-body mt-1 mb-1">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <h6 class="card-title">Promotional Mug</h6>
+                                                </div>
+
                                             </div>
-                                            <div class="link"><a href="/product_list">Read more</a></div>
                                         </div>
+
+                                    </div>
+                                </div>
+                                <div class="col learts-mb-30">
+                                    <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
+                                        <img src="https://cpimg.tistatic.com/05259563/b/5/Household-Gift.jpeg"
+                                            class="card-img-top rounded-0" alt="..." style="height:250px;">
+                                        <div class="card-body mt-1 mb-1">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <h6 class="card-title">Household Gift</h6>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col learts-mb-30">
+                                    <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
+                                        <img src="https://cpimg.tistatic.com/05385300/b/5/Smart-Watches.jpeg"
+                                            class="card-img-top rounded-0" alt="..." style="height:250px;">
+                                        <div class="card-body mt-1 mb-1">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <h6 class="card-title">Household Gift</h6>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
 
-                                <div class="col learts-mb-30">
-                                    <div class="portfolio keep">
-                                        <div class="thumbnail"><img src="https://cpimg.tistatic.com/05203297/b/5/Promotional-Crystal-Clock.jpeg"
-                                                alt="" style="width: 300px; height: 300px; object-fit: cover;"></div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="/product_list">Promotional Crystal Clock</a></h4>
-                                            <div class="desc">
-                                                <p>This is made of porcelain, lead free and stain resistant.…</p>
-                                            </div>
-                                            <div class="link"><a href="/product_list">Read more</a></div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="col learts-mb-30">
-                                    <div class="portfolio keep">
-                                        <div class="thumbnail"><img src="https://cpimg.tistatic.com/05203306/b/5/Promotional-Mug.jpeg"
-                                                alt="" style="width: 300px; height: 300px; object-fit: cover;"></div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="/product_list">Promotional Mug</a>
-                                            </h4>
-                                            <div class="desc">
-                                                <p>Dashing and colorful. Swirling colors ranging from reddish-tan to
-                                                    deep…</p>
-                                            </div>
-                                            <div class="link"><a href="/product_list">Read more</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col learts-mb-30">
-                                    <div class="portfolio keep">
-                                        <div class="thumbnail"><img src="https://cpimg.tistatic.com/05203307/b/6/water-Bottle.jpeg"
-                                                alt="" style="width: 300px; height: 300px; object-fit: cover;"></div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="/product_list">Water Bottle</a></h4>
-                                            <div class="desc">
-                                                <p>These gorgeous hand knit cloths are perfect for so many…</p>
-                                            </div>
-                                            <div class="link"><a href="/product_list">Read more</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col learts-mb-30">
-                                    <div class="portfolio keep">
-                                        <div class="thumbnail"><img src="https://cpimg.tistatic.com/05259563/b/5/Household-Gift.jpeg"
-                                                alt="" style="width: 300px; height: 300px; object-fit: cover;" ></div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="/product_list">Household Gift</a>
-                                            </h4>
-                                            <div class="desc">
-                                                <p>This vessel is a unique piece of art. It is…</p>
-                                            </div>
-                                            <div class="link"><a href="/product_list">Read more</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col learts-mb-30">
-                                    <div class="portfolio keep">
-                                        <div class="thumbnail"><img src="https://cpimg.tistatic.com/05385254/b/4/Home-Living.png"
-                                                alt="" style="width: 300px; height: 300px; object-fit: cover;"></div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="/product_list">Home & Living</a>
-                                            </h4>
-                                            <div class="desc">
-                                                <p>I made this out of brushed stainless steel. It has…</p>
-                                            </div>
-                                            <div class="link"><a href="/product_list">Read more</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col learts-mb-30">
-                                    <div class="portfolio keep">
-                                        <div class="thumbnail"><img src="https://cpimg.tistatic.com/05385300/b/5/Smart-Watches.jpeg"
-                                                alt="" style="width: 300px; height: 300px; object-fit: cover;"></div>
-                                        <div class="content">
-                                            <h4 class="title"><a href="/product_list">Smart Watches</a>
-                                            </h4>
-                                            <div class="desc">
-                                                <p>My personalized Walnut or Maple Cutting Board makes a wonderful…</p>
-                                            </div>
-                                            <div class="link"><a href="/product_list">Read more</a></div>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
 
@@ -270,6 +218,7 @@ ul {
                         </div>
 
                     </div>
+
 
 
 
@@ -316,7 +265,7 @@ ul {
 
                                             </div>
                                             <div class="content">
-                                                <h4 class="title"><a href="/product_list">Fresh Fruit
+                                                <h4 class="title"><a href="/product_detail">Fresh Fruit
                                                         Keeper</a></h4>
                                                 <div class="desc">
                                                     <p>I made this out of brushed stainless steel. It has…</p>
@@ -337,7 +286,7 @@ ul {
 
                                             </div>
                                             <div class="content">
-                                                <h4 class="title"><a href="/product_list">Fresh Fruit
+                                                <h4 class="title"><a href="/product_detail">Fresh Fruit
                                                         Keeper</a></h4>
                                                 <div class="desc">
                                                     <p>I made this out of brushed stainless steel. It has…</p>
@@ -405,7 +354,7 @@ ul {
                        
                     </div> -->
                 </div>
-              
+
             </div>
         </div>
 

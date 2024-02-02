@@ -7,7 +7,7 @@
 </style>
 @endsection('styles')
 <!-- Page Title/Header Start -->
-<div class="page-title-section section" data-bg-image="assets/images/bg/page-title-1.webp">
+<div class="page-title-section section" data-bg-image="assets/images/blog/sashaBlogBanner.png">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -199,7 +199,7 @@
                     </div>
                     <div class="single-widget learts-mb-40">
                         <div class="widget-banner">
-                            <img src="assets/images/banner/widget-banner.webp" alt="">
+                            <img src="assets/images/banner/simple.png" alt="">
                         </div>
                     </div>
                     <!-- Categories End -->

@@ -7,7 +7,7 @@ $rootUrl = url('/');
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-auto col-12">
-                    <p class="text-center text-md-left my-2">Where Every Package Speaks Trust. !</p>
+                    <p class="text-center text-md-left my-2">Where Every Package Speaks Trust !</p>
                 </div>
                 <div class="col-auto d-none d-md-block">
                     <div class="topbar-menu d-flex flex-row-reverse">
@@ -371,7 +371,7 @@ $rootUrl = url('/');
             <!-- Header Logo Start -->
             <div class="col">
                 <div class="header-logo">
-                    <a href="index.html"><img src="{{asset('assets/images/logo/sasha_logo.png')}}" alt="Learts Logo"
+                    <a href="{{url('/')}}"><img src="{{asset('assets/images/logo/sasha_logo.png')}}" alt="Learts Logo"
                             class="logo_width"></a>
                 </div>
             </div>
@@ -561,7 +561,9 @@ $rootUrl = url('/');
                                 <div class="col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
-                                <div class="col-12 text-center learts-mb-30"><button class="btn btn-dark btn-outline-hover-dark">Submit</button></div>
+                                <!-- <div class="col-12 text-center learts-mb-30"><button class="btn btn-dark btn-outline-hover-dark">Submit</button></div> -->
+                                <div class="col-12 text-center learts-mb-30"> <button class="hexa">Submit </button></div>
+
                             </div>
                         </form>
                         <p class="form-messege"></p>
