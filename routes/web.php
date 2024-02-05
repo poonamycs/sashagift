@@ -36,10 +36,10 @@ Route::get('/blog', [IndexController::class, 'blog'])->name('blog');
 Route::get('/blog_detail', [IndexController::class, 'blog_detail'])->name('blog_detail');
 
 Route::get('/product_list', [IndexController::class, 'product_list'])->name('product_list');
-Route::get('/product_detail', [IndexController::class, 'product_detail'])->name('product_detail');
+Route::get('/product_detail/{id?}', [IndexController::class, 'product_detail'])->name('product_detail');
 
 Route::get('/nuhas', [IndexController::class, 'nuhas'])->name('nuhas');
-Route::get('/nuhas_detail', [IndexController::class, 'nuhas_detail'])->name('nuhas_detail');
+Route::get('/nuhas_detail/{id?}', [IndexController::class, 'nuhas_detail'])->name('nuhas_detail');
 
 Route::get('/user_login', [IndexController::class, 'user_login'])->name('user_login');
 Auth::routes();

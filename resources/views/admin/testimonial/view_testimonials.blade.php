@@ -52,7 +52,7 @@
                   <td style="text-align: center;width: 50%;"><?php $review = Str::limit($testimonial->content, 200); echo $review; ?></td>
                   <td style="text-align: center;">
                     @if(!empty($testimonial->image))
-                    <img src="{{ asset('/images/backend_images/testimonials/'.$testimonial->image) }}" style="height: 50px;border-radius: 50%;">
+                    <img src="{{ asset('assets/admin/images/backend_images/testimonials/'.$testimonial->image) }}" style="height: 50px;border-radius: 50%;">
                     @endif
                   </td>
                   <td style="text-align: center;">

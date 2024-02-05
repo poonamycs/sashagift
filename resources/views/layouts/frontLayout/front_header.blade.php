@@ -51,28 +51,26 @@ $rootUrl = url('/');
                         </li>
                         <li class="has-children"><a href="#"><span class="menu-text">Products</span></a>
                             <ul class="sub-menu">
-                                <li class="has-children"><a href="{{url('/product_list')}}"><span
-                                            class="menu-text">Utility Products</span></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Food
-                                                    Carrier</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Citizen
-                                                    Watches</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                                    Crystal Clock</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                                    Mug</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Water
-                                                    Bottle</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Household
-                                                    Gift</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Home &
-                                                    Living</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Smart
-                                                    Watches</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-children" ><a href="{{url('/product_list')}}"><span
+                                @foreach(get_all_menu_category() as $key => $category)
+                                    @php
+                                        $products = App\Models\Product::where('category_id',$category->id)->get();
+                                    @endphp
+                                    <li class="has-children"><a href="{{url('/product_list')}}"><span
+                                                class="menu-text">{{$category->name}}</span></a>
+                                            @if(!empty($products))
+                                            
+                                                @foreach($products as $product)
+                                                
+                                                <ul class="sub-menu">
+                                                    
+                                                        <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
+                                                   
+                                                </ul>
+                                                @endforeach
+                                            @endif
+                                    </li>
+                                @endforeach
+                                <!-- <li class="has-children" ><a href="{{url('/product_list')}}"><span
                                             class="menu-text">Bags</span></a>
                                     <ul class="sub-menu">
                                         <li><a href="{{url('/product_detail')}}"><span class="menu-text">Laptop
@@ -84,10 +82,11 @@ $rootUrl = url('/');
                                         <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
                                                     luggage Bags</span></a></li>
                                     </ul>
-                                </li>
+                                </li> -->
 
                             </ul>
                         </li>
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get(); ?>
                         <!-- <li class="has-children"><a href=""><span class="menu-text">Nuhas</span></a>
                             <ul class="sub-menu">
                                 <li><a href="{{url('/nuhas')}}"><span class="menu-text">Tulip Pot Antique
@@ -96,23 +95,19 @@ $rootUrl = url('/');
                                 <li><a href="{{url('/nuhas')}}"><span class="menu-text">Venus Copper Pot</span></a></li>
                             </ul>
                         </li> -->
-                        <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">Nuhas</span></a>
+                       
+                        <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
                                 <ul class="sub-menu mega-menu">
                                     <li>
                                         <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column One</span></a> -->
                                         <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Tulip Pot Antiqu Etching</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Venus Pots</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Venus Copper Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Antique Etching Matka with Stand And Glass</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Bottle 2 Glasses with Mina Work</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Glass</span></a></li>
-
+                                            @foreach($nuhas_products as $nuhas_product)
+                                            <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas_product->id))}}"><span class="menu-text">{{$nuhas_product->product_name}}</span></a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Two</span></a> -->
-                                        <ul>
+                                    <!-- <li>
+                                       <ul>
                                             <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Sarovar Matka</span></a></li>
                                             <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Roller Kulfi Matka</span></a></li>
                                             <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Roller Kulfi Matka</span></a></li>
@@ -125,7 +120,6 @@ $rootUrl = url('/');
                                         </ul>
                                     </li>
                                     <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Three</span></a> -->
                                         <ul>
                                             <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Oscar Pot</span></a></li>
                                             <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Jumbo Bottle</span></a></li>
@@ -136,9 +130,8 @@ $rootUrl = url('/');
                                             <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Ghara with Stand</span></a></li>
                                             <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
                                         </ul>
-                                    </li>
+                                    </li> -->
                                     <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Four</span></a> -->
                                         <ul>
                                             
                                             <img src="assets/images/nuhas/main_menu.jpg" alt="menu">

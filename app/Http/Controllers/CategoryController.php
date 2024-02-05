@@ -30,8 +30,8 @@ class CategoryController extends Controller
                 if($image_tmp->isValid()){
                     $extension = $image_tmp->getClientOriginalExtension();
                     $filename = rand(111,99999).'.'.$extension;
-                    $image_path = 'images/frontend_images/category/'.$filename;
-                    Image::make($image_tmp)->resize(148,148)->save($image_path);
+                    $image_path = 'assets/admin/images/frontend_images/category/'.$filename;
+                    Image::make($image_tmp)->save($image_path);
 
                     // Store image name in category table
                     $category->image = $filename;
@@ -59,10 +59,10 @@ class CategoryController extends Controller
                 if($image_tmp->isValid()){
                     $extension = $image_tmp->getClientOriginalExtension();
                     $filename = rand(111,99999).'.'.$extension;
-                    $image_path = 'images/frontend_images/category/'.$filename;
+                    $image_path = 'assets/admin/images/frontend_images/category/'.$filename;
 
                     // Resizes image
-                    Image::make($image_tmp)->resize(148,148)->save($image_path);
+                    Image::make($image_tmp)->save($image_path);
                 }
             } else if(!empty($data['current_image'])){
                 $filename = $data['current_image'];

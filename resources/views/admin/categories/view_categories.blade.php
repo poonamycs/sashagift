@@ -55,7 +55,7 @@
                   <td>{{ $category->id }}</td>
                   <td style="text-align: center;">
                     @if(!empty($category->image))
-                    <img src="{{ asset('/images/frontend_images/category/'.$category->image) }}" style="height: 50px;">
+                    <img src="{{ asset('assets/admin/images/frontend_images/category/'.$category->image) }}" style="height: 50px;">
                     @else
                     <img src="{{ asset('/images/frontend_images/na.png') }}" style="height: 50px;">
                     @endif

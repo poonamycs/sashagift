@@ -7,6 +7,7 @@ use Auth;
 use Session;
 use DB;
 use App\Models\shippingCharge;
+use App\Models\Category;
 
 class Product extends Model
 {
@@ -50,5 +51,9 @@ class Product extends Model
     public function vendorproduct()
     {
         return $this->hasMany(VendorProduct::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

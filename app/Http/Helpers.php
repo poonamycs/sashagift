@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\ContactDetail;
+use App\Models\Category;
 
 use App\Utility\NotificationUtility;
 use App\Http\Resources\V2\CarrierCollection;
@@ -16,7 +17,20 @@ function getAddress()
     $contact = ContactDetail::first();
     return $contact;
 }
+function get_all_menu_category()
+{
+    $language_query = Category::query();
+    $language_query->where('status', 1)->where('id','!=',1);
 
+    return $language_query->get();
+}
+function get_nuhas_category()
+{
+    $lang_query = Category::query();
+    $lang_query->where('status',1)->where('id','=',1);
+
+    return $lang_query->first();
+}
 if (!function_exists('timezones')) {
     function timezones()
     {

@@ -49,10 +49,15 @@
                                     ]'><i class="fas fa-expand"></i></button>
                         <!-- <a href="https://www.youtube.com/watch?v=1jSsy7DtYgc" class="product-video-popup video-popup hintT-left" data-hint="Click to see video"><i class="fas fa-play"></i></a> -->
                         <div class="product-gallery-slider">
-                            <div class="product-zoom" data-image="assets/images/nuhas/n1.jpg">
-                                <img src="assets/images/nuhas/n1.jpg" alt="">
+                            <div class="product-zoom" data-image="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}">
+                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt="">
                             </div>
-                            <div class="product-zoom" data-image="assets/images/nuhas/n2.jpg">
+                            @foreach($product_imgs as $product_img)
+                            <div class="product-zoom" data-image="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}">
+                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}" alt="">
+                            </div>
+                            @endforeach
+                            <!-- <div class="product-zoom" data-image="assets/images/nuhas/n2.jpg">
                                 <img src="assets/images/nuhas/n2.jpg" alt="">
                             </div>
                             <div class="product-zoom" data-image="assets/images/nuhas/7.jpeg">
@@ -63,13 +68,18 @@
                             </div>
                             <div class="product-zoom" data-image="assets/images/product/single/2/product-zoom-5.webp">
                                 <img src="assets/images/product/single/2/product-5.webp" alt="">
-                            </div>
+                            </div> -->
                         </div>
                         <div class="product-thumb-slider-vertical">
                             <div class="item">
-                                <img src="assets/images/nuhas/n1.jpg" alt="">
+                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt="">
                             </div>
+                            @foreach($product_imgs as $product_img)
                             <div class="item">
+                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}" alt="">
+                            </div>
+                            @endforeach
+                            <!-- <div class="item">
                                 <img src="assets/images/nuhas/n2.jpg" alt="">
                             </div>
                             <div class="item">
@@ -80,7 +90,7 @@
                             </div>
                             <div class="item">
                                 <img src="assets/images/product/single/2/product-thumb-5.webp" alt="">
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

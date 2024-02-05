@@ -102,13 +102,13 @@
                 </div>
               </div>
 
-              <div class="control-group">
+              <!-- <div class="control-group">
                 <label class="control-label">Seasonal Product: </label>
                 <div class="controls">
                   <input type="checkbox" name="featured" id="featured" @if($productDetails->featured=="1") checked @endif value="1">
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="alert alert-info">Mark this product as Seasonal product.</span>
                 </div>
-              </div>
+              </div> -->
 
               <div class="control-group">
                 <label class="control-label">Publish / Enable : </label>

@@ -249,8 +249,20 @@
             <!-- Section Title End -->
 
             <div class="row row-cols-xl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 learts-mb-n40">
-
+                @foreach($categories as $category)
                 <div class="col learts-mb-40">
+                    <div class="category-banner5">
+                        <a href="shop.html" class="inner">
+                            <div class="image"><img src="{{ asset('assets/admin/images/frontend_images/category/'.$category->image) }}" alt="category"></div>
+                            <div class="content">
+                                <h3 class="title">{{$category->name}}</h3>
+                         
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+                <!-- <div class="col learts-mb-40">
                     <div class="category-banner5">
                         <a href="shop.html" class="inner">
                             <div class="image"><img src="assets/images/home_cat/bag.png" alt="category"></div>
@@ -261,7 +273,6 @@
                         </a>
                     </div>
                 </div>
-
                 <div class="col learts-mb-40">
                     <div class="category-banner5">
                         <a href="shop.html" class="inner">
@@ -309,7 +320,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -334,6 +345,20 @@
             </div>
 
             <div class="testimonial-carousel">
+                @foreach($testimonials as $testimonial)
+                <div class="col">
+                    <div class="testimonial">
+                        <p>{{strip_tags($testimonial->content)}}</p>
+                        <div class="author">
+                            <img src="{{ asset('assets/admin/images/backend_images/testimonials/'.$testimonial->image) }}" alt="">
+                            <div class="content">
+                                <h6 class="name">{{$testimonial->name}}</h6>
+                                <span class="title">{{$testimonial->position}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
                 <div class="col">
                     <div class="testimonial">
                         <p>There's nothing would satisfy me much more than a worry-free clean and responsive theme for my high-traffic site.</p>

@@ -5,6 +5,10 @@ use App\Models\Trustedby;
 use App\Models\Brand;
 use App\Models\Industry;
 use App\Models\ContactDetail;
+use App\Models\Testimonial;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\ProductsImage;
 class IndexController extends Controller
 {
     public function index()
@@ -12,7 +16,9 @@ class IndexController extends Controller
         $meta_title = config('app.name');
         $trustedby = Trustedby::where('status','=',1)->get();
         $brands = Brand::where('status','=',1)->get();
-        return view('index',compact('meta_title','trustedby','brands'));
+        $testimonials = Testimonial::where('status','=',1)->get();
+        $categories = Category::where('status','=',1)->where('id','!=',1)->get();
+        return view('index',compact('meta_title','trustedby','brands','testimonials','categories'));
     }
 
 
@@ -47,10 +53,12 @@ class IndexController extends Controller
         $meta_title = config('app.name');
         return view('product_list',compact('meta_title'));
     }
-    public function product_detail()
+    public function product_detail($id = null)
     {
+        $id = decrypt($id);
+        $product = Product::where('id',$id)->first();
         $meta_title = config('app.name');
-        return view('product_detail',compact('meta_title'));
+        return view('product_detail',compact('meta_title','product'));
     }
 
     public function nuhas()
@@ -58,10 +66,13 @@ class IndexController extends Controller
         $meta_title = config('app.name');
         return view('nuhas',compact('meta_title'));
     }
-    public function nuhas_detail()
+    public function nuhas_detail($id = null)
     {
+        $id = decrypt($id);
+        $product = Product::where('id',$id)->first();
+        $product_imgs = ProductsImage::where('product_id',$product->id)->get();
         $meta_title = config('app.name');
-        return view('nuhas_detail',compact('meta_title'));
+        return view('nuhas_detail',compact('meta_title','product','product_imgs'));
     }
 
     public function user_login()

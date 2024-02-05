@@ -39,15 +39,16 @@
                     <div class="product-images">
                       
                         <div class="product-gallery-slider">
-                            <div class="product-zoom" data-image="assets/images/product/utility/extra-05259461.png">
-                                <img src="assets/images/product/utility/extra-05259461.png" alt="">
+
+                            <div class="product-zoom" data-image="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}">
+                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt="">
                             </div>
-                            <div class="product-zoom" data-image="assets/images/product/utility/hand_bag.jpg">
+                            <!-- <div class="product-zoom" data-image="assets/images/product/utility/hand_bag.jpg">
                                 <img src="assets/images/product/utility/hand_bag.jpg" alt="">
                             </div>
                             <div class="product-zoom" data-image="assets/images/product/utility/metal_box.jpg">
                                 <img src="assets/images/product/utility/metal_box.jpg" alt="">
-                            </div>
+                            </div> -->
                            
                         </div>
                         <div class="product-thumb-slider">
@@ -71,9 +72,9 @@
                     <div class="product-summery">
                        
                        
-                        <h3 class="product-title">Square Serving Platter</h3>
+                        <h3 class="product-title">{{$product->product_name}}</h3>
                         <div class="product-description">
-                            <p>Square serving platter with long wooden handle makes serving an easy task. Give your beautiful kitchen a touch of handcrafted modern decor by adding this square serving platter with long wooden handle. The handle gives a stylish look to the platter and makes it easy to hold and serve.</p>
+                            <p>{{$product->description}}</p>
                         </div>
                        
                         <div class="product-buttons">
@@ -87,13 +88,13 @@
                                 <tbody>
                                     <tr>
                                         <td class="label"><span>SKU</span></td>
-                                        <td class="value">040427</td>
+                                        <td class="value">{{$product->product_code}}</td>
                                     </tr>
                                     <tr>
                                         <td class="label"><span>Category</span></td>
                                         <td class="value">
                                             <ul class="product-category">
-                                                <li><a href="#">Kitchen</a></li>
+                                                <li><a href="#">{{$product->category->name}}</a></li>
                                             </ul>
                                         </td>
                                     </tr>
