@@ -8816,7 +8816,7 @@ body.offcanvas-open .sticky-header {
 .category-banner4 .inner .content {
     position: relative;
     z-index: 9;
-    max-width: 80%;
+    max-width: 90%;
     margin: -25px auto 0;
     padding: 15px 10px;
 }

@@ -141,7 +141,7 @@ $rootUrl = url('/');
                                         <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Four</span></a> -->
                                         <ul>
                                             
-                                            <img src="assets/images/about_menu.png" alt="menu">
+                                            <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
 
                                         </ul>
                                     </li>
