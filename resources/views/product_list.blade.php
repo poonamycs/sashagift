@@ -149,9 +149,9 @@ ul {
                                             class="card-img-top rounded-0" alt="..." style="height:250px;"></a>
                                         <div class="card-body mt-1 mb-1">
                                             <div class="row">
-                                            <a href="/contact"> <div class="col-10 d-flex justify-content-start align-items-center">
+                                            <a href="/contact"> <div class="col-12 d-flex justify-content-start align-items-center">
                                                     <span>
-                                                        <h6 class="card-title">Bags</h6>
+                                                        <h6 class="card-title">Promotional Crystal Clock</h6>
                                                     </span>
                                                     <span class="px-3">
                                                         <i class="fa fa-long-arrow-right"></i>
@@ -168,12 +168,17 @@ ul {
                                     <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
                                         <img src="https://cpimg.tistatic.com/05203306/b/5/Promotional-Mug.jpeg"
                                             class="card-img-top rounded-0" alt="..." style="height:250px;">
-                                        <div class="card-body mt-1 mb-1">
+                                            <div class="card-body mt-1 mb-1">
                                             <div class="row">
-                                                <div class="col-10">
-                                                    <h6 class="card-title">Promotional Mug</h6>
+                                            <a href="/contact"> <div class="col-12 d-flex justify-content-start align-items-center">
+                                                    <span>
+                                                        <h6 class="card-title">Promotional Mug</h6>
+                                                    </span>
+                                                    <span class="px-3">
+                                                        <i class="fa fa-long-arrow-right"></i>
+                                                    </span>
                                                 </div>
-
+                                           </a>
                                             </div>
                                         </div>
 
@@ -184,11 +189,16 @@ ul {
                                         <img src="https://cpimg.tistatic.com/05259563/b/5/Household-Gift.jpeg"
                                             class="card-img-top rounded-0" alt="..." style="height:250px;">
                                         <div class="card-body mt-1 mb-1">
-                                            <div class="row">
-                                                <div class="col-10">
-                                                    <h6 class="card-title">Household Gift</h6>
+                                        <div class="row">
+                                            <a href="/contact"> <div class="col-12 d-flex justify-content-start align-items-center">
+                                                    <span>
+                                                        <h6 class="card-title">Household Gift</h6>
+                                                    </span>
+                                                    <span class="px-3">
+                                                        <i class="fa fa-long-arrow-right"></i>
+                                                    </span>
                                                 </div>
-
+                                           </a>
                                             </div>
                                         </div>
 
@@ -199,12 +209,18 @@ ul {
                                         <img src="https://cpimg.tistatic.com/05385300/b/5/Smart-Watches.jpeg"
                                             class="card-img-top rounded-0" alt="..." style="height:250px;">
                                         <div class="card-body mt-1 mb-1">
-                                            <div class="row">
-                                                <div class="col-10">
-                                                    <h6 class="card-title">Household Gift</h6>
+                                        <div class="row">
+                                            <a href="/contact"> <div class="col-12 d-flex justify-content-start align-items-center">
+                                                    <span>
+                                                        <h6 class="card-title">Smart Watches</h6>
+                                                    </span>
+                                                    <span class="px-3">
+                                                        <i class="fa fa-long-arrow-right"></i>
+                                                    </span>
                                                 </div>
-
+                                           </a>
                                             </div>
+                                        </div>
                                         </div>
 
                                     </div>

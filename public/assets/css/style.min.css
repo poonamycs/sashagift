@@ -1436,8 +1436,8 @@ body.homepage-bg1.offcanvas-open {
     background-color: rgba(0, 0, 0, 0);
 }
 .btn-outline-secondary:hover {
-    border-color: #6c757d;
-    background-color: #6c757d;
+    border-color: #f48120;
+    background-color: #f48120;
     color: #fff;
 }
 .btn-success {

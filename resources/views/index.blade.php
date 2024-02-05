@@ -33,8 +33,9 @@
                             <h5 class="sub-title">Curio Studio</h5>
                             <h2 class="title">Nuhas, Feel of <br>real Craftmenship</h2>
                             <!-- <div class="link"></div> -->
-                           <!-- <div class=""> <button class="border-0" data-bg-image="assets/images/sashabutton.png">     <a href="{{url('/contact')}" class="">Connect</a> </button></div> -->
-                           <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>                     
+                           <!-- <div class=""> <button class="border-0" data-bg-image="assets/images/sashabutton.png" style="height:40px;width:120px">     <a href="{{url('/contact')}" class="">Connect</a> </button></div> -->
+                           <!-- <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>                      -->
+                           <div class="col-auto learts-mb-20"><a href="/contact" class="btn btn-md  btn-outline-secondary">Connect</a></div>
 
                         </div>
                      </div>
@@ -44,7 +45,9 @@
                             <div class="home3-slide-content">
                                 <h5 class="sub-title">Curio Studio</h5>
                                 <h2 class="title">Discover the real <br>essence of gifting now</h2>
-                                <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>                     
+                                <!-- <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>                      -->
+                                <div class="col-auto learts-mb-20"><a href="/contact" class="btn btn-md  btn-outline-secondary">Connect</a></div>
+
                             </div>
                         </div>
                       
@@ -55,7 +58,9 @@
                                 <h5 class="sub-title">Curio Studio</h5>
                                 <h2 class="title">Classic gesture rendered <br>just right</h2>
                                 <!-- <div class="link"><a href="{{url('/contact')}" class="btn btn-black btn-hover-primary">Connect</a></div> -->
-                                <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button>
+                                <!-- <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button> -->
+                                <div class="col-auto learts-mb-20"><a href="/contact" class="btn btn-md  btn-outline-secondary">Connect</a></div>
+
                             </div>
 
                         </div>
@@ -216,7 +221,7 @@
                         </div>
                         <!-- <div class="countdown1" data-countdown="2024/01/01"></div> -->
                         <!-- <a href="/nuhas" class="btn btn-black btn-hover-primary">View All</a> -->
-                        <button class="hexa"><a href="/nuhas" class="">View All</a> </button>
+                        <div class="col-auto learts-mb-20"><a href="/contact" class="btn btn-md  btn-outline-secondary">Connect</a></div>
                     </div>
                 </div>
 
