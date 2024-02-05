@@ -36,7 +36,7 @@ class BrandController extends Controller
     				$image_path = 'assets'.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'backend_images'.DIRECTORY_SEPARATOR.'brand'.DIRECTORY_SEPARATOR.''.$filename;
 					
     				// Resizes image
-    				Image::make($image_tmp)->fit(340, 340)->save($image_path);
+    				Image::make($image_tmp)->save($image_path);
 
     				// Store image name in products table
     				$trustedby->image = $filename;
@@ -62,7 +62,7 @@ class BrandController extends Controller
     				$extension = $image_tmp->getClientOriginalExtension();
     				$filename = rand(111,99999).'.'.$extension;
     				$image_path = 'assets'.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'backend_images'.DIRECTORY_SEPARATOR.'brand'.DIRECTORY_SEPARATOR.''.$filename;
-    				Image::make($image_tmp)->resize(300,300)->save($image_path);    			
+    				Image::make($image_tmp)->save($image_path);    			
     			} 
             }else if(!empty($data['current_image'])){
     				 $filename = $data['current_image'];

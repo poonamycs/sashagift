@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Trustedby;
+use App\Models\Brand;
 use App\Models\Industry;
 use App\Models\ContactDetail;
 class IndexController extends Controller
@@ -9,7 +10,9 @@ class IndexController extends Controller
     public function index()
     {
         $meta_title = config('app.name');
-        return view('index',compact('meta_title'));
+        $trustedby = Trustedby::where('status','=',1)->get();
+        $brands = Brand::where('status','=',1)->get();
+        return view('index',compact('meta_title','trustedby','brands'));
     }
 
 
