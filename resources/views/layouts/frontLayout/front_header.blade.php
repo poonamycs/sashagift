@@ -69,11 +69,12 @@ $rootUrl = url('/');
                                 
                             </ul>
                         </li>
+
                         <?php $nuhas_products = App\Models\product::where('category_id',1)->get(); ?>
                        
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
                                 <ul class="sub-menu mega-menu">
-                                    <?php $chunks = $nuhas_products->chunk(5); ?>
+                                    <?php $chunks = $nuhas_products->chunk(7); ?>
                                     @foreach($chunks as $nuhas_product)
                                         <li>
                                             <ul>   
@@ -152,105 +153,59 @@ $rootUrl = url('/');
             <!-- Search Start -->
             <div class="col-auto me-auto d-none d-xl-block">
                 <nav class="site-main-menu site-main-menu-left justify-content-center">
-                    <ul>
-                        <!-- <li class="nav-item @if($url === $rootUrl) active @endif"><a href="{{url('/')}}"><span class="menu-text">Home</span></a>
-
-                        </li> -->
-                        <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a href="{{url('/about')}}"><span class="menu-text">About</span></a>
+                <ul>
+                        <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a
+                                href="{{url('/about')}}"><span class="menu-text">About</span></a>
 
                         </li>
                         <li class="has-children"><a href="#"><span class="menu-text">Products</span></a>
                             <ul class="sub-menu">
-
-                                <li class="has-children"><a href="{{url('/product_list')}}"><span
-                                            class="menu-text">Utility Product</span></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Food
-                                                    Carrier</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Citizen
-                                                    Watches</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                                    Crystal Clock</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                                    Mug</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Water
-                                                    Bottle</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Household
-                                                    Gift</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Home &
-                                                    Living</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Smart
-                                                    Watches</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-children"><a href="{{url('/product_list')}}"><span
-                                            class="menu-text">Bags</span></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Laptop
-                                                    Backpack</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Leather
-                                                    Bags</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Ladies Leather
-                                                    Bag</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                                    luggage Bags</span></a></li>
-                                    </ul>
-                                </li>
-
+                                @foreach(get_all_menu_category() as $key => $category)
+                             
+                                
+                                    @php
+                                        $products = App\Models\Product::where('category_id',$category->id)->get();
+                                    @endphp
+                                    <li class="has-children"><a href="{{url('/product_list')}}"><span
+                                                class="menu-text">{{$category->name}}</span></a>
+                                           
+                                            @if(!$products->isempty())
+                                            
+                                            <ul class="sub-menu">
+                                                @foreach($products as $product)
+                                                        <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
+                                                @endforeach
+                                                </ul>
+                                            @endif
+                                    </li>
+                                @endforeach
+                                
                             </ul>
                         </li>
-
-                        <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">Nuhas</span></a>
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get(); ?>
+                       
+                        <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
                                 <ul class="sub-menu mega-menu">
+                                    <?php $chunks = $nuhas_products->chunk(7); ?>
+                                    @foreach($chunks as $nuhas_product)
+                                        <li>
+                                            <ul>   
+                                                @foreach($nuhas_product as $nuhas)
+                                                    <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                    @endforeach
+                                    
                                     <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column One</span></a> -->
-                                        <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Tulip Pot Antiqu Etching</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Venus Pots</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Venus Copper Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Antique Etching Matka with Stand And Glass</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Bottle 2 Glasses with Mina Work</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Glass</span></a></li>
-
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Two</span></a> -->
-                                        <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Sarovar Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Roller Kulfi Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Roller Kulfi Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Barrel Matka Antique Etching</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Designer Gift sets with Stand</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Barrel Matka Antique Etching 8 Litre</span></a></li>
-                                        
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Three</span></a> -->
-                                        <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Oscar Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Jumbo Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Steel Thali 6pcs</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Apple Copper Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Colored Tulip Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Tulip Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Ghara with Stand</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Four</span></a> -->
                                         <ul>
                                             
-                                            <img src="assets/images/about_menu.png" alt="menu">
+                                            <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
 
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                        </li>
                         <li class="nav-item @if(preg_match(" /blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
 
                         </li>
@@ -540,45 +495,30 @@ $rootUrl = url('/');
                 </li> -->
                 <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a href="{{url('/about')}}"><span class="menu-text">About</span></a>
                 </li>
-                <li><a href="#"><span class="menu-text">Products</span></a>
-                    <ul class="sub-menu">
-                        <li class="has-children"><a href="{{url('/product_list')}}"><span class="menu-text">Utility
-                                    Product</span></a>
+                  <li class="has-children"><a href="#"><span class="menu-text">Products</span></a>
                             <ul class="sub-menu">
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Food Carrier</span></a>
-                                </li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Citizen
-                                            Watches</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional Crystal
-                                            Clock</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                            Mug</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Water Bottle</span></a>
-                                </li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Household
-                                            Gift</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Home &
-                                            Living</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Smart
-                                            Watches</span></a></li>
+                                @foreach(get_all_menu_category() as $key => $category)
+                             
+                                
+                                    @php
+                                        $products = App\Models\Product::where('category_id',$category->id)->get();
+                                    @endphp
+                                    <li class="has-children"><a href="{{url('/product_list')}}"><span
+                                                class="menu-text">{{$category->name}}</span></a>
+                                           
+                                            @if(!$products->isempty())
+                                            
+                                            <ul class="sub-menu">
+                                                @foreach($products as $product)
+                                                        <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
+                                                @endforeach
+                                                </ul>
+                                            @endif
+                                    </li>
+                                @endforeach
+                                
                             </ul>
                         </li>
-                        <li class="has-children"><a href="{{url('/product_list')}}"><span
-                                    class="menu-text">Bags</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Laptop
-                                            Backpack</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Leather Bags</span></a>
-                                </li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Ladies Leather
-                                            Bag</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional luggage
-                                            Bags</span></a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </li>
 
                 <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">Nuhas</span></a>
                                 <ul class="sub-menu mega-menu">
