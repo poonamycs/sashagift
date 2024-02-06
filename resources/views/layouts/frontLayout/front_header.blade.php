@@ -41,10 +41,6 @@ $rootUrl = url('/');
             <div class="col-auto me-auto">
                 <nav class="site-main-menu site-main-menu-left menu-height-100 justify-content-center">
                     <ul>
-                        <!-- <li class="nav-item @if($url === $rootUrl) active @endif"><a href="{{url('/')}}"><span
-                                    class="menu-text">Home</span></a>
-
-                        </li> -->
                         <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a
                                 href="{{url('/about')}}"><span class="menu-text">About</span></a>
 
@@ -52,85 +48,42 @@ $rootUrl = url('/');
                         <li class="has-children"><a href="#"><span class="menu-text">Products</span></a>
                             <ul class="sub-menu">
                                 @foreach(get_all_menu_category() as $key => $category)
+                             
+                                
                                     @php
                                         $products = App\Models\Product::where('category_id',$category->id)->get();
                                     @endphp
                                     <li class="has-children"><a href="{{url('/product_list')}}"><span
                                                 class="menu-text">{{$category->name}}</span></a>
-                                            @if(!empty($products))
+                                           
+                                            @if(!$products->isempty())
                                             
+                                            <ul class="sub-menu">
                                                 @foreach($products as $product)
-                                                
-                                                <ul class="sub-menu">
-                                                    
                                                         <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
-                                                   
-                                                </ul>
                                                 @endforeach
+                                                </ul>
                                             @endif
                                     </li>
                                 @endforeach
-                                <!-- <li class="has-children" ><a href="{{url('/product_list')}}"><span
-                                            class="menu-text">Bags</span></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Laptop
-                                                    Backpack</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Leather
-                                                    Bags</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Ladies Leather
-                                                    Bag</span></a></li>
-                                        <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                                    luggage Bags</span></a></li>
-                                    </ul>
-                                </li> -->
-
+                                
                             </ul>
                         </li>
                         <?php $nuhas_products = App\Models\product::where('category_id',1)->get(); ?>
-                        <!-- <li class="has-children"><a href=""><span class="menu-text">Nuhas</span></a>
-                            <ul class="sub-menu">
-                                <li><a href="{{url('/nuhas')}}"><span class="menu-text">Tulip Pot Antique
-                                            Etching</span></a></li>
-                                <li><a href="{{url('/nuhas')}}"><span class="menu-text">Venus Pot</span></a></li>
-                                <li><a href="{{url('/nuhas')}}"><span class="menu-text">Venus Copper Pot</span></a></li>
-                            </ul>
-                        </li> -->
                        
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
                                 <ul class="sub-menu mega-menu">
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column One</span></a> -->
-                                        <ul>
-                                            @foreach($nuhas_products as $nuhas_product)
-                                            <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas_product->id))}}"><span class="menu-text">{{$nuhas_product->product_name}}</span></a></li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                    <!-- <li>
-                                       <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Sarovar Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Roller Kulfi Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Roller Kulfi Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Barrel Matka Antique Etching</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Designer Gift sets with Stand</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Barrel Matka Antique Etching 8 Litre</span></a></li>
-                                        
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Oscar Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Jumbo Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Steel Thali 6pcs</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Apple Copper Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Colored Tulip Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Tulip Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Ghara with Stand</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                        </ul>
-                                    </li> -->
+                                    <?php $chunks = $nuhas_products->chunk(5); ?>
+                                    @foreach($chunks as $nuhas_product)
+                                        <li>
+                                            <ul>   
+                                                @foreach($nuhas_product as $nuhas)
+                                                    <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                    @endforeach
+                                    
                                     <li>
                                         <ul>
                                             

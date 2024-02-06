@@ -13,7 +13,7 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
 	<ul class="nav">   
-		<li class="respo" style="background: #000"><a title="" href="{{ url('/admin/dashboard') }}"> <span class="text" style="font-weight: bold;font-size: 14.5px; color: #fff;"><i class="fa fa-user"></i> @if(session('adminSession')=='admin@gmail.com') <b>Superadmin Panel</b> | Veggi Mart @else Vendor Admin Panel | Veggi Mart @endif</span></a></li>
+		<li class="respo" style="background: #000"><a title="" href="{{ url('/admin/dashboard') }}"> <span class="text" style="font-weight: bold;font-size: 14.5px; color: #fff;"><i class="fa fa-user"></i> @if(session('adminSession')=='admin@gmail.com') <b>Superadmin Panel</b> | Sasha @else Vendor Admin Panel | Sasha @endif</span></a></li>
 		<li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text" title="<?php echo session('adminSession'); ?>">Welcome <b><?php echo $auth->vname; ?></span><b class="caret"></b></b></a>
 	      <ul class="dropdown-menu">
 	        <li><a title="Settings" href="{{ url('/admin/settings') }}"><i class="icon icon-cog"></i> Settings</a></li>
