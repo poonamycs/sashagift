@@ -5,9 +5,11 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use Session;
+use Image;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Order;
+use App\Models\About;
 use App\Models\Product;
 use App\Models\Search;
 use App\Models\VendorProduct;
@@ -140,7 +142,55 @@ class AdminController extends Controller
             }
         }
     }
+    public function about(Request $request){
+        if($request->isMethod('post')){
+            $data = $request->all();
+            // Upload Product image
+            if($request->hasFile('image')){
+                $image_tmp = $request->image;
+                $filename = time().'.'.$image_tmp->clientExtension();
 
+                if($image_tmp->isValid()){
+                    $extension = $image_tmp->getClientOriginalExtension();
+                    $filename = rand(111,99999).'.'.$extension;
+                    $image_path = 'assets/admin/images/frontend_images/category/'.$filename;
+
+                    // Resizes image
+                    Image::make($image_tmp)->save($image_path);
+                }
+            } else if(!empty($data['current_image'])){
+                $filename = $data['current_image'];
+            }else{
+                $filename = '';
+            }
+
+            $tempURL = strtolower($data['title']);
+            $url = str_replace(' ', '-', $tempURL);
+
+            About::where(['id'=>$request->id])->update(['title'=>$data['title'],'description'=>$data['description'],'image'=>$filename]);
+            return redirect('/admin/about')->with('flash_message_success','About Page updated Successfully!');
+        }
+        $about = About::first();
+        return view('admin.users.about')->with(compact('about'));
+    }
+    public function deleteAboutImage($id = null){
+        //Get product image name
+        $aboutImage = About::where(['id'=>$id])->first();
+
+        //get image path
+        $image_path  = 'assets/admin/images/frontend_images/category/';
+       
+
+        //delete large image if not exits in folder
+        if(file_exists($image_path.$aboutImage->image)){
+            // echo $large_image_path.$productImage->image; die;
+            unlink($image_path.$aboutImage->image);
+        }
+
+        //delete image from product table
+    	About::where(['id'=>$id])->update(['image'=>'']);
+    	return redirect()->back()->with('flash_message_success','Product Image has been Deleted');
+    }
     public function viewVendors(Request $request){
         $vendors = Admin::where('admin','<>',1)->get();
         // echo "<pre>"; print_r($vendors); die;

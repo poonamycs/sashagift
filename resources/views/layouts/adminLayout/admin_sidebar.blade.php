@@ -118,6 +118,14 @@
         @endif
 
         @if($auth->vname == 'Superadmin')
+        <li class="submenu"> <a href="#"><i class="fa fa-question-circle"></i> <span>About</span> <span class="label label-important"> <?php echo $contacts ?> </span> </a>
+            <ul <?php if(preg_match("/about/i", $url)){ ?> style="display: block;" <?php } ?>>
+                <li <?php if(preg_match("/about/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/about')}}"><i class="fa fa-arrow-right"></i> View About</a></li>
+            </ul>
+        </li>
+        @endif
+
+        @if($auth->vname == 'Superadmin')
         <li class="submenu"> <a href="#"><i class="fa fa-comment"></i> <span>Trusted By</span>  </a>
             <ul <?php if(preg_match("/trustedby/i", $url)){ ?> style="display: block;" <?php } ?>>
                 <li <?php if(preg_match("/add-trustedby/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/add-trustedby')}}"><i class="fa fa-arrow-right"></i> Add TrustedBy</a></li>

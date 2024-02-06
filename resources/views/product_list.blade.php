@@ -57,11 +57,16 @@ ul {
 
                         <div class="vertical-tabs pt-3 offcanvas-menu p-4">
                             <ul class="sub-title utility">
-                                <li class="has-children">
-                                    <a href="{{url('/product_detail')}}" class="active"><span class="menu-text">Food
-                                            Carrier</span></a>
-                                </li>
-                                <li class="has-children">
+                            @if(!$products->isempty())
+                                @foreach($products as $product)
+                                    <li class="has-children">
+                                        <a href="{{url('/product_detail/'.encrypt($product->id))}}" class="active"><span class="menu-text">{{$product->product_name}}</span></a>
+                                    </li>
+                                @endforeach
+                            @else
+                            <span>No record Found</span>
+                            @endif
+                                <!-- <li class="has-children">
                                     <a href="{{url('/product_detail')}}" class="active"><span class="menu-text">Citizen
                                             Watches</span></a>
                                 </li>
@@ -76,7 +81,7 @@ ul {
                                 <li><a href="{{url('/product_detail')}}"><span class="menu-text">Home &
                                             Living </span></a></li>
                                 <li><a href="{{url('/product_detail')}}"><span class="menu-text">Smart
-                                            Watches</span></a></li>
+                                            Watches</span></a></li> -->
 
                             </ul>
                         </div>
@@ -142,29 +147,31 @@ ul {
                     <div class="section product_padding">
                         <div class="container">
                             <div class="row row-cols-xl-3 row-cols-lg-3 row-cols-sm-2 row-cols-1 learts-mb-n30">
-
-                                <div class="col learts-mb-30">
-                                    <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
-                                        <a href="/contact"><img src="https://cpimg.tistatic.com/05203297/b/5/Promotional-Crystal-Clock.jpeg"
-                                            class="card-img-top rounded-0" alt="..." style="height:250px;"></a>
-                                        <div class="card-body mt-1 mb-1">
-                                            <div class="row">
-                                            <a href="/contact"> <div class="col-12 d-flex justify-content-start align-items-center">
-                                                    <span>
-                                                        <h6 class="card-title">Promotional Crystal Clock</h6>
-                                                    </span>
-                                                    <span class="px-3">
-                                                        <i class="fa fa-long-arrow-right"></i>
-                                                    </span>
+                                
+                                @foreach($products as $product)
+                                    <div class="col learts-mb-30">
+                                        <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
+                                            <a href="{{url('/product_detail/'.encrypt($product->id))}}"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}"
+                                                class="card-img-top rounded-0" alt="..." style="height:250px;"></a>
+                                            <div class="card-body mt-1 mb-1">
+                                                <div class="row">
+                                                <a href="{{url('/product_detail/'.encrypt($product->id))}}"> <div class="col-12 d-flex justify-content-start align-items-center">
+                                                        <span>
+                                                            <h6 class="card-title">{{$product->product_name}}</h6>
+                                                        </span>
+                                                        <span class="px-3">
+                                                            <i class="fa fa-long-arrow-right"></i>
+                                                        </span>
+                                                    </div>
+                                            </a>
                                                 </div>
-                                           </a>
                                             </div>
+
                                         </div>
-
                                     </div>
-                                </div>
-
-                                <div class="col learts-mb-30">
+                                @endforeach
+                                
+                                <!-- <div class="col learts-mb-30">
                                     <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
                                         <img src="https://cpimg.tistatic.com/05203306/b/5/Promotional-Mug.jpeg"
                                             class="card-img-top rounded-0" alt="..." style="height:250px;">
@@ -183,8 +190,8 @@ ul {
                                         </div>
 
                                     </div>
-                                </div>
-                                <div class="col learts-mb-30">
+                                </div> -->
+                                <!-- <div class="col learts-mb-30">
                                     <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
                                         <img src="https://cpimg.tistatic.com/05259563/b/5/Household-Gift.jpeg"
                                             class="card-img-top rounded-0" alt="..." style="height:250px;">
@@ -203,8 +210,8 @@ ul {
                                         </div>
 
                                     </div>
-                                </div>
-                                <div class="col learts-mb-30">
+                                </div> -->
+                                <!-- <div class="col learts-mb-30">
                                     <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
                                         <img src="https://cpimg.tistatic.com/05385300/b/5/Smart-Watches.jpeg"
                                             class="card-img-top rounded-0" alt="..." style="height:250px;">
@@ -224,7 +231,7 @@ ul {
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> -->
 
 
 

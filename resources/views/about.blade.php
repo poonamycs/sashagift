@@ -61,19 +61,15 @@ video {
             <div class="col-md-6 col-12 align-self-center learts-mb-30">
                 <div class="about-us3">
                     <span class="sub-title">Live out your life.</span>
-                    <h2 class="title">Sasha Gift: Elevating Celebrations, <br>Unveiling Joy in Every Thoughtful Gesture
+                    <h2 class="title">{{$about->title}}
                     </h2>
                     <div class="desc">
-                        <p>Sasha Gift, nestled in the vibrant heart of Pune, India, crafts bespoke celebrations with
-                            innovative branding solutions. From the elegance of Luminarc to the resilience of Samsonite,
-                            Sasha's portfolio weaves a tapestry of personalized experiences. With a commitment to
-                            quality, trendsetting designs, and a mantra of treasuring relationships, Sasha transforms
-                            gifting into an art, delivering joy wrapped in superior craftsmanship.</p>
+                        <p>{{$about->description}}</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-12 text-center learts-mb-30">
-                <img src="assets/images/about/about-9 (1).png" alt="">
+                <img src="{{ asset('assets/admin/images/frontend_images/category/'.$about->image) }}" alt="">
             </div>
 
         </div>

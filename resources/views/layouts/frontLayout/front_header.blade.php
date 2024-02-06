@@ -520,53 +520,28 @@ $rootUrl = url('/');
                             </ul>
                         </li>
 
-                <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">Nuhas</span></a>
-                                <ul class="sub-menu mega-menu">
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column One</span></a> -->
-                                        <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Tulip Pot Antiqu Etching</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Venus Pots</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Venus Copper Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Antique Etching Matka with Stand And Glass</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Bottle 2 Glasses with Mina Work</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Glass</span></a></li>
-
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Two</span></a> -->
-                                        <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Sarovar Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Roller Kulfi Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Roller Kulfi Matka</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Barrel Matka Antique Etching</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Designer Gift sets with Stand</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Barrel Matka Antique Etching 8 Litre</span></a></li>
-                                        
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Three</span></a> -->
-                                        <ul>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Oscar Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Jumbo Bottle</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Copper Steel Thali 6pcs</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Apple Copper Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Colored Tulip Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Tulip Pot</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Ghara with Stand</span></a></li>
-                                            <li><a href="{{url('/nuhas_detail')}}"><span class="menu-text">Carving Bottle</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <!-- <a href="#" class="mega-menu-title"><span class="menu-text">Column Four</span></a> -->
-                                        
-                                    </li>
+                        <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
+                    <ul class="sub-menu mega-menu">
+                        <?php $chunks = $nuhas_products->chunk(5); ?>
+                        @foreach($chunks as $nuhas_product)
+                            <li>
+                                <ul>   
+                                    @foreach($nuhas_product as $nuhas)
+                                        <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
+                                    @endforeach
                                 </ul>
                             </li>
+                        @endforeach
+                        
+                        <li>
+                            <ul>
+                                
+                                <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item @if(preg_match(" /blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
 
                 </li>

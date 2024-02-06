@@ -35,35 +35,31 @@
                     <div class="row isotope-grid learts-mb-n40">
 
                         <div class="col-1 grid-sizer"></div>
-
-                        <div class="grid-item col-md-6 col-12 learts-mb-40">
-                            <div class="blog">
-                                <div class="image">
-                                    <a href="/blog_detail"><img src="assets/images/blog/blog_1.png" alt="Blog Image"></a>
-                                </div>
-                                <div class="content">
-                                   
-                                    <h5 class="title"><a href="/blog_detail">The Art of Corporate Impressions: Unveiling Unique Artistic Gifts</a></h5>
-                                    <div class="desc">
-                                     <p>
-                                     In the fast-paced world of corporate gifting, where first impressions are pivotal, the artistry behind unique gifts has emerged as a defining factor. Welcome to "The Art of Corporate Impressions: Unveiling Unique Artistic Gifts," a journey into a realm where creativity and business seamlessly converge.
-                                     </p>                               
-                                         </div>
-                                    <a href="/blog_detail" class="link">Read More</a>
+                        @foreach($blogs as $blog)
+                            <div class="grid-item col-md-6 col-12 learts-mb-40">
+                                <div class="blog">
+                                    <div class="image">
+                                        <a href="{{url('/blog_detail/'.$blog->id)}}"><img src="{{ asset('assets/admin/images/backend_images/blog/'.$blog->image) }}" alt="Blog Image"></a>
+                                    </div>
+                                    <div class="content">
+                                    
+                                        <h5 class="title"><a href="{{url('/blog_detail/'.$blog->id)}}">{{$blog->name}}</a></h5>
+                                        <div class="desc">
+                                        <p>
+                                        {{$blog->content}}</p>                               
+                                            </div>
+                                        <a href="{{url('/blog_detail/'.$blog->id)}}" class="link">Read More</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="grid-item col-md-6 col-12 learts-mb-40">
+                        @endforeach
+                        <!-- <div class="grid-item col-md-6 col-12 learts-mb-40">
                             <div class="blog">
                                 <div class="image">
                                     <a href="/blog_detail"><img src="assets/images/blog/blog_2.png" alt="Blog Image"></a>
                                 </div>
                                 <div class="content">
-                                    <ul class="meta">
-                                        <!-- <li><i class="far fa-calendar"></i><a href="#">January 22, 2020</a></li>
-                                        <li><i class="far fa-eye"></i> 158 views</li> -->
-                                    </ul>
+                                   
                                     <h5 class="title"><a href="/blog_detail">Corporate Stories: Personalized Gifts that Tell a Tale"</a></h5>
                                     <div class="desc">
 <p>In the realm of corporate gifting, the narrative takes center stage as businesses increasingly turn to personalized gifts that go beyond mere tokens. Welcome to "Crafting Corporate Stories: Personalized Gifts that Tell a Tale," where the art of gift-giving transforms into a powerful storytelling experience.</p>                                    </div>
@@ -85,8 +81,8 @@
                                     <a href="/blog_detail" class="link">Read More</a>
                                 </div>
                             </div>
-                        </div>
-
+                        </div> -->
+<!-- 
                         <div class="grid-item col-md-6 col-12 learts-mb-40">
                             <div class="blog">
                                 <div class="image">
@@ -101,7 +97,7 @@
                                     <a href="/blog_detail" class="link">Read More</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="grid-item col-md-6 col-12 learts-mb-40">
                             <div class="blog">

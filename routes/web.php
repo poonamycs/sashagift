@@ -33,9 +33,9 @@ Route::get('/about', [IndexController::class, 'about'])->name('about');
 Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
 
 Route::get('/blog', [IndexController::class, 'blog'])->name('blog');
-Route::get('/blog_detail', [IndexController::class, 'blog_detail'])->name('blog_detail');
+Route::get('/blog_detail/{id?}', [IndexController::class, 'blog_detail'])->name('blog_detail');
 
-Route::get('/product_list', [IndexController::class, 'product_list'])->name('product_list');
+Route::get('/product_list/{id?}', [IndexController::class, 'product_list'])->name('product_list');
 Route::get('/product_detail/{id?}', [IndexController::class, 'product_detail'])->name('product_detail');
 
 Route::get('/nuhas', [IndexController::class, 'nuhas'])->name('nuhas');
@@ -152,6 +152,10 @@ Route::group(['middleware' => ['admin']],function(){
 	Route::match(['get','post'],'/admin/view-enquiries/',[App\Http\Controllers\UsersController::class, 'viewEnquiries']);
 	Route::match(['get','post'],'/admin/delete-enquiry/{id}',[App\Http\Controllers\UsersController::class, 'deleteEnquiry']);
 
+	// view about
+	Route::match(['get','post'],'/admin/about/',[App\Http\Controllers\AdminController::class, 'about']);
+	Route::match(['get','post'],'/admin/delete-about-image/{id}',[App\Http\Controllers\AdminController::class, 'deleteAboutImage']);
+	
 	// view trusted by
 	Route::match(['get','post'],'/admin/add-trustedby',[App\Http\Controllers\TrustedController::class, 'addTrustedby']);
 	Route::match(['get','post'],'/admin/view-trustedby',[App\Http\Controllers\TrustedController::class, 'viewTrustedby']);

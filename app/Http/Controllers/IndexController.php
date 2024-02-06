@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Trustedby;
 use App\Models\Brand;
+use App\Models\Blog;
+use App\Models\About;
 use App\Models\Industry;
 use App\Models\ContactDetail;
 use App\Models\Testimonial;
@@ -24,8 +26,9 @@ class IndexController extends Controller
 
     public function about()
     {
+        $about = About::first();
         $meta_title = config('app.name');
-        return view('about',compact('meta_title'));
+        return view('about',compact('meta_title','about'));
     }
 
 
@@ -39,8 +42,9 @@ class IndexController extends Controller
 
     public function blog()
     {
+        $blogs = Blog::where('status',1)->get();
         $meta_title = config('app.name');
-        return view('blog',compact('meta_title'));
+        return view('blog',compact('meta_title','blogs'));
     }
     public function blog_detail()
     {
@@ -48,10 +52,12 @@ class IndexController extends Controller
         return view('blog_detail',compact('meta_title'));
     }
 
-    public function product_list()
+    public function product_list($id = null)
     {
+        $id = decrypt($id);
+        $products = Product::where('category_id',$id)->get();
         $meta_title = config('app.name');
-        return view('product_list',compact('meta_title'));
+        return view('product_list',compact('meta_title','products'));
     }
     public function product_detail($id = null)
     {

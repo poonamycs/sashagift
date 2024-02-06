@@ -281,6 +281,8 @@ class UsersController extends Controller
         return redirect()->back()->with('flash_message_success','Enquiry deleted.');
     }
 
+    
+
     public function passwordSetting(Request $request){
         $categories = Category::with('categories')->where(['parent_id'=>0])->get();
         return view('users.password_setting')->with(compact('categories'));
