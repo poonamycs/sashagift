@@ -90,12 +90,13 @@
             <div class="row">
                 <div class="col-lg-8 col-12 mx-auto">
                     <div class="contact-form">
-                        <form action="" id="contactPage" method="post">
+                        <form action="{{ route('contact.store') }}" id="contactPage" method="post">
+                            @csrf
                             <div class="row learts-mb-n30">
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
-                                <div class="col-12 text-center learts-mb-30"> <button class="btn btn-md  btn-outline-secondary"> Connect </button></div>
+                                <div class="col-12 text-center learts-mb-30"> <button type="submit" class="btn btn-md  btn-outline-secondary"> Connect </button></div>
                             </div>
                         </form>
                         <p class="form-messege"></p>

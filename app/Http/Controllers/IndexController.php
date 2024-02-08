@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
 use App\Models\Trustedby;
 use App\Models\Brand;
 use App\Models\Blog;
 use App\Models\About;
 use App\Models\Industry;
 use App\Models\ContactDetail;
+use App\Models\Contact;
 use App\Models\Testimonial;
 use App\Models\Category;
 use App\Models\Product;
@@ -38,7 +43,15 @@ class IndexController extends Controller
         $contact = ContactDetail::first();
         return view('contact',compact('meta_title','contact'));
     }
-
+    public function store(Request $request)
+    {
+        $contact = new Contact;
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->message = $request->message;
+        $contact->save();
+        return redirect()->back()->with('flash_message_error','We will response you shortly');
+    }
 
     public function blog()
     {
@@ -70,7 +83,8 @@ class IndexController extends Controller
     public function nuhas()
     {
         $meta_title = config('app.name');
-        return view('nuhas',compact('meta_title'));
+        $products = Product::where('category_id','1')->paginate(12);
+        return view('nuhas',compact('meta_title','products'));
     }
     public function nuhas_detail($id = null)
     {
@@ -86,7 +100,20 @@ class IndexController extends Controller
         $meta_title = config('app.name');
         return view('user_login',compact('meta_title'));
     }
-
+    public function login()
+    {
+        if($request->isMethod('post')){
+            $data = $request->input();
+            $vendorCount = Admin::where(['email' => $data['email'],'password'=>md5($data['password']),'status'=>1,'admin_approved'=>1])->count(); 
+            if($vendorCount > 0){
+                Session::put('vendorSession', $data['email']);
+                return redirect('/');
+            }else{
+                return redirect('/admin')->with('flash_message_error','Invalid Email or Password');
+            }
+        }
+        return redirect()->back();
+    }
 }
 
 

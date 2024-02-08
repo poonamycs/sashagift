@@ -53,7 +53,7 @@ $rootUrl = url('/');
                                     @php
                                         $products = App\Models\Product::where('category_id',$category->id)->get();
                                     @endphp
-                                    <li class="has-children"><a href="{{url('/product_list')}}"><span
+                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}"><span
                                                 class="menu-text">{{$category->name}}</span></a>
                                            
                                             @if(!$products->isempty())
@@ -166,7 +166,7 @@ $rootUrl = url('/');
                                     @php
                                         $products = App\Models\Product::where('category_id',$category->id)->get();
                                     @endphp
-                                    <li class="has-children"><a href="{{url('/product_list')}}"><span
+                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}"><span
                                                 class="menu-text">{{$category->name}}</span></a>
                                            
                                             @if(!$products->isempty())
@@ -503,7 +503,7 @@ $rootUrl = url('/');
                                     @php
                                         $products = App\Models\Product::where('category_id',$category->id)->get();
                                     @endphp
-                                    <li class="has-children"><a href="{{url('/product_list')}}"><span
+                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}"><span
                                                 class="menu-text">{{$category->name}}</span></a>
                                            
                                             @if(!$products->isempty())

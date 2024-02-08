@@ -30,19 +30,20 @@
   <div class="section bg-white pb-5 pt-5">
         <div class="container">
             <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1 learts-mb-n40">
-
-                <div class="col learts-mb-40">
-                    <div class="category-banner4">
-                        <a href="{{url('/nuhas_detail')}}" class="inner">
-                            <div class="image"><img src="assets/images/nuhas/1.jpg" alt=""></div>
-                            <div class="content" data-bg-color="#f4ede7">
-                                <h3 class="title">Oscar Pot</h3>
-                            </div>
-                        </a>
+                @foreach($products as $product)
+                    <div class="col learts-mb-40">
+                        <div class="category-banner4">
+                            <a href="{{url('/nuhas_detail')}}" class="inner">
+                                <div class="image"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt=""></div>
+                                <div class="content" data-bg-color="#f4ede7">
+                                    <h3 class="title">{{$product->product_name}}</h3>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col learts-mb-40">
+                @endforeach
+                
+                <!-- <div class="col learts-mb-40">
                     <div class="category-banner4">
                         <a href="{{url('/nuhas_detail')}}" class="inner">
                             <div class="image"><img src="assets/images/nuhas/6.jpg" alt=""></div>
@@ -113,9 +114,10 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
             </div>
+            {{ $products->links() }}
         </div>
     </div>
 

@@ -42,7 +42,8 @@
                             <p class="desc">Great to have you back!</p>
                         </div>
                         <div class="login-register-form">
-                            <form action="#">
+                            <form action="{{ url('/login') }}" method="post">
+                                @csrf
                                 <div class="row learts-mb-n50">
                                     <div class="col-12 learts-mb-50">
                                         <input type="email" placeholder="Username or email address">

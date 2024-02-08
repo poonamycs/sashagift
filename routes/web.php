@@ -31,6 +31,7 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/about', [IndexController::class, 'about'])->name('about');
 
 Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
+Route::Post('/contact/store',[IndexController::class, 'store'])->name('contact.store');
 
 Route::get('/blog', [IndexController::class, 'blog'])->name('blog');
 Route::get('/blog_detail/{id?}', [IndexController::class, 'blog_detail'])->name('blog_detail');
@@ -42,6 +43,7 @@ Route::get('/nuhas', [IndexController::class, 'nuhas'])->name('nuhas');
 Route::get('/nuhas_detail/{id?}', [IndexController::class, 'nuhas_detail'])->name('nuhas_detail');
 
 Route::get('/user_login', [IndexController::class, 'user_login'])->name('user_login');
+Route::Post('/login', [IndexController::class, 'login'])->name('login');
 Auth::routes();
 //Admin login
 Route::match(['get','post'],'/admin',[App\Http\Controllers\AdminController::class, 'login']);

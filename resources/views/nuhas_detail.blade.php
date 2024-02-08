@@ -101,15 +101,14 @@
                     <div class="product-summery product-summery-center">
                        
                        
-                        <h3 class="product-title">Decorative Christmas Fox</h3>
+                        <h3 class="product-title">{{$product->product_name}}</h3>
                 
                         <div class="product-description">
-                            <p>From the Holiday Moments Collection This adorable brown fox looking over his right shoulder would be a wonderful accent in any holiday decor. Features faux fur, burlap and canvas creating a unique, textured appearance. The feeling when touched is smooth and lovable.</p>
-                            <p>Accented with a red plaid bow and a small pine spray and pine cone Dimensions: 8″H x 8″W x 3.75″D. Material(s): foam/fabric/plastic. Available colors: Red, Blue, Green, Yellow, Black, White, Grey and Pink. Gift wrapping is available for orders over $99 to the following states: Arizona, Florida, Washington DC and Los Angeles.</p>
+                            <p>{{$product->description}}</p>
                         </div>
                         
                         <!-- <div class="col-12 text-center learts-mb-30"> <button class="hexa"><a href="/contact" class="">Send Enquiry</a> </button></div> -->
-                           <div class="col-auto learts-mb-20"><a href="/contact" class="btn btn-md  btn-outline-secondary">Send Enquiry</a></div>
+                           <div class="col-auto learts-mb-20"><a href="{{ url('/contact') }}" class="btn btn-md  btn-outline-secondary">Send Enquiry</a></div>
                        
                         
                     </div>
