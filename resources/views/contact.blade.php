@@ -3,7 +3,18 @@
 
 @section('styles')
 <style>
-
+    .required:after{
+        content: ' *'!important;
+        color: red!important;
+    }
+    .error{
+        font-size: 13.5px;
+        color: red;
+        margin-bottom: 0px;
+    }
+    .p-8{
+        padding: 0px 0 8px;
+    }
 </style>
 @endsection('styles')
 
@@ -55,7 +66,7 @@
                 <div class="col-lg-4 col-md-6 col-12 learts-mb-30">
                 <div class="contact-info">
                         <h4 class="title">Mail</h4>
-                        <span class="info"><i class="icon far fa-envelope"></i> Mail: <a href="#">{{$contact->email}}</a></span>
+                        <span class="info"><i class="icon far fa-envelope"></i> Mail: <a href="mailto:{{$contact->email}}">{{$contact->email}}</a></span>
                     </div>
                 </div>
             </div>
@@ -79,12 +90,12 @@
             <div class="row">
                 <div class="col-lg-8 col-12 mx-auto">
                     <div class="contact-form">
-                        <form action="https://htmldemo.net/learts/learts/assets/php/contact-mail.php" id="contact-form" method="post">
+                        <form action="" id="contactPage" method="post">
                             <div class="row learts-mb-n30">
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
-                                <div class="col-12 text-center learts-mb-30"> <button class="hexa"><a href="{{url('/contact')}" class="">Connect</a> </button></div>
+                                <div class="col-12 text-center learts-mb-30"> <button class="btn btn-md  btn-outline-secondary"> Connect </button></div>
                             </div>
                         </form>
                         <p class="form-messege"></p>
@@ -97,6 +108,68 @@
     <!-- Contact Form Section End -->
 
 @section('scripts')
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.js'></script>
+    <script>
+        jQuery.validator.addMethod("lettersonly", function(value, element) {
+            return this.optional(element) || /^[a-zA-Z ]+$/i.test(value);
+        }, "Letters only please *");
+        $("#contactPage").validate({
+            // errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            rules: {
+                name: {
+                    required: true,
+                    lettersonly: true,
+
+
+                },
+                email: {
+                    required: true,
+                },
+
+                message: {
+                    required: true,
+                },
+
+                subject: {
+                    required: true,
+                },
+
+                phone: {
+                    required: true,
+                    number: true,
+                    maxlength: 12,
+                    minlength: 10
+                },
+
+
+            },
+            messages: {
+
+                name: {
+                    required: "This field is required.",
+                },
+                email: {
+                    required: "This field is required.",
+                },
+                message: {
+                    required: "This field is required.",
+                },
+                phone: {
+                    required: "This field is required.",
+                    number: "Please enter valid number",
+                },
+
+            },
+            submitHandler: function(form) {
+                $(".cbtn").attr("disabled", true);
+                $(".cbtn").html("<i class='fa fa-spinner fa-spin'></i> Please wait...");
+                form.submit();
+            }
+        });
+    </script>
+
 
 @endsection('scripts')
 
