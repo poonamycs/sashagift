@@ -142,6 +142,20 @@ class AdminController extends Controller
             }
         }
     }
+    public function vendorApproved(Request $request, $id = null){
+        if($request->isMethod('post')){
+            $data = $request->all();
+            // echo "<pre>"; print_r($data); die;
+            if(empty($data['admin_approved'])){
+                $admin_approved='0';
+            }else{
+                $admin_approved='1';
+            }
+
+            Admin::where('id',$id)->update(['admin_approved'=>$admin_approved]);
+            return redirect()->back()->with('flash_message_success','Admin approval status updated successfully.');
+        }
+    }
     public function about(Request $request){
         if($request->isMethod('post')){
             $data = $request->all();

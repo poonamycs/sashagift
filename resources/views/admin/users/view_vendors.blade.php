@@ -65,7 +65,7 @@
                     </td>
 
                   <td style="text-align: center;">
-                    <form action="{{ url('admin/product-approved/'.$vendor->id) }}" method="post">
+                    <form action="{{ url('admin/vendor-approved/'.$vendor->id) }}" method="post">
                         {{ csrf_field() }}
                         <input type="checkbox" class="custom-control-input" name="admin_approved" @if($vendor->admin_approved=="1") checked @endif value="1" onchange="javascript:this.form.submit();">
                     </form>

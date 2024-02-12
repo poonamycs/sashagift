@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 use App\Models\Trustedby;
+use App\Models\Admin;
 use App\Models\Brand;
 use App\Models\Blog;
 use App\Models\About;
@@ -16,6 +17,7 @@ use App\Models\Testimonial;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductsImage;
+use Session;
 class IndexController extends Controller
 {
     public function index()
@@ -95,12 +97,7 @@ class IndexController extends Controller
         return view('nuhas_detail',compact('meta_title','product','product_imgs'));
     }
 
-    public function user_login()
-    {
-        $meta_title = config('app.name');
-        return view('user_login',compact('meta_title'));
-    }
-    public function login()
+    public function user_login(Request $request)
     {
         if($request->isMethod('post')){
             $data = $request->input();
@@ -109,11 +106,18 @@ class IndexController extends Controller
                 Session::put('vendorSession', $data['email']);
                 return redirect('/');
             }else{
-                return redirect('/admin')->with('flash_message_error','Invalid Email or Password');
+                return redirect('/user_login')->with('flash_message_error','Invalid Email or Password');
             }
         }
-        return redirect()->back();
+        $meta_title = config('app.name');
+        return view('user_login',compact('meta_title'));
     }
+    public function userLogout(Request $request){        
+        Session::flush();          
+        return redirect('/');    
+        
+    }
+    
 }
 
 

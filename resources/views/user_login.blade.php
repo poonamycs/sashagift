@@ -42,18 +42,17 @@
                             <p class="desc">Great to have you back!</p>
                         </div>
                         <div class="login-register-form">
-                            <form action="{{ url('/login') }}" method="post">
-                                @csrf
+                        <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/user_login') }}" novalidate="novalidate"> {{ csrf_field() }}
                                 <div class="row learts-mb-n50">
                                     <div class="col-12 learts-mb-50">
-                                        <input type="email" placeholder="Username or email address">
+                                        <input type="email" name="email" placeholder="Username or email address">
                                     </div>
                                     <div class="col-12 learts-mb-50">
-                                        <input type="password" placeholder="Password">
+                                        <input type="password" name="password" placeholder="Password">
                                     </div>
-                                    
-                                <div class="col-12 text-center learts-mb-500"> <button class="hexa"><a href="{{url('/contact')}" class="text-white">login</a> </button></div>
-                                   
+                                    <div class="col-12 text-center learts-mb-500"> 
+                                        <button type="submit" class="hexa">login </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>

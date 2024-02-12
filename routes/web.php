@@ -42,8 +42,10 @@ Route::get('/product_detail/{id?}', [IndexController::class, 'product_detail'])-
 Route::get('/nuhas', [IndexController::class, 'nuhas'])->name('nuhas');
 Route::get('/nuhas_detail/{id?}', [IndexController::class, 'nuhas_detail'])->name('nuhas_detail');
 
-Route::get('/user_login', [IndexController::class, 'user_login'])->name('user_login');
-Route::Post('/login', [IndexController::class, 'login'])->name('login');
+Route::match(['get','post'],'/user_login',[App\Http\Controllers\IndexController::class, 'user_login']);
+Route::match(['get','post'], 'user/logout', [App\Http\Controllers\IndexController::class, 'userLogout']);
+// Route::get('/user_login', [IndexController::class, 'user_login'])->name('user_login');
+// Route::Post('/login', [IndexController::class, 'login'])->name('login');
 Auth::routes();
 //Admin login
 Route::match(['get','post'],'/admin',[App\Http\Controllers\AdminController::class, 'login']);
@@ -121,6 +123,8 @@ Route::group(['middleware' => ['admin']],function(){
 	//view vendors
 	Route::match(['get','post'],'admin/view-vendors/',[App\Http\Controllers\AdminController::class, 'viewVendors']);
 	Route::match(['get','post'],'admin/add-vendor-product/',[App\Http\Controllers\AdminController::class, 'addVendorProduct']);
+	Route::match(['get','post'],'admin/vendor-approved/{id}',[App\Http\Controllers\AdminController::class, 'vendorApproved']);
+
 	Route::match(['get','post'],'admin/vendor-product/{id}',[App\Http\Controllers\AdminController::class, 'productVendors']);
 	Route::match(['get','post'],'/admin/delete-vendor-product/{id}',[App\Http\Controllers\AdminController::class, 'deleteproductVendors']);
 	// Export users
@@ -208,4 +212,4 @@ Route::group(['middleware' => ['admin']],function(){
 	Route::match(['get','post'],'admin/edit-contact-details/{id}',[App\Http\Controllers\CmsController::class, 'editcontactDetails']);
 });
 
-Route::get('/logout',[App\Http\Controllers\AdminController::class, 'logout']);
+
