@@ -47,6 +47,11 @@ ul {
 </style>
 @endsection('styles')
 <!-- Single Products Section Start -->
+@php
+    $email = Session::get('vendorSession');
+    $user = App\Models\Admin::where('email',$email)->first();
+    $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+@endphp
 <div class="section bg-white">
     <div class="">
         <div class="sticky-sidebar-container row">
@@ -56,34 +61,33 @@ ul {
                     <div class="sticky-sidebar-inner">
 
                         <div class="vertical-tabs pt-3 offcanvas-menu p-4">
+                            @if($user)
                             <ul class="sub-title utility">
-                            @if(!$products->isempty())
-                                @foreach($products as $product)
-                                    <li class="has-children">
-                                        <a href="{{url('/product_detail/'.encrypt($product->id))}}" class="active"><span class="menu-text">{{$product->product_name}}</span></a>
-                                    </li>
-                                @endforeach
-                            @else
-                            <span>No record Found</span>
-                            @endif
-                                <!-- <li class="has-children">
-                                    <a href="{{url('/product_detail')}}" class="active"><span class="menu-text">Citizen
-                                            Watches</span></a>
-                                </li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                            Crystal Clock</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Promotional
-                                            Mug</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Water
-                                            Bottle</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Household
-                                            Gift</span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Home &
-                                            Living </span></a></li>
-                                <li><a href="{{url('/product_detail')}}"><span class="menu-text">Smart
-                                            Watches</span></a></li> -->
-
+                                @if(!$vendorproduct->isempty())
+                                    @foreach($vendorproduct as $product)
+                                        @if($product->product->category_id != '1')
+                                        <li class="has-children">
+                                            <a href="{{url('/product_detail/'.encrypt($product->product->id))}}" class="active"><span class="menu-text">{{$product->product->product_name}}</span></a>
+                                        </li>
+                                        @endif
+                                    @endforeach
+                                @else
+                                <span>No record Found</span>
+                                @endif  
                             </ul>
+                            @else
+                                <ul class="sub-title utility">
+                                    @if(!$products->isempty())
+                                        @foreach($products as $product)
+                                            <li class="has-children">
+                                                <a href="{{url('/product_detail/'.encrypt($product->id))}}" class="active"><span class="menu-text">{{$product->product_name}}</span></a>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                    <span>No record Found</span>
+                                    @endif  
+                                </ul>
+                            @endif
                         </div>
 
 
