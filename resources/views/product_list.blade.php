@@ -49,8 +49,15 @@ ul {
 <!-- Single Products Section Start -->
 @php
     $email = Session::get('vendorSession');
-    $user = App\Models\Admin::where('email',$email)->first();
-    $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+    if($email != null)
+    {
+        $user = App\Models\Admin::where('email',$email)->first();
+        $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+    }
+    else
+    {
+        $user = null;
+    }
 @endphp
 <div class="section bg-white">
     <div class="">

@@ -8,8 +8,15 @@
 @endsection('styles')
 @php
     $email = Session::get('vendorSession');
-    $user = App\Models\Admin::where('email',$email)->first();
-    $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+    if($email != null)
+    {
+        $user = App\Models\Admin::where('email',$email)->first();
+        $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+    }
+    else
+    {
+        $user = null;
+    }
 @endphp
 <!-- Page Title/Header Start -->
 <div class="page-title-section section" data-bg-image="assets/images/bg/page-title-1.webp">
@@ -34,7 +41,7 @@
   <div class="section bg-white pb-5 pt-5">
         <div class="container">
             <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1 learts-mb-n40">
-                @if($user)
+                @if($user != null)
                      @if(!$vendorproduct->isempty())
                         @foreach($vendorproduct as $product)
                             @if($product->product->category_id == '1')
