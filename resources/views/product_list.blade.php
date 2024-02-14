@@ -72,7 +72,7 @@ ul {
                             <ul class="sub-title utility">
                                 @if(!$vendorproduct->isempty())
                                     @foreach($vendorproduct as $product)
-                                        @if($product->product->category_id != '1')
+                                        @if($product->product->category_id != '1' && $product->product->category_id == $id)
                                         <li class="has-children">
                                             <a href="{{url('/product_detail/'.encrypt($product->product->id))}}" class="active"><span class="menu-text">{{$product->product->product_name}}</span></a>
                                         </li>
@@ -111,50 +111,6 @@ ul {
             <div class="col-lg-9 col-12 learts-mb-40">
 
                 <div class="product-images ">
-                    <!-- <div class="home5-slider swiper-container section">
-                        <div class="swiper-wrapper">
-                            <div class="home5-slide-item swiper-slide" data-swiper-autoplay="5000">
-                                <div class="row align-items-center learts-mb-n20">
-                                    <div class="home5-slide1-content col-12 learts-mb-50">
-                                        <span class="sub-title">Creating memories, not just presents</span>
-                                        <h2 class="title">Little simple things</h2>
-                                    </div>
-                                    <div class="col-12 learts-mb-20">
-                                        <div class="row align-items-center learts-mb-n20">
-                                            <div class="home5-slide1-image text-sm-right col-sm-7 col-12 learts-mb-20">
-                                                <img src="assets/images/slider/home5/slide1-1.png"
-                                                    alt="Home 5 Slider Image">
-                                            </div>
-                                            <div class="home5-slide1-image text-sm-right col-sm-5 col-12 learts-mb-20">
-                                                <img src="assets/images/slider/home5/slide1-2.png"
-                                                    alt="Home 5 Slider Image">
-                                            </div>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-
-                            <div class="home5-slide-item swiper-slide" data-swiper-autoplay="5000">
-                                <div class="row align-items-center learts-mb-n20">
-                                    <div class="home5-slide3-content col-12 learts-mb-50">
-                                        <span class="sub-title">Live out your life</span>
-                                        <h2 class="title">HANDICRAFT SHOP</h2>
-                                    </div>
-                                    <div class="home5-slide3-image col-12 learts-mb-20">
-                                        <img src="assets/images/slider/home5/slide3-1.webp" alt="Home 5 Slider Image">
-                                    </div>
-                                  
-                                </div>
-                            </div>
-                        </div>
-                        <div class="home5-slider-prev swiper-button-prev d-none"></div>
-                        <div class="home5-slider-next swiper-button-next d-none"></div>
-                        <div class="home5-slider-pagination swiper-pagination"></div>
-                    </div> -->
-
-
-
                     <div class="section product_padding">
                         <div class="container">
                             <div class="row row-cols-xl-3 row-cols-lg-3 row-cols-sm-2 row-cols-1 learts-mb-n30">
@@ -174,7 +130,7 @@ ul {
                                                             <i class="fa fa-long-arrow-right"></i>
                                                         </span>
                                                     </div>
-                                            </a>
+                                                </a>
                                                 </div>
                                             </div>
 
