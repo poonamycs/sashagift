@@ -120,6 +120,9 @@ $rootUrl = url('/');
             <div class="col-auto">
                 <div class="header-tools justify-content-end">
                     <div class="header-login">
+                        <a href="{{url('/')}}"><i class="fa fa-power-off"></i></a>
+                    </div>
+                    <div class="header-login">
                         <a href="{{url('/user_login')}}"><i class="far fa-user"></i></a>
                     </div>
 
@@ -231,9 +234,13 @@ $rootUrl = url('/');
             <!-- Header Tools Start -->
             <div class="col-auto">
                 <div class="header-tools justify-content-end">
+                <div class="header-login  d-none d-sm-block">
+                        <a href="{{url('/')}}"><i class="fa fa-power-off"></i></a>
+                    </div>
                     <div class="header-login d-none d-sm-block">
                         <a href="{{url('/user_login')}}"><i class="far fa-user"></i></a>
                     </div>
+
                     <div class="header-search d-none d-sm-block d-xl-none">
                         <a href="#offcanvas-search" class="offcanvas-toggle"><i class="fas fa-search"></i></a>
                     </div>
@@ -542,16 +549,19 @@ $rootUrl = url('/');
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item @if(preg_match(" /blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
+                <li class="nav-item @if(preg_match("/blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
 
                 </li>
-                <li class="nav-item @if(preg_match(" /contact/i", $url)) active @endif"><a href="{{url('/contact')}}"><span class="menu-text">Connect</span></a>
+                <li class="nav-item @if(preg_match("/contact/i", $url)) active @endif"><a href="{{url('/contact')}}"><span class="menu-text">Connect</span></a>
 
                 </li>
             </ul>
         </div>
         <div class="offcanvas-buttons">
             <div class="header-tools">
+            <div class="header-login ">
+                        <a href="{{url('/')}}"><i class="fa fa-power-off"></i></a>
+                    </div>
                 <div class="header-login">
                     <a href="{{url('/user_login')}}"><i class="far fa-user"></i></a>
                 </div>
