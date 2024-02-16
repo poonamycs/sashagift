@@ -14436,3 +14436,13 @@ li.nav-item.active a {
 }
 }
 
+.sasha_login{
+    border: 1px solid black !important;
+    border-radius: 5px ;
+    padding-left: 10px !important;
+}
+.vender{
+    border: 1px solid #dbdbdb;
+    border-radius: 5px ;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .1);
+}

@@ -42,6 +42,9 @@ Route::get('/product_detail/{id?}', [IndexController::class, 'product_detail'])-
 Route::get('/nuhas', [IndexController::class, 'nuhas'])->name('nuhas');
 Route::get('/nuhas_detail/{id?}', [IndexController::class, 'nuhas_detail'])->name('nuhas_detail');
 
+Route::get('/vender_product_listing', [IndexController::class, 'vender_plisting'])->name('vender_plisting');
+
+
 Route::match(['get','post'],'/user_login',[App\Http\Controllers\IndexController::class, 'user_login']);
 Route::match(['get','post'], 'user/logout', [App\Http\Controllers\IndexController::class, 'userLogout']);
 // Route::get('/user_login', [IndexController::class, 'user_login'])->name('user_login');

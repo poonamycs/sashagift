@@ -117,7 +117,20 @@ class IndexController extends Controller
         return redirect('/');    
         
     }
-    
+
+    // public function vender_plisting()
+    // {
+        
+    //     $meta_title = config('app.name');
+    //     return view('vender_listing',compact('meta_title','vender_plisting'));
+    // }
+
+    public function vender_plisting(Request $request){
+        $meta_title = 'Product Listing Page';
+        return view('vender_listing',compact('meta_title'));
+    }
+
+
 }
 
 
