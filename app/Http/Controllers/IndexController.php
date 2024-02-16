@@ -72,7 +72,7 @@ class IndexController extends Controller
         $id = decrypt($id);
         $products = Product::where('category_id',$id)->get();
         $meta_title = config('app.name');
-        return view('product_list',compact('meta_title','products'));
+        return view('product_list',compact('meta_title','products','id'));
     }
     public function product_detail($id = null)
     {
