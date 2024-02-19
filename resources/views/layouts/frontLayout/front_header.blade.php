@@ -11,7 +11,6 @@ $rootUrl = url('/');
                 </div>
                 <div class="col-auto d-none d-md-block">
                     <div class="topbar-menu d-flex flex-row-reverse">
-                        
                         <ul>
                             <li>Elegant</li>
                             <li>Innovative</li>
@@ -53,16 +52,48 @@ $rootUrl = url('/');
                                     @php
                                         $products = App\Models\Product::where('category_id',$category->id)->get();
                                     @endphp
-                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}"><span
-                                                class="menu-text">{{$category->name}}</span></a>
-                                           
+                                    @php
+                                        $email = Session::get('vendorSession');
+                                        if($email != null)
+                                        {
+                                            $user = App\Models\Admin::where('email',$email)->first();
+                                            $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+                                        }
+                                        else
+                                        {
+                                            $user = null;
+                                        }
+                                    @endphp
+                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}">
+                                        <span class="menu-text">{{$category->name}}</span></a>
+                                            @if($user != null)
+                                                
+                                                @if(!$vendorproduct->isempty())
+                                                
+                                                    @foreach($vendorproduct as $product)
+                                                        @if($product->product->category_id != '1' && $product->product->category_id == $category->id)
+                                                        <ul class="sub-menu">
+                                                            <li>
+                                                                <a href="{{url('/product_detail/'.encrypt($product->product->id))}}">
+                                                                    <span class="menu-text">{{$product->product->product_name}}</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        @endif
+                                                    @endforeach
+                                                
+                                                @else
+                                                    <span>No record Found</span>
+                                                @endif  
+                                               
+                                            @else
                                             @if(!$products->isempty())
-                                            
-                                            <ul class="sub-menu">
-                                                @foreach($products as $product)
+                                                <ul class="sub-menu">
+                                                    @foreach($products as $product)
                                                         <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
-                                                @endforeach
+                                                    @endforeach
                                                 </ul>
+                                            @endif
                                             @endif
                                     </li>
                                 @endforeach
@@ -70,30 +101,70 @@ $rootUrl = url('/');
                             </ul>
                         </li>
 
-                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get(); ?>
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get();
+                            if($user != null)
+                            {
+                                $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+                            }
+                              
+                        ?>
                        
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
-                                <ul class="sub-menu mega-menu">
-                                    <?php $chunks = $nuhas_products->chunk(7); ?>
-                                    @foreach($chunks as $nuhas_product)
-                                        <li>
-                                            <ul>   
-                                                @foreach($nuhas_product as $nuhas)
-                                                    <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                    @endforeach
-                                    
-                                    <li>
-                                        <ul>
+                            @if($user != null)  
+                                @if(!$nuhas_products->isempty())
+                                    @foreach($nuhas_products as $product)
+                                        @php 
+                                            $vendornproduct = App\Models\VendorProduct::where('product_id',$product->id)->where('vendor_id',$user->id)->get();
+                                        @endphp
+                                        <ul class="sub-menu mega-menu">
+                                            <?php $chunks = $vendornproduct->chunk(7);?>
+                                            @foreach($chunks as $nproduct)
                                             
-                                            <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+                                                <li>
+                                                    <ul>   
+                                                        @foreach($nproduct as $nuhas)
+                                                        
+                                                            <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->product->id))}}"><span class="menu-text">{{$nuhas->product->product_name}}</span></a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @endforeach
+                                            
+                                            <!-- <li>
+                                                <ul>
+                                                    
+                                                    <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
 
+                                                </ul>
+                                            </li> -->
+                                        </ul>
+                                        
+                                    @endforeach
+                                    @endif
+                                
+                            @else
+                            <ul class="sub-menu mega-menu">
+                                <?php $chunks = $nuhas_products->chunk(7); ?>
+                                @foreach($chunks as $nuhas_product)
+                                    <li>
+                                        <ul>   
+                                            @foreach($nuhas_product as $nuhas)
+                                                <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
-                                </ul>
-                            </li>
+                                @endforeach
+                                
+                                <li>
+                                    <ul>
+                                        
+                                        <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+
+                                    </ul>
+                                </li>
+                            </ul>
+                            @endif
+                        </li>
                         <li class="nav-item @if(preg_match(" /blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
 
                         </li>
@@ -117,15 +188,28 @@ $rootUrl = url('/');
             <!-- Search End -->
 
             <!-- Header Tools Start -->
+            @php 
+                $email = Session::get('vendorSession');
+                if($email != null)
+                {
+                    $user = App\Models\Admin::where('email',$email)->first();
+                }
+                else
+                {
+                    $user = null;
+                }
+            @endphp
             <div class="col-auto">
                 <div class="header-tools justify-content-end">
+                @if($user != null)
                     <div class="header-login">
-                        <a href="{{url('/')}}"><i class="fa fa-power-off"></i></a>
+                        <a href="{{url('user/logout')}}"><i class="fa fa-power-off"></i></a>
                     </div>
+                @else
                     <div class="header-login">
                         <a href="{{url('/user_login')}}"><i class="far fa-user"></i></a>
                     </div>
-
+                @endif
                     <div class="header-cart">
                         <a href="#offcanvas-cart" class="offcanvas-toggle"><i class="fa fa-envelope-o" ></i></a>
                     </div>
@@ -173,12 +257,12 @@ $rootUrl = url('/');
                                                 class="menu-text">{{$category->name}}</span></a>
                                            
                                             @if(!$products->isempty())
-                                            
-                                            <ul class="sub-menu">
-                                                @foreach($products as $product)
-                                                        <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
-                                                @endforeach
+                                                <ul class="sub-menu">
+                                                    @foreach($products as $product)
+                                                            <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
+                                                    @endforeach
                                                 </ul>
+                                           
                                             @endif
                                     </li>
                                 @endforeach

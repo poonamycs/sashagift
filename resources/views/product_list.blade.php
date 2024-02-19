@@ -68,7 +68,7 @@ ul {
                     <div class="sticky-sidebar-inner">
 
                         <div class="vertical-tabs pt-3 offcanvas-menu p-4">
-                            @if($user)
+                            @if($user != null)
                             <ul class="sub-title utility">
                                 @if(!$vendorproduct->isempty())
                                     @foreach($vendorproduct as $product)
@@ -96,11 +96,6 @@ ul {
                                 </ul>
                             @endif
                         </div>
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -114,7 +109,36 @@ ul {
                     <div class="section product_padding">
                         <div class="container">
                             <div class="row row-cols-xl-3 row-cols-lg-3 row-cols-sm-2 row-cols-1 learts-mb-n30">
-                                
+                            @if($user)
+                                @if(!$vendorproduct->isempty())
+                                    @foreach($vendorproduct as $product)
+                                        @if($product->product->category_id != '1' && $product->product->category_id == $id)
+                                            <div class="col learts-mb-30">
+                                                <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
+                                                    <a href="{{url('/product_detail/'.encrypt($product->product->id))}}"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->product->image) }}"
+                                                        class="card-img-top rounded-0" alt="..." style="height:250px;"></a>
+                                                    <div class="card-body mt-1 mb-1">
+                                                        <div class="row">
+                                                            <a href="{{url('/product_detail/'.encrypt($product->product->id))}}"> <div class="col-12 d-flex justify-content-start align-items-center">
+                                                                    <span>
+                                                                        <h6 class="card-title">{{$product->product->product_name}}</h6>
+                                                                    </span>
+                                                                    <span class="px-3">
+                                                                        <i class="fa fa-long-arrow-right"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                @else
+                                <span>No record Found</span>
+                                @endif  
+                            @else
                                 @foreach($products as $product)
                                     <div class="col learts-mb-30">
                                         <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
@@ -137,212 +161,10 @@ ul {
                                         </div>
                                     </div>
                                 @endforeach
-                                
-                                <!-- <div class="col learts-mb-30">
-                                    <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
-                                        <img src="https://cpimg.tistatic.com/05203306/b/5/Promotional-Mug.jpeg"
-                                            class="card-img-top rounded-0" alt="..." style="height:250px;">
-                                            <div class="card-body mt-1 mb-1">
-                                            <div class="row">
-                                            <a href="/contact"> <div class="col-12 d-flex justify-content-start align-items-center">
-                                                    <span>
-                                                        <h6 class="card-title">Promotional Mug</h6>
-                                                    </span>
-                                                    <span class="px-3">
-                                                        <i class="fa fa-long-arrow-right"></i>
-                                                    </span>
-                                                </div>
-                                           </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col learts-mb-30">
-                                    <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
-                                        <img src="https://cpimg.tistatic.com/05259563/b/5/Household-Gift.jpeg"
-                                            class="card-img-top rounded-0" alt="..." style="height:250px;">
-                                        <div class="card-body mt-1 mb-1">
-                                        <div class="row">
-                                            <a href="/contact"> <div class="col-12 d-flex justify-content-start align-items-center">
-                                                    <span>
-                                                        <h6 class="card-title">Household Gift</h6>
-                                                    </span>
-                                                    <span class="px-3">
-                                                        <i class="fa fa-long-arrow-right"></i>
-                                                    </span>
-                                                </div>
-                                           </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col learts-mb-30">
-                                    <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
-                                        <img src="https://cpimg.tistatic.com/05385300/b/5/Smart-Watches.jpeg"
-                                            class="card-img-top rounded-0" alt="..." style="height:250px;">
-                                        <div class="card-body mt-1 mb-1">
-                                        <div class="row">
-                                            <a href="/contact"> <div class="col-12 d-flex justify-content-start align-items-center">
-                                                    <span>
-                                                        <h6 class="card-title">Smart Watches</h6>
-                                                    </span>
-                                                    <span class="px-3">
-                                                        <i class="fa fa-long-arrow-right"></i>
-                                                    </span>
-                                                </div>
-                                           </a>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-                                </div> -->
-
-
-
+                            @endif
                             </div>
-
-
                         </div>
-
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- <div class="section section-padding">
-                        
-                        <div class="section section-fluid learts-mt-40">
-                            <div class="container">
-                                <div class="isotope-grid row learts-mb-n30">
-
-                                    <div class="grid-sizer col-1"></div>
-
-                                    <div class="grid-item col-lg-6 col-12 learts-mb-30">
-                                        <div class="sale-banner7">
-                                            <div class="inner">
-                                                <div class="image"><img
-                                                        src="assets/images/banner/sale/sale-banner7-1.webp"
-                                                        alt="Sale Banner Image"></div>
-                                                <div class="content">
-                                    
-                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    
-                                    <div class="grid-item col-lg-3 col-sm-6 col-12 learts-mb-30">
-                                        <div class="product portfolio">
-                                            <div class="product-thumb thumbnail">
-                                                <a href="product-details.html" class="image">
-                                                    <img src="assets/images/product/allproduct/promotional-T-shirt.jpeg"
-                                                        alt="Product Image">
-
-                                                </a>
-
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="title"><a href="/product_detail">Fresh Fruit
-                                                        Keeper</a></h4>
-                                                <div class="desc">
-                                                    <p>I made this out of brushed stainless steel. It has…</p>
-                                                </div>
-                                                <div class="link"><a href="/product_detail">Read more</a></div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="grid-item col-lg-3 col-sm-6 col-12 learts-mb-30">
-                                        <div class="product portfolio">
-                                            <div class="product-thumb thumbnail">
-                                                <a href="product-details.html" class="image">
-                                                    <img src="assets/images/product/utility/2.png" alt="Product Image">
-
-                                                </a>
-
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="title"><a href="/product_detail">Fresh Fruit
-                                                        Keeper</a></h4>
-                                                <div class="desc">
-                                                    <p>I made this out of brushed stainless steel. It has…</p>
-                                                </div>
-                                                <div class="link"><a href="/product_detail">Read more</a></div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                  
-                                    <div class="grid-item col-lg-6 col-12 learts-mb-30">
-                                        <div class="sale-banner7">
-                                            <div class="inner">
-                                                <div class="image"><img
-                                                        src="assets/images/banner/sale/sale-banner7-2.webp"
-                                                        alt="Sale Banner Image"></div>
-                                                <div class="content">
-                                                  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid-item col-lg-3 col-sm-6 col-12 learts-mb-30">
-                                        <div class="product">
-                                            <div class="product-thumb">
-                                                <a href="product-details.html" class="image">
-                                                    <img src="assets/images/product/utility/3.png" alt="Product Image">
-
-                                                </a>
-
-                                            </div>
-                                            <div class="product2-info">
-                                                <h6 class="title"><a href="product-details.html">Aluminum Equestrian</a>
-                                                </h6>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="grid-item col-lg-3 col-sm-6 col-12 learts-mb-30">
-                                        <div class="product">
-                                            <div class="product-thumb">
-                                                <a href="product-details.html" class="image">
-                                                    <img src="assets/images/product/utility/4.png" alt="Product Image">
-
-                                                </a>
-
-                                            </div>
-                                            <div class="product2-info">
-                                                <h6 class="title"><a href="product-details.html">Metal Wall Clock</a>
-                                                </h6>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    
-
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div> -->
                 </div>
 
             </div>

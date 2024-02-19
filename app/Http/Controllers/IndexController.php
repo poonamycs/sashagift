@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use App\Models\Trustedby;
 use App\Models\Admin;
+use App\Models\VendorProduct;
 use App\Models\Brand;
 use App\Models\Blog;
 use App\Models\About;
@@ -66,7 +67,13 @@ class IndexController extends Controller
         $meta_title = config('app.name');
         return view('blog_detail',compact('meta_title'));
     }
-
+    public function vender_plisting(Request $request){
+        $meta_title = 'Product Listing Page';
+        $email = Session::get('vendorSession');
+        $user = Admin::where('email',$email)->first();
+        $vendorproducts = VendorProduct::where('vendor_id',$user->id)->get();
+        return view('vender_listing',compact('meta_title','email','user','vendorproducts'));
+    }
     public function product_list($id = null)
     {
         $id = decrypt($id);
@@ -104,7 +111,7 @@ class IndexController extends Controller
             $vendorCount = Admin::where(['email' => $data['email'],'password'=>md5($data['password']),'status'=>1,'admin_approved'=>1])->count(); 
             if($vendorCount > 0){
                 Session::put('vendorSession', $data['email']);
-                return redirect('/');
+                return redirect('/vender_product_listing');
             }else{
                 return redirect('/user_login')->with('flash_message_error','Invalid Email or Password');
             }
@@ -112,7 +119,7 @@ class IndexController extends Controller
         $meta_title = config('app.name');
         return view('user_login',compact('meta_title'));
     }
-    public function userLogout(Request $request){        
+    public function userLogout(Request $request){ 
         Session::flush();          
         return redirect('/');    
         
@@ -124,11 +131,6 @@ class IndexController extends Controller
     //     $meta_title = config('app.name');
     //     return view('vender_listing',compact('meta_title','vender_plisting'));
     // }
-
-    public function vender_plisting(Request $request){
-        $meta_title = 'Product Listing Page';
-        return view('vender_listing',compact('meta_title'));
-    }
 
 
 }

@@ -46,7 +46,8 @@
                                         <h5 class="title"><a href="{{url('/blog_detail/'.$blog->id)}}">{{$blog->name}}</a></h5>
                                         <div class="desc">
                                         <p>
-                                        {{$blog->content}}</p>                               
+                                        {{ \Illuminate\Support\Str::limit($blog->content, $limit = 250, $end = '...') }}
+                                        </p>                               
                                             </div>
                                         <a href="{{url('/blog_detail/'.$blog->id)}}" class="link">Read More</a>
                                     </div>
