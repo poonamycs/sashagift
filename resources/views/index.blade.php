@@ -248,8 +248,10 @@
             </div>
             <!-- Section Title End -->
 
-            <div class="row row-cols-xl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 learts-mb-n40">
+            <!-- <div class="row row-cols-xl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 learts-mb-n40"> -->
+            <div class="product-carousel">
                 @foreach($categories as $category)
+                
                 <div class="col learts-mb-40">
                     <div class="category-banner5">
                         <a href="shop.html" class="inner">
@@ -260,8 +262,10 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                    </div>
+              
                 @endforeach
+                </div>
                 <!-- <div class="col learts-mb-40">
                     <div class="category-banner5">
                         <a href="shop.html" class="inner">
@@ -322,7 +326,7 @@
                     </div>
                 </div> -->
 
-            </div>
+            <!-- </div> -->
 
         </div>
     </div>
