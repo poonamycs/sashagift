@@ -90,7 +90,7 @@
             <div class="row">
                 <div class="col-lg-8 col-12 mx-auto">
                     <div class="contact-form">
-                        <form action="{{ route('contact.store') }}" id="contactPage" method="post">
+                        <form action="{{ route('contact.store') }}" id="contactEnq" method="post">
                             @csrf
                             <div class="row learts-mb-n30">
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
@@ -116,7 +116,7 @@
         jQuery.validator.addMethod("lettersonly", function(value, element) {
             return this.optional(element) || /^[a-zA-Z ]+$/i.test(value);
         }, "Letters only please *");
-        $("#contactPage").validate({
+        $("#contactEnq").validate({
             // errorPlacement: function errorPlacement(error, element) { element.before(error); },
             rules: {
                 name: {

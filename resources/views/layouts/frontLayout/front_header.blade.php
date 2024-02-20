@@ -175,14 +175,14 @@ $rootUrl = url('/');
             <!-- Search End -->
 
             <!-- Search Start -->
-            <div class="col-auto d-none d-xl-block">
+            <!-- <div class="col-auto d-none d-xl-block">
                 <div class="header2-search">
                     <form action="#">
                         <input type="text" placeholder="Search...">
                         <button class="btn"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
-            </div>
+            </div> -->
             <!-- Search End -->
 
             <!-- Header Tools Start -->
@@ -303,14 +303,14 @@ $rootUrl = url('/');
             <!-- Search End -->
 
             <!-- Search Start -->
-            <div class="col-auto d-none d-xl-block">
+            <!-- <div class="col-auto d-none d-xl-block">
                 <div class="header2-search">
                     <form action="#">
                         <input type="text" placeholder="Search...">
                         <button class="btn"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
-            </div>
+            </div> -->
             <!-- Search End -->
 
             <!-- Header Tools Start -->
@@ -555,7 +555,9 @@ $rootUrl = url('/');
                                 <div class="col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
                                 <!-- <div class="col-12 text-center learts-mb-30"><button class="btn btn-dark btn-outline-hover-dark">Submit</button></div> -->
-                                <div class="col-12 text-center learts-mb-30"> <button type="submit" class="hexa">Submit </button></div>
+                                <!-- <div class="col-12 text-center learts-mb-30"> <button type="submit" class="hexa">Submit </button></div> -->
+                                <div class="col-12 text-center learts-mb-30"> <button type="submit" class="btn btn-md  btn-outline-secondary"> Connect </button></div>
+
 
                             </div>
                         </form>
@@ -574,12 +576,12 @@ $rootUrl = url('/');
 <!-- OffCanvas Search Start -->
 <div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
     <div class="inner customScroll">
-        <div class="offcanvas-menu-search-form">
+        <!-- <div class="offcanvas-menu-search-form">
             <form action="#">
                 <input type="text" placeholder="Search...">
                 <button><i class="fas fa-search"></i></button>
             </form>
-        </div>
+        </div> -->
         <div class="offcanvas-menu">
             <ul>
                 <!-- <li class="nav-item @if($url === $rootUrl) active @endif"><a href="{{url('/')}}"><span class="menu-text">Home</span></a>

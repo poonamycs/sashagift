@@ -87,14 +87,15 @@ class IndexController extends Controller
     {
         $id = decrypt($id);
         $product = Product::where('id',$id)->first();
+        $product_imgs = ProductsImage::where('product_id',$product->id)->get();
         $meta_title = config('app.name');
-        return view('product_detail',compact('meta_title','product'));
+        return view('product_detail',compact('meta_title','product','product_imgs'));
     }
 
     public function nuhas()
     {
         $meta_title = config('app.name');
-        $products = Product::where('category_id','1')->paginate(12);
+        $products = Product::where('category_id','1')->paginate(8);
         return view('nuhas',compact('meta_title','products'));
     }
     public function nuhas_detail($id = null)

@@ -44,7 +44,7 @@
                                         <h5 class="title"><a href="{{url('/blog_detail/'.encrypt($blog->id))}}">{{$blog->name}}</a></h5>
                                         <div class="desc">
                                         <p>
-                                        {{ \Illuminate\Support\Str::limit($blog->content, $limit = 250, $end = '...') }}
+                                        {!! \Illuminate\Support\Str::limit($blog->content, $limit = 250, $end = '...') !!}
                                         </p>                               
                                             </div>
                                         <a href="{{url('/blog_detail/'.encrypt($blog->id))}}" class="link">Read More</a>

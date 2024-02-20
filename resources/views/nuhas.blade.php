@@ -3,7 +3,14 @@
 
 @section('styles')
 <style>
-
+.pagination .page-item.active .page-link {
+        background-color: #fbcdab; 
+        border-color: #d0caca; 
+    }
+    /* .pagination .page-item.active .page-link:hover {
+        background-color: #0056b3; 
+        border-color: #0056b3; 
+    } */
 </style>
 @endsection('styles')
 @php
@@ -46,8 +53,8 @@
                             @if($product->product->category_id == '1')
                             <div class="col learts-mb-40">
                                 <div class="category-banner4">
-                                    <a href="{{url('/nuhas_detail')}}" class="inner">
-                                        <div class="image"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->product->image) }}" alt=""></div>
+                                    <a href="{{url('/product_detail/'.encrypt($product->id))}}" class="inner">
+                                        <div class="image"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->product->image) }}" alt="" style="min-height:350px!important; object-fit:cover!important;"></div>
                                         <div class="content" data-bg-color="#f4ede7">
                                             <h3 class="title">{{$product->product->product_name}}</h3>
                                         </div>
@@ -69,8 +76,8 @@
                 @foreach($products as $product)
                     <div class="col learts-mb-40">
                         <div class="category-banner4">
-                            <a href="{{url('/nuhas_detail')}}" class="inner">
-                                <div class="image"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt=""></div>
+                            <a href="{{url('/nuhas_detail/'.encrypt($product->id))}}" class="inner">
+                                <div class="image"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt="" style="min-height:350px; object-fit:cover;"></div>
                                 <div class="content" data-bg-color="#f4ede7">
                                     <h3 class="title">{{$product->product_name}}</h3>
                                 </div>
@@ -78,10 +85,18 @@
                         </div>
                     </div>
                 @endforeach
-                {{ $products->links() }}
-                @endif
+               
                 
             </div>
+             <!-- {{ $products->links() }} -->
+             <div class="">
+                <nav class="justify-content-center d-flex pt-5">
+                    <ul class="pagination">
+                        {{$products->links('pagination::bootstrap-4')}}
+                    </ul>
+                </nav>
+                </div>
+                @endif
             
         </div>
     </div>
