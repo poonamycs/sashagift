@@ -119,11 +119,9 @@ $rootUrl = url('/');
                                         <ul class="sub-menu mega-menu">
                                             <?php $chunks = $vendornproduct->chunk(7);?>
                                             @foreach($chunks as $nproduct)
-                                            
                                                 <li>
                                                     <ul>   
                                                         @foreach($nproduct as $nuhas)
-                                                        
                                                             <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->product->id))}}"><span class="menu-text">{{$nuhas->product->product_name}}</span></a></li>
                                                         @endforeach
                                                     </ul>
@@ -318,13 +316,15 @@ $rootUrl = url('/');
             <!-- Header Tools Start -->
             <div class="col-auto">
                 <div class="header-tools justify-content-end">
-                <div class="header-login  d-none d-sm-block">
-                        <a href="{{url('/')}}"><i class="fa fa-power-off"></i></a>
-                    </div>
-                    <div class="header-login d-none d-sm-block">
-                        <a href="{{url('/user_login')}}"><i class="far fa-user"></i></a>
-                    </div>
-
+                    @if($user != null)
+                        <div class="header-login d-none d-sm-block">
+                            <a href="{{url('user/logout')}}"><i class="fa fa-power-off"></i></a>
+                        </div>
+                    @else
+                        <div class="header-login d-none d-sm-block">
+                            <a href="{{url('/user_login')}}"><i class="far fa-user"></i></a>
+                        </div>
+                    @endif
                     <div class="header-search d-none d-sm-block d-xl-none">
                         <a href="#offcanvas-search" class="offcanvas-toggle"><i class="fas fa-search"></i></a>
                     </div>
@@ -548,13 +548,14 @@ $rootUrl = url('/');
             <div class="row">
                 <div class=" col-12 mx-auto">
                     <div class="contact-form">
-                        <form action="" id="contact-form" method="post">
+                        <form action="{{ route('contact.store') }}" id="contactPage" method="post">
+                            @csrf
                             <div class="row learts-mb-n30">
                                 <div class="col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
                                 <!-- <div class="col-12 text-center learts-mb-30"><button class="btn btn-dark btn-outline-hover-dark">Submit</button></div> -->
-                                <div class="col-12 text-center learts-mb-30"> <button class="hexa">Submit </button></div>
+                                <div class="col-12 text-center learts-mb-30"> <button type="submit" class="hexa">Submit </button></div>
 
                             </div>
                         </form>
@@ -643,13 +644,15 @@ $rootUrl = url('/');
         </div>
         <div class="offcanvas-buttons">
             <div class="header-tools">
-            <div class="header-login ">
-                        <a href="{{url('/')}}"><i class="fa fa-power-off"></i></a>
+                @if($user != null)
+                    <div class="header-login ">
+                            <a href="{{url('user/logout')}}"><i class="fa fa-power-off"></i></a>
                     </div>
-                <div class="header-login">
-                    <a href="{{url('/user_login')}}"><i class="far fa-user"></i></a>
-                </div>
-
+                @else
+                    <div class="header-login">
+                        <a href="{{url('/user_login')}}"><i class="far fa-user"></i></a>
+                    </div>
+                @endif
                 <div class="header-cart">
                     <a href="shopping-cart.html"><i class="fa fa-envelope-o" ></i></a>
                 </div>

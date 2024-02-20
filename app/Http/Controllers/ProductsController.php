@@ -54,7 +54,7 @@ class ProductsController extends Controller
     		$product->product_code = $data['product_code'];
             $product->email = $data['email'];
             $product->admin_approved = $data['admin_approved'];
-            $product->unit = $data['unit'];
+            // $product->unit = $data['unit'];
 
     		if(!empty($data['product_brand'])){
                 $product->product_brand = $data['product_brand'];

@@ -49,7 +49,7 @@
                   <td style="text-align: center;">{{ $blog->id }}</td>
                   <td style="text-align: center;">{{ $blog->name }}</td>
                   {{-- <td style="text-align: center;">{{ $blog->position }}</td> --}}
-                  <td style="text-align: center;width: 50%;"><?php $review = Str::limit($blog->content, 200); echo $review; ?></td>
+                  <td style="text-align: center;width: 50%;"><?php $review = Str::limit($blog->content, 150); echo $review; ?></td>
                   <td style="text-align: center;">
                     @if(!empty($blog->image))
                     <img src="{{ asset('assets/admin/images/backend_images/blog/'.$blog->image) }}" style="height: 50px;border-radius: 50%;">

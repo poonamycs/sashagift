@@ -62,10 +62,12 @@ class IndexController extends Controller
         $meta_title = config('app.name');
         return view('blog',compact('meta_title','blogs'));
     }
-    public function blog_detail()
+    public function blog_detail($id = null)
     {
+        $id = decrypt($id);
+        $blog = Blog::where('id',$id)->where('status',1)->first();
         $meta_title = config('app.name');
-        return view('blog_detail',compact('meta_title'));
+        return view('blog_detail',compact('meta_title','blog'));
     }
     public function vender_plisting(Request $request){
         $meta_title = 'Product Listing Page';

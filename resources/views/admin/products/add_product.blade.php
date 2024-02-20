@@ -60,31 +60,31 @@
                   <textarea name="description" id="description" rows="8" class="span7"></textarea>
                 </div>
               </div>
-              <div class="control-group">
+              <!-- <div class="control-group">
                 <label class="control-label">Additional Information : </label>
                 <div class="controls">
                   <textarea name="care" id="care" rows="6" class="span7"></textarea>
                 </div>
-              </div>
+              </div> -->
               <div class="control-group">
                 <label class="control-label">Original Price (₹) : </label>
                 <div class="controls">
                   <input type="text" name="price" id="price" placeholder="₹" class="span7">
                 </div>
               </div>
-              <div class="control-group">
+              <!-- <div class="control-group">
                 <label class="control-label">Strikethrough Price (₹) : </label>
                 <div class="controls">
                   <input type="text" name="discount" id="discount" placeholder="₹" class="span7"><br>
                   <small>Discount price should be greater than original price</small>
                 </div>
-              </div>
-              <div class="control-group">
+              </div> -->
+              <!-- <div class="control-group">
                 <label class="control-label">Unit : </label>
                 <div class="controls">
                   <input type="text" name="unit" id="unit" class="span7">
                 </div>
-              </div>
+              </div> -->
               <div class="control-group">
                 <label class="control-label">Image : </label>
                 <div class="controls">

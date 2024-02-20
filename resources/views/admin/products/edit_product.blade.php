@@ -62,31 +62,31 @@
                   <textarea name="description" id="description" class="textarea_editor" rows="8" style="width: 65%">{{ $productDetails->description }}</textarea>
                 </div>
               </div>
-              <div class="control-group">
+              <!-- <div class="control-group">
                 <label class="control-label">Additional Information : </label>
                 <div class="controls">
                   <textarea name="care" id="care" class="textarea_editor1" rows="6" style="width: 65%">{{ $productDetails->care }}</textarea>
                 </div>
-              </div>
+              </div> -->
               <div class="control-group">
                 <label class="control-label">Price (₹) : </label>
                 <div class="controls">
                   <input type="text" name="price" id="price" value="{{ $productDetails->price }}" style="width: 65%">
                 </div>
               </div>
-              <div class="control-group">
+              <!-- <div class="control-group">
                 <label class="control-label">Strikethrough Price (₹) : </label>
                 <div class="controls">
                   <input type="text" name="discount" id="discount" value="{{ $productDetails->discount }}" class="span7"><br>
                   <small>Discount price should be greater than original price</small>
                 </div>
-              </div>
-              <div class="control-group">
+              </div> -->
+              <!-- <div class="control-group">
                 <label class="control-label">Unit : </label>
                 <div class="controls">
                   <input type="text" name="unit" id="unit" value="{{ $productDetails->unit }}" class="span7">
                 </div>
-              </div>
+              </div> -->
               <div class="control-group">
                 <label class="control-label">Image : </label>
                 <div class="controls">

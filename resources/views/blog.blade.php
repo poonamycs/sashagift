@@ -30,26 +30,24 @@
     <div class="section section-padding bg-white">
         <div class="container">
             <div class="row learts-mb-n50">
-
                 <div class="col-xl-9 col-lg-8 col-12 learts-mb-50">
                     <div class="row isotope-grid learts-mb-n40">
-
                         <div class="col-1 grid-sizer"></div>
                         @foreach($blogs as $blog)
                             <div class="grid-item col-md-6 col-12 learts-mb-40">
                                 <div class="blog">
                                     <div class="image">
-                                        <a href="{{url('/blog_detail/'.$blog->id)}}"><img src="{{ asset('assets/admin/images/backend_images/blog/'.$blog->image) }}" alt="Blog Image"></a>
+                                        <a href="{{url('/blog_detail/'.encrypt($blog->id))}}"><img src="{{ asset('assets/admin/images/backend_images/blog/'.$blog->image) }}" alt="Blog Image"></a>
                                     </div>
                                     <div class="content">
                                     
-                                        <h5 class="title"><a href="{{url('/blog_detail/'.$blog->id)}}">{{$blog->name}}</a></h5>
+                                        <h5 class="title"><a href="{{url('/blog_detail/'.encrypt($blog->id))}}">{{$blog->name}}</a></h5>
                                         <div class="desc">
                                         <p>
                                         {{ \Illuminate\Support\Str::limit($blog->content, $limit = 250, $end = '...') }}
                                         </p>                               
                                             </div>
-                                        <a href="{{url('/blog_detail/'.$blog->id)}}" class="link">Read More</a>
+                                        <a href="{{url('/blog_detail/'.encrypt($blog->id))}}" class="link">Read More</a>
                                     </div>
                                 </div>
                             </div>

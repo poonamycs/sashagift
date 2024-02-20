@@ -95,7 +95,7 @@
                         <p><b>Product Code :</b> {{ $product->product_code }}</p>
                         <p><b>Product Brand :</b> {{ $product->product_brand }}</p>
                         <p><b>Price :</b> ₹ {{ $product->price }}</p>
-                        <p><b>Additional Specs. :</b> <?php echo nl2br($product->care) ?></p>
+                        <!-- <p><b>Additional Specs. :</b> <?php echo nl2br($product->care) ?></p> -->
                         <p><b>Description :</b> <?php echo nl2br($product->description) ?></p>
                         <p><b>Created On :</b> {{ date('d M Y | h:i a', strtotime($product->created_at)) }}</p>
                         <p><b>Updated On :</b> {{ date('d M Y | h:i a', strtotime($product->updated_at)) }}</p>
