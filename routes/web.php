@@ -32,6 +32,7 @@ Route::get('/about', [IndexController::class, 'about'])->name('about');
 
 Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
 Route::Post('/contact/store',[IndexController::class, 'store'])->name('contact.store');
+Route::Post('/productenquiry',[IndexController::class, 'productenquiry']);
 
 Route::get('/blog', [IndexController::class, 'blog'])->name('blog');
 Route::get('/blog_detail/{id?}', [IndexController::class, 'blog_detail'])->name('blog_detail');
@@ -161,6 +162,8 @@ Route::group(['middleware' => ['admin']],function(){
 	Route::match(['get','post'],'/admin/view-enquiries/',[App\Http\Controllers\UsersController::class, 'viewEnquiries']);
 	Route::match(['get','post'],'/admin/delete-enquiry/{id}',[App\Http\Controllers\UsersController::class, 'deleteEnquiry']);
 
+	Route::match(['get','post'],'/admin/view-product-enquiries/',[App\Http\Controllers\UsersController::class, 'viewproductEnquiries']);
+	Route::match(['get','post'],'/admin/delete-enquiry-product/{id}',[App\Http\Controllers\UsersController::class, 'deleteproductEnquiry']);
 	// view about
 	Route::match(['get','post'],'/admin/about/',[App\Http\Controllers\AdminController::class, 'about']);
 	Route::match(['get','post'],'/admin/delete-about-image/{id}',[App\Http\Controllers\AdminController::class, 'deleteAboutImage']);

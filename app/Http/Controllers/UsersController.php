@@ -16,6 +16,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Str;
 use carbon\carbon;
 use App\Models\Contact;
+use App\Models\Enquiry;
 use App\Models\Category;
 use App\Models\Order;
 
@@ -278,6 +279,15 @@ class UsersController extends Controller
 
     public function deleteEnquiry($id){
         Contact::where('id',$id)->delete();
+        return redirect()->back()->with('flash_message_success','Enquiry deleted.');
+    }
+    public function viewproductEnquiries(){
+        $allEnquiries = Enquiry::orderBy('id','DESC')->get();
+        return view('admin.users.view_product_enquiries')->with(compact('allEnquiries'));
+    }
+
+    public function deleteproductEnquiry($id){
+        Enquiry::where('id',$id)->delete();
         return redirect()->back()->with('flash_message_success','Enquiry deleted.');
     }
 

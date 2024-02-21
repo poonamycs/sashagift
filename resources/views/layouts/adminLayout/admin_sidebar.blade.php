@@ -110,6 +110,14 @@
         @endif
 
         @if($auth->vname == 'Superadmin')
+        <li class="submenu"> <a href="#"><i class="fa fa-question-circle"></i> <span>Product Enquiries/Feedback</span> <span class="label label-important"></span> </a>
+            <ul <?php if(preg_match("/product-enquiries/i", $url)){ ?> style="display: block;" <?php } ?>>
+                <li <?php if(preg_match("/view-product-enquiries/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/view-product-enquiries')}}"><i class="fa fa-arrow-right"></i> View Product Enquiries</a></li>
+            </ul>
+        </li>
+        @endif
+
+        @if($auth->vname == 'Superadmin')
         <li class="submenu"> <a href="#"><i class="fa fa-question-circle"></i> <span>Enquiries/Feedback</span> <span class="label label-important"> <?php echo $contacts ?> </span> </a>
             <ul <?php if(preg_match("/enquiries/i", $url)){ ?> style="display: block;" <?php } ?>>
                 <li <?php if(preg_match("/view-enquiries/i", $url)){ ?> class="active" <?php } ?>><a href="{{url('/admin/view-enquiries')}}"><i class="fa fa-arrow-right"></i> View Enquiries</a></li>

@@ -52,6 +52,10 @@ class Product extends Model
     {
         return $this->hasMany(VendorProduct::class);
     }
+    public function enquiryproduct()
+    {
+        return $this->hasMany(Enquiry::class);
+    }
     public function category()
     {
         return $this->belongsTo(Category::class);

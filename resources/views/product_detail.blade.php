@@ -7,88 +7,6 @@
 </style>
 @endsection('styles')
 
- 
-    <!-- Single Products Section Start -->
-    <!-- <div class="section section-padding border-bottom">
-        <div class="container">
-            <div class="row learts-mb-n40">
-         
-
-                <div class="col-lg-5 col-12 learts-mb-40">
-                    <div class="product-images">
-                      
-                        <div class="product-gallery-slider">
-
-                            <div class="product-zoom" data-image="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}">
-                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt="">
-                            </div>
-                           
-                           
-                        </div>
-                        <div class="product-thumb-slider">
-                            <div class="item">
-                                <img src="assets/images/product/utility/extra-05259461.png" alt="">
-                            </div>
-                            <div class="item">
-                                <img src="assets/images/product/utility/hand_bag.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img src="assets/images/product/utility/metal_box.jpg" alt="">
-                            </div>
-                          
-                        </div>
-                    </div>
-                </div>
-         
-<div class="col-lg-1"></div>
-
-                <div class="col-lg-6   col-12 learts-mb-40">
-                    <div class="product-summery">
-                       
-                       
-                        <h3 class="product-title">{{$product->product_name}}</h3>
-                        <div class="product-description">
-                            <p>{{$product->description}}</p>
-                        </div>
-                       
-                        <div class="product-buttons">
-                           
-                            <div class="col-12 text-center learts-mb-30"><a href="{{ url('/contact') }}" class="btn btn-md  btn-outline-secondary">Send Enquiry</a></div>
-
-                        </div>
-                        
-                        <div class="product-meta">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="label"><span>SKU</span></td>
-                                        <td class="value">{{$product->product_code}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label"><span>Category</span></td>
-                                        <td class="value">
-                                            <ul class="product-category">
-                                                <li><a href="#">{{$product->category->name}}</a></li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                    
-                                   
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-              
-<div class="col-lg-1"></div>
-            </div>
-        </div>
-
-    </div> -->
-
-
-  
-
     <div class="section section-fluid section-padding border-bottom">
         <div class="container">
             <div class="row learts-mb-n40">
@@ -107,18 +25,6 @@
                                 <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}" alt="">
                             </div>
                             @endforeach
-                            <!-- <div class="product-zoom" data-image="assets/images/nuhas/n2.jpg">
-                                <img src="assets/images/nuhas/n2.jpg" alt="">
-                            </div>
-                            <div class="product-zoom" data-image="assets/images/nuhas/7.jpeg">
-                                <img src="assets/images/nuhas/7.jpeg" alt="">
-                            </div>
-                            <div class="product-zoom" data-image="assets/images/product/single/2/product-zoom-4.webp">
-                                <img src="assets/images/product/single/2/product-4.webp" alt="">
-                            </div>
-                            <div class="product-zoom" data-image="assets/images/product/single/2/product-zoom-5.webp">
-                                <img src="assets/images/product/single/2/product-5.webp" alt="">
-                            </div> -->
                         </div>
                         <div class="product-thumb-slider-vertical">
                             <div class="item">
@@ -129,18 +35,7 @@
                                 <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}" alt="">
                             </div>
                             @endforeach
-                            <!-- <div class="item">
-                                <img src="assets/images/nuhas/n2.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img src="assets/images/nuhas/7.jpeg" alt="">
-                            </div>
-                            <div class="item">
-                                <img src="assets/images/product/single/2/product-thumb-4.webp" alt="">
-                            </div>
-                            <div class="item">
-                                <img src="assets/images/product/single/2/product-thumb-5.webp" alt="">
-                            </div> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -203,7 +98,7 @@
                                             <!-- <div class="heading-border fs-4 mb-3 px-3 fw-light">Enquire Now</div> -->
                                         </div>
                                         <form action="{{url('productenquiry')}}" method="Post" id="contactmodal">@csrf
-                                            <input type="hidden" name="item_id" id="item">
+                                            <input type="hidden" name="product_id" id="{{$product->id}}">
                                             <div class="row learts-mb-n30">
                                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text"
                                                         placeholder="Your Name *" name="name"></div>

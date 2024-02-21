@@ -168,7 +168,7 @@
 
                                     <div class="col-sm-12 p-4">
                                         <div class="text-start d-flex justify-content-between">
-                                            <h3 class="  text-center">Enquire Now</h3>
+                                            <h3 class="text-center">Enquire Now</h3>
                                             <button type="button" data-bs-dismiss="modal"
                                                 class="bg-light border-0"><span
                                                     class="fa fa-times-circle"></span></button>
@@ -176,7 +176,8 @@
                                             <!-- <div class="heading-border fs-4 mb-3 px-3 fw-light">Enquire Now</div> -->
                                         </div>
                                         <form action="{{url('productenquiry')}}" method="Post" id="contactmodal">@csrf
-                                            <input type="hidden" name="item_id" id="item">
+                                            
+                                            <input type="hidden" name="product_id" value="{{$product->id}}">
                                             <div class="row learts-mb-n30">
                                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text"
                                                         placeholder="Your Name *" name="name"></div>

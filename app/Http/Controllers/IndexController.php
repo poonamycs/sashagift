@@ -14,6 +14,7 @@ use App\Models\About;
 use App\Models\Industry;
 use App\Models\ContactDetail;
 use App\Models\Contact;
+use App\Models\Enquiry;
 use App\Models\Testimonial;
 use App\Models\Category;
 use App\Models\Product;
@@ -55,7 +56,17 @@ class IndexController extends Controller
         $contact->save();
         return redirect()->back()->with('flash_message_error','We will response you shortly');
     }
-
+    public function productenquiry(Request $request)
+    {
+        $enquiry = new Enquiry;
+        $enquiry->product_id = $request->product_id;
+        $enquiry->name = $request->name;
+        $enquiry->phone = $request->phone;
+        $enquiry->email = $request->email;
+        $enquiry->message = $request->message;
+        $enquiry->save();
+        return redirect()->back()->with('flash_message_error','We will response you shortly');
+    }
     public function blog()
     {
         $blogs = Blog::where('status',1)->get();
