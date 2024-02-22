@@ -1677,3 +1677,15 @@ div.dataTables_wrapper .ui-widget-header {
 .border{
 	border: 1px solid #ddd !important;
 }
+.adm_logo{
+	height: 64px;
+    padding-top: 5px;
+
+}
+
+@media only screen and (max-width: 900px) {
+	.adm_logo{
+		display: none;
+		
+		}
+  }

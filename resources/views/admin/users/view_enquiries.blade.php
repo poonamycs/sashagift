@@ -51,7 +51,7 @@
                   <td style="text-align:center;">{{ $enquiry->email }}</td>
                   <td style="text-align:center;">{{ $enquiry->mobile }}</td>
                   <td>{{ $enquiry->subject }}</td>
-                  <td>{{ $enquiry->comment }}</td>
+                  <td>{{ $enquiry->message }}</td>
 
                   <td style="text-align:center;">
                     <a href="{{ url('admin/delete-enquiry/'.$enquiry->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-mini">Delete</a>

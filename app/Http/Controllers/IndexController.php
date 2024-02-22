@@ -53,8 +53,9 @@ class IndexController extends Controller
         $contact->name = $request->name;
         $contact->email = $request->email;
         $contact->message = $request->message;
+        $contact->mobile = $request->mobile;
         $contact->save();
-        return redirect()->back()->with('flash_message_error','We will response you shortly');
+        return redirect()->back()->with('success_message','We will response you shortly');
     }
     public function productenquiry(Request $request)
     {

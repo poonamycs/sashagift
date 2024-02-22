@@ -5,7 +5,9 @@
 
 <!--Header-part-->
 <div id="header">
-	<h1><a href="{{ url('/admin/dashboard') }}">@if(session('adminSession')=='admin@gmail.com') Superadmin Panel | Veggi Mart @else Vendor admin Panel | Veggi Mart  @endif</a></h1>
+<img src="../assets/images/logo/sasha_logo.png" alt="" class="adm_logo">
+
+	<h1><a href="{{ url('/admin/dashboard') }}">@if(session('adminSession')=='admin@gmail.com') Superadmin Panel | Sasha @else Vendor admin Panel | Sasha  @endif</a></h1>
 </div>
 <!--close-Header-part--> 
 <?php date_default_timezone_set('Asia/Kolkata'); $date = date('D, dS M Y'); $time=date("h:i A"); ?>

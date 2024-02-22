@@ -156,7 +156,7 @@ $rootUrl = url('/');
                                 <li>
                                     <ul>
                                         
-                                        <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+                                        <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
 
                                     </ul>
                                 </li>
@@ -285,7 +285,7 @@ $rootUrl = url('/');
                                     <li>
                                         <ul>
                                             
-                                            <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+                                            <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
 
                                         </ul>
                                     </li>
@@ -547,12 +547,22 @@ $rootUrl = url('/');
 
             <div class="row">
                 <div class=" col-12 mx-auto">
+                @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">{{ $error }}</div>
+                    @endforeach
+                    @if (Session::has('success_message'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>{!! session('success_message') !!}</strong>
+                            <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="contact-form">
-                        <form action="{{ route('contact.store') }}" id="contactPage" method="post">
+                        <form action="{{ route('contact.store') }}" id="contactside" method="post">
                             @csrf
                             <div class="row learts-mb-n30">
                                 <div class="col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
+                                <div class="col-12 learts-mb-30"><input type="number" placeholder="Contact *" name="mobile"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
                                 <!-- <div class="col-12 text-center learts-mb-30"><button class="btn btn-dark btn-outline-hover-dark">Submit</button></div> -->
                                 <!-- <div class="col-12 text-center learts-mb-30"> <button type="submit" class="hexa">Submit </button></div> -->
@@ -630,7 +640,7 @@ $rootUrl = url('/');
                         <li>
                             <ul>
                                 
-                                <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+                                <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
 
                             </ul>
                         </li>
@@ -666,3 +676,66 @@ $rootUrl = url('/');
 <!-- OffCanvas Search End -->
 
 <div class="offcanvas-overlay"></div>
+
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.js'></script>
+    <script>
+        jQuery.validator.addMethod("lettersonly", function(value, element) {
+            return this.optional(element) || /^[a-zA-Z ]+$/i.test(value);
+        }, "Letters only please *");
+        $("#contactside").validate({
+            // errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            rules: {
+                name: {
+                    required: true,
+                    lettersonly: true,
+
+
+                },
+                email: {
+                    required: true,
+                },
+
+                message: {
+                    required: true,
+                },
+
+                subject: {
+                    required: true,
+                },
+
+                phone: {
+                    required: true,
+                    number: true,
+                    maxlength: 12,
+                    minlength: 10
+                },
+
+
+            },
+            messages: {
+
+                name: {
+                    required: "This field is required.",
+                },
+                email: {
+                    required: "This field is required.",
+                },
+                message: {
+                    required: "This field is required.",
+                },
+                phone: {
+                    required: "This field is required.",
+                    number: "Please enter valid number",
+                },
+
+            },
+            submitHandler: function(form) {
+                $(".cbtn").attr("disabled", true);
+                $(".cbtn").html("<i class='fa fa-spinner fa-spin'></i> Please wait...");
+                form.submit();
+            }
+        });
+    </script>

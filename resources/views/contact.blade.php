@@ -18,7 +18,6 @@
 </style>
 @endsection('styles')
 
-
     <!-- Page Title/Header Start -->
     <div class="page-title-section section" data-bg-image="assets/images/bg/page-title-1.webp">
         <div class="container">
@@ -39,8 +38,18 @@
     </div>
     <!-- Page Title/Header End -->
 
+    
     <!-- Contact Information & Map Section Start -->
     <div class="section section-padding bg-white">
+    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">{{ $error }}</div>
+                    @endforeach
+                    @if (Session::has('success_message'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>{!! session('success_message') !!}</strong>
+                            <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif  
         <div class="container">
             <!-- Section Title Start -->
             <div class="section-title2 text-center">
@@ -86,7 +95,7 @@
                 <h2 class="title">Send a message</h2>
             </div>
             <!-- Section Title End -->
-
+           
             <div class="row">
                 <div class="col-lg-8 col-12 mx-auto">
                     <div class="contact-form">
@@ -95,6 +104,7 @@
                             <div class="row learts-mb-n30">
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-md-6 col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
+                                <div class="col-md-6 col-12 learts-mb-30"><input type="number" placeholder="Contact *" name="mobile"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
                                 <div class="col-12 text-center learts-mb-30"> <button type="submit" class="btn btn-md  btn-outline-secondary"> Connect </button></div>
                             </div>

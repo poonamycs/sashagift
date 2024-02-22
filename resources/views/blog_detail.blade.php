@@ -14,7 +14,7 @@
 
 
 <!-- Single Blog Section Start -->
-<div class="section section-padding">
+<div class="section section-padding bg-white">
     <div class="container">
         <div class="row learts-mb-n50">
             <div class="col-xl-2 col-lg-2 col-12"></div>

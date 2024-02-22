@@ -45,17 +45,17 @@
         <div class="quick-actions_homepage">
             <ul class="quick-actions">
                 <li class="bg_lb" style="width: 48%;"> <a href="javascript:void(0)"> <i class="icon-dashboard"><b style="visibility: hidden;">Dashboard</b></i> My Dashboard </a></li>
-                <li class="bg_lb span3" style="width: 48%;"> <a href="javascript:void(0)"> <i class="icon-shopping-cart"><span style="font-weight: bold;margin-left: -25px;">₹&nbsp;<?php echo $sale; ?></span></i> Total Sale</a> </li>
-                <li class="bg_lk span6"> <a href="{{ url('/admin/view-all-orders') }}"> <i class="icon-bell-alt"> <?php echo $all_orders; ?></i> Total <br>Orders</a> </li>
+                <!-- <li class="bg_lb span3" style="width: 48%;"> <a href="javascript:void(0)"> <i class="icon-shopping-cart"><span style="font-weight: bold;margin-left: -25px;">₹&nbsp;<?php echo $sale; ?></span></i> Total Sale</a> </li> -->
+                <!-- <li class="bg_lk span6"> <a href="{{ url('/admin/view-all-orders') }}"> <i class="icon-bell-alt"> <?php echo $all_orders; ?></i> Total <br>Orders</a> </li>
                 <li class="bg_lk span6"> <a href="{{ url('/admin/view-new-orders') }}"> <i class="icon-list-ul"> <?php echo $new_orders; ?></i> New <br>Orders </a></li>
                 <li class="bg_lk span6"> <a href="{{ url('/admin/view-pending-orders') }}"> <i class="icon-list-ul"> <?php echo $pending_orders; ?></i> Pending <br>Orders </a> </li>
                 <li class="bg_lk span6"> <a href="{{ url('/admin/view-shipped-orders') }}"> <i class="icon-list-ul"> <?php echo $shipped_orders; ?></i> Shipped <br>Orders</a></li>
                 <li class="bg_lk span6"> <a href="{{ url('/admin/view-delivered-orders') }}"> <i class="icon-list-ul"> <?php echo $delivered_orders; ?></i> Delivered <br>Orders</a></li>  
-                <li class="bg_lk span6"> <a href="{{ url('/admin/view-cancel-orders') }}"> <i class="icon-remove-sign"> <?php echo $cancelled_orders; ?></i> Cancelled <br>Orders</a> </li>
+                <li class="bg_lk span6"> <a href="{{ url('/admin/view-cancel-orders') }}"> <i class="icon-remove-sign"> <?php echo $cancelled_orders; ?></i> Cancelled <br>Orders</a> </li> -->
             </ul>
         </div><hr/>
 
-        <div class="row-fluid">
+        <!-- <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
@@ -96,7 +96,7 @@
                                     <td class="text-center" style="color: red">Not Allocated</td>
                                     @endif
                                     <td class="text-center"> 
-                                        <!-- <a href="{{ url('/admin/view-order/'.$order->id) }}" class="btn btn-info btn-mini" title="Allocate Order"> Allocate</a> -->
+                                        <a href="{{ url('/admin/view-order/'.$order->id) }}" class="btn btn-info btn-mini" title="Allocate Order"> Allocate</a>
                                         <a href="{{ url('/admin/view-order/'.$order->id) }}" class="btn btn-primary btn-mini" title="View Order Details"> Details</a>
                                         <a href="{{ url('/admin/view-order-invoice/'.$order->id) }}" target="_blank" class="btn btn-success btn-mini" title="View Order Invoice">Invoice</a>
                                         <a href="{{ url('/admin/view-pdf-invoice/'.$order->id) }}" target="_blank" class="btn btn-warning btn-mini" title="Download PDF Invoice"><i class="fa fa-download"></i> PDF </a>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         @else
         <center><img src="{{ asset('images/frontend_images/veggimart.png') }}"></center>
         @endif

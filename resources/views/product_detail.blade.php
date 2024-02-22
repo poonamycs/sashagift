@@ -7,67 +7,73 @@
 </style>
 @endsection('styles')
 
-    <div class="section section-fluid section-padding border-bottom">
-        <div class="container">
-            <div class="row learts-mb-n40">
+<div class="section section-fluid section-padding border-bottom bg-white">
+    <div class="container">
+        <div class="row learts-mb-n40">
 
-                <!-- Product Images Start -->
-                <div class="col-lg-5 col-12 learts-mb-40">
-                    <div class="product-images vertical">
-                   
-                        <!-- <a href="https://www.youtube.com/watch?v=1jSsy7DtYgc" class="product-video-popup video-popup hintT-left" data-hint="Click to see video"><i class="fas fa-play"></i></a> -->
-                        <div class="product-gallery-slider">
-                            <div class="product-zoom" data-image="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}">
-                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt="">
-                            </div>
-                            @foreach($product_imgs as $product_img)
-                            <div class="product-zoom" data-image="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}">
-                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}" alt="">
-                            </div>
-                            @endforeach
+            <!-- Product Images Start -->
+            <div class="col-lg-5 col-12 learts-mb-40">
+                <div class="product-images vertical">
+
+                    <!-- <a href="https://www.youtube.com/watch?v=1jSsy7DtYgc" class="product-video-popup video-popup hintT-left" data-hint="Click to see video"><i class="fas fa-play"></i></a> -->
+                    <div class="product-gallery-slider">
+                        <div class="product-zoom"
+                            data-image="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}">
+                            <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}"
+                                alt="">
                         </div>
-                        <div class="product-thumb-slider-vertical">
-                            <div class="item">
-                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}" alt="">
-                            </div>
-                            @foreach($product_imgs as $product_img)
-                            <div class="item">
-                                <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}" alt="">
-                            </div>
-                            @endforeach
-                            
+                        @foreach($product_imgs as $product_img)
+                        <div class="product-zoom"
+                            data-image="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}">
+                            <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}"
+                                alt="">
                         </div>
+                        @endforeach
+                    </div>
+                    <div class="product-thumb-slider-vertical">
+                        <div class="item">
+                            <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->image) }}"
+                                alt="">
+                        </div>
+                        @foreach($product_imgs as $product_img)
+                        <div class="item">
+                            <img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product_img->image) }}"
+                                alt="">
+                        </div>
+                        @endforeach
+
                     </div>
                 </div>
-                <!-- Product Images End -->
-<div class="col-lg-1"></div>
-                <!-- Product Summery Start -->
-                <div class="col-lg-6 col-12 learts-mb-40">
-                    <div class="product-summery product-summery-center">
-                       
-                       
-                        <h3 class="product-title">{{$product->product_name}}</h3>
-                
-                        <div class="product-description">
-                            <p>{{$product->description}}</p>
-                        </div>
-                        
-                        <!-- <div class="col-12 text-center learts-mb-30"> <button class="hexa"><a href="/contact" class="">Send Enquiry</a> </button></div> -->
-                        <div class="col-auto learts-mb-20"><a class="btn btn-md  btn-outline-secondary"
-                            data-bs-toggle="modal" data-bs-target="#indexModel">Send Enquiry</a></div>
-                        
-                    </div>
-                </div>
-                <!-- Product Summery End -->
-
             </div>
-        </div>
+            <!-- Product Images End -->
+            <div class="col-lg-1"></div>
+            <!-- Product Summery Start -->
+            <div class="col-lg-6 col-12 learts-mb-40">
+                <div class="product-summery product-summery-center">
 
+
+                    <h3 class="product-title">{{$product->product_name}}</h3>
+
+                    <div class="product-description">
+                        <p>{{$product->description}}</p>
+                    </div>
+
+                    <!-- <div class="col-12 text-center learts-mb-30"> <button class="hexa"><a href="/contact" class="">Send Enquiry</a> </button></div> -->
+                    <div class="col-auto learts-mb-20"><a class="btn btn-md  btn-outline-secondary"
+                            data-bs-toggle="modal" data-bs-target="#indexModel">Send Enquiry</a></div>
+
+                </div>
+            </div>
+            <!-- Product Summery End -->
+
+        </div>
     </div>
 
+</div>
 
 
-    <div class="modal fade" id="indexModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+
+<div class="modal fade" id="indexModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
@@ -109,7 +115,7 @@
                                                 <div class="col-12 learts-mb-50"><textarea name="message"
                                                         placeholder="Message"></textarea></div>
 
-                                            </div>  
+                                            </div>
 
                                             <div class="d-flex justify-content-end">
 
