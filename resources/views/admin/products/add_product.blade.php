@@ -105,7 +105,13 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="alert alert-info">Click the checkbox to publish product on website.</span>
                 </div>
               </div>
-
+              <div class="control-group">
+                <label class="control-label">Vendor product : </label>
+                <div class="controls">
+                  <input type="checkbox" name="vendor_product" id="vendor_product" class="btn btn-success" value="1">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="alert alert-info">Click the checkbox to publish product for vendor only.</span>
+                </div>
+              </div>
               <input type="hidden" name="admin_approved" value="1">
               
             <div class="control-group">

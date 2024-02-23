@@ -119,12 +119,15 @@ $rootUrl = url('/');
                                         <!-- <ul class="sub-menu mega-menu"> -->
                                             <?php $chunks = $vendornproduct->chunk(7);?>
                                             @foreach($chunks as $nproduct)
-                                                <ul class="sub-menu mega-menu">
+                                                <!-- <li>
+                                                    <ul>    -->
+                                                    <ul class="sub-menu mega-menu">
                                                         @foreach($nproduct as $nuhas)
                                                             <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->product->id))}}"><span class="menu-text">{{$nuhas->product->product_name}}</span></a></li>
                                                         @endforeach
-                                                    </ul>
-                                                <!-- </li> -->
+                        </ul>
+                                                    <!-- </ul>
+                                                </li> -->
                                             @endforeach
                                             
                                             <!-- <li>
@@ -155,7 +158,7 @@ $rootUrl = url('/');
                                 <li>
                                     <ul>
                                         
-                                        <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
+                                        <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
 
                                     </ul>
                                 </li>
@@ -249,6 +252,7 @@ $rootUrl = url('/');
                                 
                                     @php
                                         $products = App\Models\Product::where('category_id',$category->id)->where('status','=','1')->where('vendor_product','=','0')->get();
+                                        
                                     @endphp
                                     <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}"><span
                                                 class="menu-text">{{$category->name}}</span></a>
@@ -266,8 +270,7 @@ $rootUrl = url('/');
                                 
                             </ul>
                         </li>
-                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get();
-                          ?>
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get(); ?>
                        
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
                                 <ul class="sub-menu mega-menu">
@@ -285,7 +288,7 @@ $rootUrl = url('/');
                                     <li>
                                         <ul>
                                             
-                                            <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
+                                            <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
 
                                         </ul>
                                     </li>
@@ -547,22 +550,12 @@ $rootUrl = url('/');
 
             <div class="row">
                 <div class=" col-12 mx-auto">
-                @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger">{{ $error }}</div>
-                    @endforeach
-                    @if (Session::has('success_message'))
-                        <div class="alert alert-success" role="alert">
-                            <strong>{!! session('success_message') !!}</strong>
-                            <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
                     <div class="contact-form">
-                        <form action="{{ route('contact.store') }}" id="contactside" method="post">
+                        <form action="{{ route('contact.store') }}" id="contactPage" method="post">
                             @csrf
                             <div class="row learts-mb-n30">
                                 <div class="col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
-                                <div class="col-12 learts-mb-30"><input type="number" placeholder="Contact *" name="mobile"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
                                 <!-- <div class="col-12 text-center learts-mb-30"><button class="btn btn-dark btn-outline-hover-dark">Submit</button></div> -->
                                 <!-- <div class="col-12 text-center learts-mb-30"> <button type="submit" class="hexa">Submit </button></div> -->
@@ -640,7 +633,7 @@ $rootUrl = url('/');
                         <li>
                             <ul>
                                 
-                                <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
+                                <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
 
                             </ul>
                         </li>
@@ -676,66 +669,3 @@ $rootUrl = url('/');
 <!-- OffCanvas Search End -->
 
 <div class="offcanvas-overlay"></div>
-
-
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-    <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.js'></script>
-    <script>
-        jQuery.validator.addMethod("lettersonly", function(value, element) {
-            return this.optional(element) || /^[a-zA-Z ]+$/i.test(value);
-        }, "Letters only please *");
-        $("#contactside").validate({
-            // errorPlacement: function errorPlacement(error, element) { element.before(error); },
-            rules: {
-                name: {
-                    required: true,
-                    lettersonly: true,
-
-
-                },
-                email: {
-                    required: true,
-                },
-
-                message: {
-                    required: true,
-                },
-
-                subject: {
-                    required: true,
-                },
-
-                phone: {
-                    required: true,
-                    number: true,
-                    maxlength: 12,
-                    minlength: 10
-                },
-
-
-            },
-            messages: {
-
-                name: {
-                    required: "This field is required.",
-                },
-                email: {
-                    required: "This field is required.",
-                },
-                message: {
-                    required: "This field is required.",
-                },
-                phone: {
-                    required: "This field is required.",
-                    number: "Please enter valid number",
-                },
-
-            },
-            submitHandler: function(form) {
-                $(".cbtn").attr("disabled", true);
-                $(".cbtn").html("<i class='fa fa-spinner fa-spin'></i> Please wait...");
-                form.submit();
-            }
-        });
-    </script>

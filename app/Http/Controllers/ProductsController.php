@@ -115,9 +115,14 @@ class ProductsController extends Controller
             }else{
                 $featured = 1;  
             }
-
+            if(empty($data['vendor_product'])){
+                $vendor_product = 0;                
+            }else{
+                $vendor_product = 1;  
+            }
     		$product->status = $status;
             $product->featured = $featured;
+            $product->vendor_product = $vendor_product;
             $product->save();
     		return redirect('/admin/view-all-products')->with('flash_message_success','Product has been Added Successfully');  		
     	}
