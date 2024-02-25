@@ -9,6 +9,7 @@ use App\Models\Trustedby;
 use App\Models\Admin;
 use App\Models\VendorProduct;
 use App\Models\Brand;
+use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\About;
 use App\Models\Industry;
@@ -29,7 +30,8 @@ class IndexController extends Controller
         $brands = Brand::where('status','=',1)->get();
         $testimonials = Testimonial::where('status','=',1)->get();
         $categories = Category::where('status','=',1)->where('id','!=',1)->get();
-        return view('index',compact('meta_title','trustedby','brands','testimonials','categories'));
+        $banners = Banner::where('status','=',1)->get();
+        return view('index',compact('meta_title','trustedby','brands','testimonials','categories','banners'));
     }
 
 

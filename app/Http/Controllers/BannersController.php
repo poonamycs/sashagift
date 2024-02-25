@@ -88,7 +88,7 @@ class BannersController extends Controller
     			if($image_tmp->isValid()){
     				$extension = $image_tmp->getClientOriginalExtension();
     				$filename = rand(111,99999).'.'.$extension;
-    				$banner_path = 'images/frontend_images/banners/'.$filename;
+    				$banner_path = 'assets/admin/images/frontend_images/banners/'.$filename;
 
     				// Resizes image
     				Image::make($image_tmp)->resize(1350,400)->save($banner_path);
