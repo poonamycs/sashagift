@@ -19,7 +19,7 @@ class BannersController extends Controller
     		// echo "<pre>"; print_r($data); die;
     		$banner = new Banner;
     		$banner->title = $data['title'];
-
+            $banner->description = $data['description'];
     		if(empty($data['link'])){
     			$link = '#';
     		}else{
@@ -77,7 +77,9 @@ class BannersController extends Controller
             if(empty($data['title'])){
                 $data['title']='';
             }
-
+            if(empty($data['description'])){
+                $data['description']='';
+            }
             // Upload Product image
     		if($request->hasFile('image')){
 
@@ -99,7 +101,7 @@ class BannersController extends Controller
                 $filename = '';
             }
 
-            Banner::where('id',$id)->update(['status'=>$status,'title'=>$data['title'],'link'=>$data['link'],'image'=>$filename]);
+            Banner::where('id',$id)->update(['status'=>$status,'title'=>$data['title'],'description'=>$data['description'],'link'=>$data['link'],'image'=>$filename]);
             return redirect()->back()->with('flash_message_success','Banner updated Successfully.');
     	}
     	$bannerDetails = Banner::where(['id'=>$id])->first();

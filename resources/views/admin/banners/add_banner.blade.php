@@ -1,5 +1,6 @@
 @extends('layouts.adminLayout.admin_design')
 @section('content')
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 
 <div id="content">
   <div id="content-header">
@@ -42,6 +43,12 @@
                 </div>
               </div>
               <div class="control-group">
+                <label class="control-label">Description : </label>
+                <div class="controls">
+                  <textarea name="description" id="body" class="textarea_editor" rows="5" style="width: 65%"></textarea>
+                </div>
+              </div>
+              <div class="control-group">
                 <label class="control-label">Link : </label>
                 <div class="controls">
                   <input type="text" name="link" id="link" style="width: 65%">
@@ -67,5 +74,11 @@
   </div>
 </div>
 
-
+<script>
+    ClassicEditor
+        .create(document.querySelector('#body'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 @endsection

@@ -31,8 +31,7 @@
                         data-bg-image="{{ asset('/assets/admin/images/frontend_images/banners/'.$banner->image) }}">
                         <div class="container">
                             <div class="home3-slide-content">
-                                <h5 class="sub-title">Curio Studio</h5>
-                                <h2 class="title">Nuhas, Feel of <br>real Craftmenship</h2>
+                                {!! $banner->description !!}
                                 <!-- <div class="link"></div> -->
                             <!-- <div class=""> <button class="border-0" data-bg-image="assets/images/sashabutton.png" style="height:40px;width:120px">     <a href="{{url('/contact')}}" class="">Connect</a> </button></div> -->
                             <!-- <button class="hexa"><a href="{{url('/contact')}}" class="">Connect</a> </button>                      -->
