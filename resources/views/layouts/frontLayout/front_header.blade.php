@@ -101,7 +101,7 @@ $rootUrl = url('/');
                             </ul>
                         </li>
 
-                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get();
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','0')->get();
                             if($user != null)
                             {
                                 $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
@@ -298,7 +298,7 @@ $rootUrl = url('/');
                             </ul>
                         </li>
 
-                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get();
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','0')->get();
                             if($user != null)
                             {
                                 $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
