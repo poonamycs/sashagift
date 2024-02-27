@@ -104,7 +104,7 @@
                                             <!-- <div class="heading-border fs-4 mb-3 px-3 fw-light">Enquire Now</div> -->
                                         </div>
                                         <form action="{{url('productenquiry')}}" method="Post" id="contactmodal">@csrf
-                                            <input type="hidden" name="product_id" id="{{$product->id}}">
+                                            <input type="hidden" name="product_id" value="{{$product->id}}">
                                             <div class="row learts-mb-n30">
                                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text"
                                                         placeholder="Your Name *" name="name"></div>
@@ -114,12 +114,8 @@
                                                         placeholder="Phone *" name="phone"></div>
                                                 <div class="col-12 learts-mb-50"><textarea name="message"
                                                         placeholder="Message"></textarea></div>
-
                                             </div>
-
                                             <div class="d-flex justify-content-end">
-
-
                                                 <button class="btn btn-md  btn-outline-secondary" id="submitButton"
                                                     type="submit"><span class="fa fa-check-circle"></span>
                                                     Submit</button>
