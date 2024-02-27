@@ -304,7 +304,7 @@ $rootUrl = url('/');
                             </ul>
                         </li>
 
-                        <?php $nuhas_products = App\Models\product::where('category_id',1)->where('vendor_product','=','0')->get();
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','0')->get();
                             if($user != null)
                             {
                                 $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','1')->get();
@@ -675,7 +675,13 @@ $rootUrl = url('/');
                 </li> -->
                 <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a href="{{url('/about')}}"><span class="menu-text">About</span></a>
                 </li>
-                  <li class="has-children"><a href="#"><span class="menu-text">Products</span></a>
+
+                <ul>
+                        <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a
+                                href="{{url('/about')}}"><span class="menu-text">About</span></a>
+
+                        </li>
+                        <li class="has-children"><a href="#"><span class="menu-text">Products</span></a>
                             <ul class="sub-menu">
                                 @foreach(get_all_menu_category() as $key => $category)
                              
@@ -683,16 +689,48 @@ $rootUrl = url('/');
                                     @php
                                         $products = App\Models\Product::where('category_id',$category->id)->where('status','=','1')->where('vendor_product','=','0')->get();
                                     @endphp
-                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}"><span
-                                                class="menu-text">{{$category->name}}</span></a>
-                                           
-                                            @if(!$products->isempty())
-                                            
-                                            <ul class="sub-menu">
-                                                @foreach($products as $product)
-                                                        <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
-                                                @endforeach
+                                    @php
+                                        $email = Session::get('vendorSession');
+                                        if($email != null)
+                                        {
+                                            $user = App\Models\Admin::where('email',$email)->first();
+                                            $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+                                        }
+                                        else
+                                        {
+                                            $user = null;
+                                        }
+                                    @endphp
+                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}">
+                                        <span class="menu-text">{{$category->name}}</span></a>
+                                            @if($user != null)
+                                                
+                                                @if(!$vendorproduct->isempty())
+                                                <ul class="sub-menu">
+                                                    @foreach($vendorproduct as $product)
+                                                        @if($product->product != null && $product->product->category_id != '1' && $product->product->category_id == $category->id)
+                                                        
+                                                            <li>
+                                                                <a href="{{url('/product_detail/'.encrypt($product->product->id))}}">
+                                                                    <span class="menu-text">{{$product->product->product_name}}</span>
+                                                                </a>
+                                                            </li>
+                                                        
+                                                        @endif
+                                                    @endforeach
                                                 </ul>
+                                                @else
+                                                    <span>No record Found</span>
+                                                @endif  
+                                               
+                                            @else
+                                            @if(!$products->isempty())
+                                                <ul class="sub-menu">
+                                                    @foreach($products as $product)
+                                                        <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
                                             @endif
                                     </li>
                                 @endforeach
@@ -700,29 +738,72 @@ $rootUrl = url('/');
                             </ul>
                         </li>
 
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','0')->get();
+                            if($user != null)
+                            {
+                                $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','1')->get();
+                               
+                                $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+                            }    
+                        ?>
+                       
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
-                    <ul class="sub-menu mega-menu">
-                        <?php $chunks = $nuhas_products->chunk(5); ?>
-                        @foreach($chunks as $nuhas_product)
-                            <li>
-                                <ul>   
-                                    @foreach($nuhas_product as $nuhas)
-                                        <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @endforeach
-                        
-                        <li>
-                            <ul>
-                                
-                                <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
+                            @if($user != null)  
+                                @if(!$nuhas_products->isempty())
+                                    @foreach($nuhas_products as $product)
+                                        @php 
+                                            $vendornproduct = App\Models\VendorProduct::where('product_id',$product->id)->where('vendor_id',$user->id)->get();
+                                        @endphp
+                                        <!-- <ul class="sub-menu mega-menu"> -->
+                                            <?php $chunks = $vendornproduct->chunk(7);?>
+                                            @foreach($chunks as $nproduct)
+                                                <ul class="sub-menu mega-menu">
+                                                        @foreach($nproduct as $nuhas)
+                                                            <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->product->id))}}"><span class="menu-text">{{$nuhas->product->product_name}}</span></a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                <!-- </li> -->
+                                            @endforeach
+                                            
+                                            <!-- <li>
+                                                <ul>
+                                                    
+                                                    <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
 
+                                                </ul>
+                                            </li> -->
+                                        <!-- </ul> -->
+                                        
+                                    @endforeach
+                                    @endif
+                                
+                            @else
+                            <ul class="sub-menu mega-menu">
+                                <?php $chunks = $nuhas_products->chunk(7); ?>
+                                @foreach($chunks as $nuhas_product)
+                                    <li>
+                                        <ul>   
+                                            @foreach($nuhas_product as $nuhas)
+                                                <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach
+                                
+                                <li>
+                                    <ul>
+                                        
+                                        <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
+
+                                    </ul>
+                                </li>
                             </ul>
+                            @endif
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-item @if(preg_match("/blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
+
+
+
+                                  <li class="nav-item @if(preg_match("/blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
 
                 </li>
                 <li class="nav-item @if(preg_match("/contact/i", $url)) active @endif"><a href="{{url('/contact')}}"><span class="menu-text">Connect</span></a>
