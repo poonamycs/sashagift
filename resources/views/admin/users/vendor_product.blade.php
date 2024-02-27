@@ -73,6 +73,7 @@
                             </thead>
                             <tbody>
                                 @foreach($vendor_products as $vendor)
+                                @if($vendor->product != null)
                                 <tr class="gradeX">
                                     
                                     <td>{{$vendor->product->product_name}}</td>
@@ -82,6 +83,7 @@
                                         <a onclick="return confirm('Are you sure you want to unassign this product?');" href="{{ url('/admin/delete-vendor-product/'.$vendor->id) }}" class="btn btn-danger btn-mini">Unassign</a>
                                     </td>
                                 </tr>
+                                @endif
                                 @endforeach                            
                             </tbody>
                         </table>

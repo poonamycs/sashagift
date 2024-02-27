@@ -9,7 +9,9 @@
   <div class="section section-fluid section-padding pt-50">
         <div class="container">
             <div class="row">
+                
                 @foreach($vendorproducts as $vendorproduct)
+                @if($vendorproduct->product != null)
                     <div class="col-lg-4 pb-5 ">
                         <div class="category-banner1">
                             <div class="inner">
@@ -23,6 +25,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             </div>
         </div>

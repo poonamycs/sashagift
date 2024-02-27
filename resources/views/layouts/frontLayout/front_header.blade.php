@@ -72,7 +72,7 @@ $rootUrl = url('/');
                                                 @if(!$vendorproduct->isempty())
                                                 <ul class="sub-menu">
                                                     @foreach($vendorproduct as $product)
-                                                        @if($product->product->category_id != '1' && $product->product->category_id == $category->id)
+                                                        @if($product->product != null && $product->product->category_id != '1' && $product->product->category_id == $category->id)
                                                         
                                                             <li>
                                                                 <a href="{{url('/product_detail/'.encrypt($product->product->id))}}">
@@ -274,7 +274,7 @@ $rootUrl = url('/');
                                                 @if(!$vendorproduct->isempty())
                                                 <ul class="sub-menu">
                                                     @foreach($vendorproduct as $product)
-                                                        @if($product->product->category_id != '1' && $product->product->category_id == $category->id)
+                                                        @if($product->product != null && $product->product->category_id != '1' && $product->product->category_id == $category->id)
                                                         
                                                             <li>
                                                                 <a href="{{url('/product_detail/'.encrypt($product->product->id))}}">
