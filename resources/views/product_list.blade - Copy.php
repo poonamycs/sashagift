@@ -121,7 +121,7 @@ ul {
                                             <div class="col learts-mb-30">
                                                 <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
                                                     <a href="{{url('/product_detail/'.encrypt($product->product->id))}}"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->product->image) }}"
-                                                        class="card-img-top rounded-0" alt="..." style="height:250px;"></a>
+                                                        class="card-img-top rounded-0 list_card" alt="..." style="height:250px;"></a>
                                                     <div class="card-body mt-1 mb-1">
                                                         <div class="row">
                                                             <a href="{{url('/product_detail/'.encrypt($product->product->id))}}"> <div class="col-12 d-flex justify-content-start align-items-center">

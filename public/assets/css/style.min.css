@@ -14469,3 +14469,6 @@ input::-webkit-inner-spin-button {
     .p-8{
         padding: 0px 0 8px;
     }
+    .list_card{
+        object-fit: cover;
+    }
