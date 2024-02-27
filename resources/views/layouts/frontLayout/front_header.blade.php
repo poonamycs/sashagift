@@ -83,8 +83,7 @@ $rootUrl = url('/');
                                                         @endif
                                                     @endforeach
                                                     </ul>
-                                                @else
-                                                    <span>No record Found</span>
+                                             
                                                 @endif  
                                                
                                             @else
