@@ -101,7 +101,7 @@ $rootUrl = url('/');
                             </ul>
                         </li>
 
-                        <?php $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','0')->get();
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get();
                             if($user != null)
                             {
                                 $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
@@ -113,7 +113,7 @@ $rootUrl = url('/');
                                 @if(!$nuhas_products->isempty())
                                     @foreach($nuhas_products as $product)
                                         @php 
-                                            $vendornproduct = App\Models\VendorProduct::where('product_id',$product->id)->where('vendor_id',$user->id)->get();
+                                            $vendornproduct = App\Models\VendorProduct::leftJoin('products', 'products.id' , 'vendorproducts.product_id', '=')->where('vendorproducts.product_id',$product->id)->where('vendorproducts.vendor_id',$user->id)->where('products.vendor_product','=','0')->get();
                                         @endphp
                                         <!-- <ul class="sub-menu mega-menu"> -->
                                             <?php $chunks = $vendornproduct->chunk(7);?>
@@ -298,7 +298,7 @@ $rootUrl = url('/');
                             </ul>
                         </li>
 
-                        <?php $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','0')->get();
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get();
                             if($user != null)
                             {
                                 $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
