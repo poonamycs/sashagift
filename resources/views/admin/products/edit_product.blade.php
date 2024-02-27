@@ -118,6 +118,13 @@
                 </div>
               </div>
               <div class="control-group">
+                <label class="control-label">Vendor product : </label>
+                <div class="controls">
+                  <input type="checkbox" name="vendor_product" id="vendor_product" class="btn btn-success" value="1">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="alert alert-info">Click the checkbox to publish product for vendor only.</span>
+                </div>
+              </div>
+              <div class="control-group">
                 <div class="form-actions" style="float: right;">
                   <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Update Product</button>
                 </div>

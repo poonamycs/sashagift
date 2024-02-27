@@ -197,14 +197,18 @@ class ProductsController extends Controller
             }else{
                 $status = 1;  
             }            
-
+            if(empty($data['vendor_product'])){
+                $vendor_product = 0;                
+            }else{
+                $vendor_product = 1;  
+            }
             if(empty($data['featured'])){
                 $featured = 0;                
             }else{
                 $featured = 1;  
             }
 
-    		Product::where(['id'=>$id])->update(['category_id'=>$data['category_id'],'product_name'=>$data['product_name'],'product_code'=>$data['product_code'],'product_brand'=>$data['product_brand'],'description'=>$data['description'],'care'=>$data['care'],'price'=>$data['price'],'discount'=>$data['discount'],'image'=>$filename,'featured'=>$featured,'status'=>$status,'unit'=>$data['unit']]);
+    		Product::where(['id'=>$id])->update(['category_id'=>$data['category_id'],'product_name'=>$data['product_name'],'product_code'=>$data['product_code'],'product_brand'=>$data['product_brand'],'description'=>$data['description'],'care'=>$data['care'],'price'=>$data['price'],'discount'=>$data['discount'],'image'=>$filename,'featured'=>$featured,'status'=>$status,'vendor_product'=>$vendor_product,'unit'=>$data['unit']]);
     		return redirect()->back()->with('flash_message_success','Product Updated Successfully!');
     	}
 
