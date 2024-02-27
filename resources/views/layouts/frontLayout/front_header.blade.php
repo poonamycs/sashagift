@@ -675,32 +675,27 @@ $rootUrl = url('/');
                 </li> -->
                 <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a href="{{url('/about')}}"><span class="menu-text">About</span></a>
                 </li>
-
-                <ul>
-                        <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a
-                                href="{{url('/about')}}"><span class="menu-text">About</span></a>
-
-                        </li>
-                        <li class="has-children"><a href="#"><span class="menu-text">Products</span></a>
+                
+                  <li class="has-children"><a href="#"><span class="menu-text">Products</span></a>
                             <ul class="sub-menu">
-                                @foreach(get_all_menu_category() as $key => $category)
+                            @foreach(get_all_menu_category() as $key => $category)
                              
                                 
-                                    @php
-                                        $products = App\Models\Product::where('category_id',$category->id)->where('status','=','1')->where('vendor_product','=','0')->get();
-                                    @endphp
-                                    @php
-                                        $email = Session::get('vendorSession');
-                                        if($email != null)
-                                        {
-                                            $user = App\Models\Admin::where('email',$email)->first();
-                                            $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
-                                        }
-                                        else
-                                        {
-                                            $user = null;
-                                        }
-                                    @endphp
+                                @php
+                                    $products = App\Models\Product::where('category_id',$category->id)->where('status','=','1')->where('vendor_product','=','0')->get();
+                                @endphp
+                                @php
+                                    $email = Session::get('vendorSession');
+                                    if($email != null)
+                                    {
+                                        $user = App\Models\Admin::where('email',$email)->first();
+                                        $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+                                    }
+                                    else
+                                    {
+                                        $user = null;
+                                    }
+                                @endphp
                                     <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}">
                                         <span class="menu-text">{{$category->name}}</span></a>
                                             @if($user != null)
@@ -737,7 +732,6 @@ $rootUrl = url('/');
                                 
                             </ul>
                         </li>
-
                         <?php $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','0')->get();
                             if($user != null)
                             {
@@ -746,7 +740,6 @@ $rootUrl = url('/');
                                 $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
                             }    
                         ?>
-                       
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
                             @if($user != null)  
                                 @if(!$nuhas_products->isempty())
@@ -800,10 +793,7 @@ $rootUrl = url('/');
                             </ul>
                             @endif
                         </li>
-
-
-
-                                  <li class="nav-item @if(preg_match("/blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
+                <li class="nav-item @if(preg_match("/blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
 
                 </li>
                 <li class="nav-item @if(preg_match("/contact/i", $url)) active @endif"><a href="{{url('/contact')}}"><span class="menu-text">Connect</span></a>
