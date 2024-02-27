@@ -106,7 +106,7 @@ $rootUrl = url('/');
                             if($user != null)
                             {
                                 $nuhas_products = App\Models\product::where('category_id',1)->where('status','=','1')->where('vendor_product','=','1')->get();
-                               
+                                
                                 $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
                             }    
                         ?>
@@ -114,9 +114,12 @@ $rootUrl = url('/');
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
                             @if($user != null)  
                                 @if(!$nuhas_products->isempty())
+                                    
                                     @foreach($nuhas_products as $product)
                                         @php 
+                                            
                                             $vendornproduct = App\Models\VendorProduct::where('product_id',$product->id)->where('vendor_id',$user->id)->get();
+                                            
                                         @endphp
                                         <!-- <ul class="sub-menu mega-menu"> -->
                                             <?php $chunks = $vendornproduct->chunk(7);?>
