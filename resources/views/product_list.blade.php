@@ -69,19 +69,21 @@ ul {
 
                         <div class="vertical-tabs pt-3 offcanvas-menu p-4">
                             @if($user != null)
-                            <ul class="sub-title utility">
-                                @if(!$vendorproduct->isempty())
-                                    @foreach($vendorproduct as $product)
-                                        @if($product->product->category_id != '1' && $product->product->category_id == $id)
-                                        <li class="has-children">
-                                            <a href="{{url('/product_detail/'.encrypt($product->product->id))}}" class="active"><span class="menu-text">{{$product->product->product_name}}</span></a>
-                                        </li>
-                                        @endif
-                                    @endforeach
-                                @else
-                                <span>No record Found</span>
-                                @endif  
-                            </ul>
+                                <ul class="sub-title utility">
+                                    @if(!$vendorproduct->isempty())
+                                        @foreach($vendorproduct as $product)
+                                        @if($product->product != null)
+                                            @if($product->product->category_id != '1' && $product->product->category_id == $id)
+                                            <li class="has-children">
+                                                <a href="{{url('/product_detail/'.encrypt($product->product->id))}}" class="active"><span class="menu-text">{{$product->product->product_name}}</span></a>
+                                            </li>
+                                            @endif
+                                            @endif
+                                        @endforeach
+                                    @else
+                                    <span>No record Found</span>
+                                    @endif  
+                                </ul>
                             @else
                                 <ul class="sub-title utility">
                                     @if(!$products->isempty())
@@ -112,6 +114,7 @@ ul {
                             @if($user)
                                 @if(!$vendorproduct->isempty())
                                     @foreach($vendorproduct as $product)
+                                    @if($product->product != null)
                                         @if($product->product->category_id != '1' && $product->product->category_id == $id)
                                             <div class="col learts-mb-30">
                                                 <div class="card border-0 rounded-0 shadow" style="width: 18rem; ">
@@ -133,6 +136,7 @@ ul {
 
                                                 </div>
                                             </div>
+                                        @endif
                                         @endif
                                     @endforeach
                                 @else
@@ -166,20 +170,10 @@ ul {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
     <!-- Single Products Section End -->
-
-
-
-
-
-
-
-
     @section('scripts')
 
     @endsection('scripts')

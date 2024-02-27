@@ -93,7 +93,7 @@ class IndexController extends Controller
     public function product_list($id = null)
     {
         $id = decrypt($id);
-        $products = Product::where('category_id',$id)->get();
+        $products = Product::where('category_id',$id)->where('status','=',1)->where('vendor_product','=',0)->get();
         $meta_title = config('app.name');
         return view('product_list',compact('meta_title','products','id'));
     }
@@ -109,7 +109,7 @@ class IndexController extends Controller
     public function nuhas()
     {
         $meta_title = config('app.name');
-        $products = Product::where('category_id','1')->paginate(8);
+        $products = Product::where('category_id','1')->where('status','=',1)->where('vendor_product','=',0)->paginate(8);
         return view('nuhas',compact('meta_title','products'));
     }
     public function nuhas_detail($id = null)

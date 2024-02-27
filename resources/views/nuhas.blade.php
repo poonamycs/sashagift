@@ -18,7 +18,7 @@
     if($email != null)
     {
         $user = App\Models\Admin::where('email',$email)->first();
-        $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+        $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->paginate(8);
     }
     else
     {
@@ -50,28 +50,26 @@
                 @if($user != null)
                      @if(!$vendorproduct->isempty())
                         @foreach($vendorproduct as $product)
-                            @if($product->product->category_id == '1')
-                            <div class="col learts-mb-40">
-                                <div class="category-banner4">
-                                    <a href="{{url('/product_detail/'.encrypt($product->id))}}" class="inner">
-                                        <div class="image"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->product->image) }}" alt="" style="min-height:350px!important; object-fit:cover!important;"></div>
-                                        <div class="content" data-bg-color="#f4ede7">
-                                            <h3 class="title">{{$product->product->product_name}}</h3>
-                                        </div>
-                                    </a>
+                            
+                                @if($product->product != null && $product->product->category_id == '1')
+                                <div class="col learts-mb-40">
+                                    <div class="category-banner4">
+                                        <a href="{{url('/product_detail/'.encrypt($product->id))}}" class="inner">
+                                            <div class="image"><img src="{{ asset('assets/admin/images/backend_images/products/large/'.$product->product->image) }}" alt="" style="min-height:350px!important; object-fit:cover!important;"></div>
+                                            <div class="content" data-bg-color="#f4ede7">
+                                                <h3 class="title">{{$product->product->product_name}}</h3>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            @else
-                            <div class="col learts-mb-40">
-                                <div class="category-banner4">
-                                    No record Found
-                                </div>
-                            </div>
-                            @endif  
+                                
+                                @endif  
+                            
                         @endforeach
-                        
-                    @endif
-                    {{ $vendorproduct->links() }}
+                        @endif
+                   
+                    {{ $vendorproduct->links('pagination::bootstrap-4') }}
+                   
                 @else
                 @foreach($products as $product)
                     <div class="col learts-mb-40">
