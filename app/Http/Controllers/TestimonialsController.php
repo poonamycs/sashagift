@@ -89,7 +89,7 @@ class TestimonialsController extends Controller
 				$data['position'] = '';
 			}
 
-		Testimonial::where('id',$id)->update(['name'=>$data['name'],'content'=>$data['content'],'status'=>$status,'image'=>$filename]);
+		Testimonial::where('id',$id)->update(['name'=>$data['name'],'position'=>$data['position'],'content'=>$data['content'],'status'=>$status,'image'=>$filename]);
     	return redirect()->back()->with('flash_message_success','Testimonial updated Successfully.');
     	}
 

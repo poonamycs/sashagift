@@ -290,10 +290,12 @@ class ProductsController extends Controller
     public function viewAdminProducts(){
         // echo session('adminSession'); die;
         $productsAdmin = Product::orderBy('id','DESC')->get();
-        foreach($productsAdmin as $key => $val){
-            $category_name = Category::where(['id'=>$val->category_id])->first();
-            $productsAdmin[$key]->category_name = $category_name->name;
-        }
+            foreach($productsAdmin as $key => $val){
+                $category_name = Category::where(['id'=>$val->category_id])->first();
+                if($category_name != null ){
+                    $productsAdmin[$key]->category_name = $category_name->name;
+                }  
+            }
         return view('admin.products.view_all_products')->with(compact('productsAdmin'));
     }
 
