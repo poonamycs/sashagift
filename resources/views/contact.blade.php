@@ -19,7 +19,7 @@
 @endsection('styles')
 
     <!-- Page Title/Header Start -->
-    <div class="page-title-section section" data-bg-image="assets/images/bg/page-title-1.webp">
+    <div class="page-title-section section" data-bg-image="https://img.freepik.com/premium-photo/contact-us-wood-cube-symbol-chat-mail-address-mobile-phone-website-page-contact-us-symbols-different-communication-channels-customer_256259-2855.jpg?w=826">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -27,7 +27,7 @@
                     <div class="page-title">
                         <h1 class="title">Contact Us</h1>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item active">Contact Us</li>
                         </ul>
                     </div>

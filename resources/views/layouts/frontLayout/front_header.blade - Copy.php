@@ -39,7 +39,7 @@ $rootUrl = url('/');
             <!-- Search Start -->
             <div class="col-auto me-auto">
                 <nav class="site-main-menu site-main-menu-left menu-height-100 justify-content-center">
-                    <ul>
+                    <ul class="mx-5">
                         <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a
                                 href="{{url('/about')}}"><span class="menu-text">About</span></a>
 
@@ -63,27 +63,27 @@ $rootUrl = url('/');
                                         {
                                             $user = null;
                                         }
+                                        
                                     @endphp
                                     <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}">
                                         <span class="menu-text">{{$category->name}}</span></a>
                                             @if($user != null)
                                                 
                                                 @if(!$vendorproduct->isempty())
-                                                
+                                                <ul class="sub-menu">
                                                     @foreach($vendorproduct as $product)
                                                         @if($product->product->category_id != '1' && $product->product->category_id == $category->id)
-                                                        <ul class="sub-menu">
+                                                        
                                                             <li>
                                                                 <a href="{{url('/product_detail/'.encrypt($product->product->id))}}">
                                                                     <span class="menu-text">{{$product->product->product_name}}</span>
                                                                 </a>
                                                             </li>
-                                                        </ul>
+                                                        
                                                         @endif
                                                     @endforeach
-                                                
-                                                @else
-                                                    <span>No record Found</span>
+                                                    </ul>
+                                             
                                                 @endif  
                                                
                                             @else
@@ -105,8 +105,7 @@ $rootUrl = url('/');
                             if($user != null)
                             {
                                 $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
-                            }
-                              
+                            }    
                         ?>
                        
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
@@ -119,15 +118,12 @@ $rootUrl = url('/');
                                         <!-- <ul class="sub-menu mega-menu"> -->
                                             <?php $chunks = $vendornproduct->chunk(7);?>
                                             @foreach($chunks as $nproduct)
-                                                <!-- <li>
-                                                    <ul>    -->
-                                                    <ul class="sub-menu mega-menu">
+                                                <ul class="sub-menu mega-menu">
                                                         @foreach($nproduct as $nuhas)
                                                             <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->product->id))}}"><span class="menu-text">{{$nuhas->product->product_name}}</span></a></li>
                                                         @endforeach
-                        </ul>
-                                                    <!-- </ul>
-                                                </li> -->
+                                                    </ul>
+                                                <!-- </li> -->
                                             @endforeach
                                             
                                             <!-- <li>
@@ -158,7 +154,7 @@ $rootUrl = url('/');
                                 <li>
                                     <ul>
                                         
-                                        <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+                                        <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
 
                                     </ul>
                                 </li>
@@ -252,48 +248,117 @@ $rootUrl = url('/');
                                 
                                     @php
                                         $products = App\Models\Product::where('category_id',$category->id)->where('status','=','1')->where('vendor_product','=','0')->get();
-                                        
                                     @endphp
-                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}"><span
-                                                class="menu-text">{{$category->name}}</span></a>
-                                           
+                                    @php
+                                        $email = Session::get('vendorSession');
+                                        if($email != null)
+                                        {
+                                            $user = App\Models\Admin::where('email',$email)->first();
+                                            $vendorproduct = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+                                        }
+                                        else
+                                        {
+                                            $user = null;
+                                        }
+                                    @endphp
+                                    <li class="has-children"><a href="{{url('/product_list/'.encrypt($category->id))}}">
+                                        <span class="menu-text">{{$category->name}}</span></a>
+                                            @if($user != null)
+                                                
+                                                @if(!$vendorproduct->isempty())
+                                                <ul class="sub-menu">
+                                                    @foreach($vendorproduct as $product)
+                                                        @if($product->product->category_id != '1' && $product->product->category_id == $category->id)
+                                                        
+                                                            <li>
+                                                                <a href="{{url('/product_detail/'.encrypt($product->product->id))}}">
+                                                                    <span class="menu-text">{{$product->product->product_name}}</span>
+                                                                </a>
+                                                            </li>
+                                                        
+                                                        @endif
+                                                    @endforeach
+                                                </ul>
+                                                @else
+                                                    <span>No record Found</span>
+                                                @endif  
+                                               
+                                            @else
                                             @if(!$products->isempty())
                                                 <ul class="sub-menu">
                                                     @foreach($products as $product)
-                                                            <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
+                                                        <li><a href="{{url('/product_detail/'.encrypt($product->id))}}"><span class="menu-text">{{$product->product_name}}</span></a></li>
                                                     @endforeach
                                                 </ul>
-                                           
+                                            @endif
                                             @endif
                                     </li>
                                 @endforeach
                                 
                             </ul>
                         </li>
-                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get(); ?>
+
+                        <?php $nuhas_products = App\Models\product::where('category_id',1)->get();
+                            if($user != null)
+                            {
+                                $nuhasvendorproducts = App\Models\VendorProduct::where('vendor_id',$user->id)->get();
+                            }    
+                        ?>
                        
                         <li class="has-children"><a href="{{url('/nuhas')}}"><span class="menu-text">{{get_nuhas_category()->name}}</span></a>
-                                <ul class="sub-menu mega-menu">
-                                    <?php $chunks = $nuhas_products->chunk(7); ?>
-                                    @foreach($chunks as $nuhas_product)
-                                        <li>
-                                            <ul>   
-                                                @foreach($nuhas_product as $nuhas)
-                                                    <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                    @endforeach
-                                    
-                                    <li>
-                                        <ul>
+                            @if($user != null)  
+                                @if(!$nuhas_products->isempty())
+                                    @foreach($nuhas_products as $product)
+                                        @php 
+                                            $vendornproduct = App\Models\VendorProduct::where('product_id',$product->id)->where('vendor_id',$user->id)->get();
+                                        @endphp
+                                        <!-- <ul class="sub-menu mega-menu"> -->
+                                            <?php $chunks = $vendornproduct->chunk(7);?>
+                                            @foreach($chunks as $nproduct)
+                                                <ul class="sub-menu mega-menu">
+                                                        @foreach($nproduct as $nuhas)
+                                                            <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->product->id))}}"><span class="menu-text">{{$nuhas->product->product_name}}</span></a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                <!-- </li> -->
+                                            @endforeach
                                             
-                                            <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+                                            <!-- <li>
+                                                <ul>
+                                                    
+                                                    <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
 
+                                                </ul>
+                                            </li> -->
+                                        <!-- </ul> -->
+                                        
+                                    @endforeach
+                                    @endif
+                                
+                            @else
+                            <ul class="sub-menu mega-menu">
+                                <?php $chunks = $nuhas_products->chunk(7); ?>
+                                @foreach($chunks as $nuhas_product)
+                                    <li>
+                                        <ul>   
+                                            @foreach($nuhas_product as $nuhas)
+                                                <li><a href="{{url('/nuhas_detail/'.encrypt($nuhas->id))}}"><span class="menu-text">{{$nuhas->product_name}}</span></a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
-                                </ul>
+                                @endforeach
+                                
+                                <li>
+                                    <ul>
+                                        
+                                        <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
+
+                                    </ul>
+                                </li>
+                            </ul>
+                            @endif
                         </li>
+
                         <li class="nav-item @if(preg_match(" /blog/i", $url)) active @endif"><a href="{{url('/blog')}}"><span class="menu-text">Blogs</span></a>
 
                         </li>
@@ -366,7 +431,7 @@ $rootUrl = url('/');
             <!-- Header Logo Start -->
             <div class="col">
                 <div class="header-logo">
-                    <a href="{{url('/')}}"><img src="{{asset('assets/images/logo/sasha_logo.png')}}" alt="Learts Logo"
+                    <a href="{{url('/')}}"><img src="{{asset('../../assets/images/logo/sasha_logo.png')}}" alt="Learts Logo"
                             class="logo_width"></a>
                 </div>
             </div>
@@ -416,7 +481,7 @@ $rootUrl = url('/');
             <!-- Header Logo Start -->
             <div class="col">
                 <div class="header-logo">
-                    <a href="{{url('/')}}"><img src="assets/images/logo/sasha_logo.png" alt="Learts Logo"></a>
+                    <a href="{{url('/')}}"><img src="../../assets/images/logo/sasha_logo.png" alt="Learts Logo"></a>
                 </div>
             </div>
             <!-- Header Logo End -->
@@ -550,12 +615,22 @@ $rootUrl = url('/');
 
             <div class="row">
                 <div class=" col-12 mx-auto">
+                @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">{{ $error }}</div>
+                    @endforeach
+                    @if (Session::has('success_message'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>{!! session('success_message') !!}</strong>
+                            <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="contact-form">
-                        <form action="{{ route('contact.store') }}" id="contactPage" method="post">
+                        <form action="{{ route('contact.store') }}" id="contactside" method="post">
                             @csrf
                             <div class="row learts-mb-n30">
                                 <div class="col-12 learts-mb-30"><input type="text" placeholder="Your Name *" name="name"></div>
                                 <div class="col-12 learts-mb-30"><input type="email" placeholder="Email *" name="email"></div>
+                                <div class="col-12 learts-mb-30"><input type="number" placeholder="Contact *" name="mobile"></div>
                                 <div class="col-12 learts-mb-30"><textarea name="message" placeholder="Message"></textarea></div>
                                 <!-- <div class="col-12 text-center learts-mb-30"><button class="btn btn-dark btn-outline-hover-dark">Submit</button></div> -->
                                 <!-- <div class="col-12 text-center learts-mb-30"> <button type="submit" class="hexa">Submit </button></div> -->
@@ -633,7 +708,7 @@ $rootUrl = url('/');
                         <li>
                             <ul>
                                 
-                                <img src="assets/images/nuhas/main_menu.jpg" alt="menu">
+                                <img src="../assets/images/nuhas/main_menu.jpg" alt="menu">
 
                             </ul>
                         </li>
@@ -669,3 +744,66 @@ $rootUrl = url('/');
 <!-- OffCanvas Search End -->
 
 <div class="offcanvas-overlay"></div>
+
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.js'></script>
+    <script>
+        jQuery.validator.addMethod("lettersonly", function(value, element) {
+            return this.optional(element) || /^[a-zA-Z ]+$/i.test(value);
+        }, "Letters only please *");
+        $("#contactside").validate({
+            // errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            rules: {
+                name: {
+                    required: true,
+                    lettersonly: true,
+
+
+                },
+                email: {
+                    required: true,
+                },
+
+                message: {
+                    required: true,
+                },
+
+                subject: {
+                    required: true,
+                },
+
+                phone: {
+                    required: true,
+                    number: true,
+                    maxlength: 12,
+                    minlength: 10
+                },
+
+
+            },
+            messages: {
+
+                name: {
+                    required: "This field is required.",
+                },
+                email: {
+                    required: "This field is required.",
+                },
+                message: {
+                    required: "This field is required.",
+                },
+                phone: {
+                    required: "This field is required.",
+                    number: "Please enter valid number",
+                },
+
+            },
+            submitHandler: function(form) {
+                $(".cbtn").attr("disabled", true);
+                $(".cbtn").html("<i class='fa fa-spinner fa-spin'></i> Please wait...");
+                form.submit();
+            }
+        });
+    </script>

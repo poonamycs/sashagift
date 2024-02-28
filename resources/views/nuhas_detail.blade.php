@@ -48,7 +48,7 @@
 
 
 <!-- Single Products Section Start -->
-<div class="section section-fluid section-padding border-bottom">
+<div class="section section-fluid section-padding border-bottom bg-white">
     <div class="container">
         <div class="row learts-mb-n40">
 
