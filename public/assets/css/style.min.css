@@ -14472,3 +14472,12 @@ input::-webkit-inner-spin-button {
     .list_card{
         object-fit: cover;
     }
+    .just{
+        font-size: 24px !important;
+    }
+    .mil{
+        color: #727376;
+    }
+.footer_color{
+    color:#656668;
+}

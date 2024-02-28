@@ -19,7 +19,7 @@
 @endsection('styles')
 
     <!-- Page Title/Header Start -->
-    <div class="page-title-section section" data-bg-image="https://img.freepik.com/premium-photo/contact-us-wood-cube-symbol-chat-mail-address-mobile-phone-website-page-contact-us-symbols-different-communication-channels-customer_256259-2855.jpg?w=826">
+    <div class="page-title-section section" data-bg-image="../../assets/images/banner/contact_bg.png">
         <div class="container">
             <div class="row">
                 <div class="col">

@@ -4,10 +4,13 @@
 @section('styles')
 
 @endsection('styles')
-
+<div class="section section-fluid pt-5 pt-50 text-center">
+<h3 class=" mil">Welcome "kartik",Get ready to claim your limited edition gift purchase now.</h3>
+</div>
   <!-- Category Banner Section Start -->
-  <div class="section section-fluid section-padding pt-50">
+  <div class="section section-fluid section-padding">
         <div class="container">
+          
             <div class="row">
                 
                 @foreach($vendorproducts as $vendorproduct)

@@ -117,7 +117,9 @@
                                             </div>
                                             <div class="d-flex justify-content-end">
                                                 <button class="btn btn-md  btn-outline-secondary" id="submitButton"
-                                                    type="submit"><span class="fa fa-check-circle"></span>
+                                                    type="submit" data-bs-toggle="modal"
+                                                    data-bs-target="#indexModel-two"><span
+                                                        class="fa fa-check-circle"></span>
                                                     Submit</button>
                                             </div>
                                         </form>
@@ -132,6 +134,60 @@
     </div>
 </div>
 
+<div class="modal fade" id="indexModel-two" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <div class="row justify-content-center">
+
+                    <div class="col-xl-12">
+                        <div class="card border-0 rounded-3 shadow-lg overflow-hidden">
+                            <div class="card-body p-0">
+                                <div class="row g-0">
+
+                                    <div class="col-sm-12 p-4">
+                                        <div class="text-start d-flex justify-content-between">
+                                            <h3 class="  text-center">Thank you for your purchase! Enjoy your new item
+                                            </h3>
+                                            <button type="button" data-bs-dismiss="modal"
+                                                class="bg-light border-0"><span
+                                                    class="fa fa-times-circle"></span></button>
+
+                                            <!-- <div class="heading-border fs-4 mb-3 px-3 fw-light">Enquire Now</div> -->
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row p-4">
+                                    <div class="col-lg-6 ">
+                                        <h6>If you need any further assistance or wish to continue
+                                        shopping</h6>
+                                        <div class="header-login">
+                                            <a href="{{url('')}}"><button class="btn pt-0 " id="submitButton"
+                                                ><span
+                                                        class="fa fa-check-circle"></span>
+                                                    </button></a>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="col-lg-6 ">
+                                        <h6>Don't need any further assistance or wish to continue
+                                        shopping </h6>
+                                        <div class="header-login">
+                                            <a href="{{url('user/logout')}}"><i class="fa fa-power-off"></i></a>
+                                        </div>
+                                   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section('scripts')

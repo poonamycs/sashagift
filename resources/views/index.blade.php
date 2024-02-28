@@ -167,7 +167,7 @@
 
             <!-- Section Title Start -->
             <div class="section-title text-center ">
-                <h3 class="sub-title" data-aos="fade-up" data-aos-duration="3000">Just for you</h3>
+                <h3 class="sub-title just" data-aos="fade-up" data-aos-duration="3000">Just for you</h3>
                 <h2 class="title " data-aos="fade-up" data-aos-duration="3000">Gifting & crafting</h2>
             </div>
             <!-- Section Title End -->
@@ -178,11 +178,11 @@
                     <div class="sale-banner1 elevate" data-bg-image="assets/images/sasha.svg">
                         <div class="inner">
                             <img src="assets/images/title/adv.png" alt="Sale Banner Icon">
-                            <span class="sub-title"><h3>Sasha's Military Box:<br> Elevate Your  Adventure <br> with Strength and Style.</h3></span>
+                            <span class="sub-title "><h3 class="mil">Sasha's Military Box:<br> Elevate Your  Adventure <br> with Strength and Style.</h3></span>
                             <!-- <h2 class="sale-percent">
                                 <span class="number">40</span> % <br> off
                             </h2> -->
-                            <a href="/contact" class="link">Enquire Now</a>
+                            <a href="/contact" class="link pt-3">Enquire Now</a>
                         </div>
                     </div>
                 </div>
@@ -246,7 +246,7 @@
 
             <!-- Section Title Start -->
             <div class="section-title text-center">
-                <h5 class="sub-title">Choose By Categories</h5>
+                <h5 class="sub-title just">Choose By Categories</h5>
                 <h2 class="title ">Making & crafting</h2>
             </div>
             <!-- Section Title End -->
@@ -366,7 +366,7 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="col">
+                <!-- <div class="col">
                     <div class="testimonial">
                         <p>There's nothing would satisfy me much more than a worry-free clean and responsive theme for my high-traffic site.</p>
                         <div class="author">
@@ -413,7 +413,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>

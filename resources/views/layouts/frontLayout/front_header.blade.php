@@ -38,8 +38,8 @@ $rootUrl = url('/');
 
             <!-- Search Start -->
             <div class="col-auto me-auto">
-                <nav class="site-main-menu site-main-menu-left menu-height-100 justify-content-center">
-                    <ul class="mx-5">
+                <nav class="site-main-menu site-main-menu-left menu-height-100 justify-content-center px-5">
+                    <ul class="mx-5 px-5">
                         <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a
                                 href="{{url('/about')}}"><span class="menu-text">About</span></a>
 
@@ -241,8 +241,8 @@ $rootUrl = url('/');
 
             <!-- Search Start -->
             <div class="col-auto me-auto d-none d-xl-block">
-                <nav class="site-main-menu site-main-menu-left justify-content-center">
-                <ul class="mx-5">
+                <nav class="site-main-menu site-main-menu-left justify-content-center px-5">
+                <ul class="mx-5 px-5">
                         <li class="nav-item @if(preg_match(" /about/i", $url)) active @endif"><a
                                 href="{{url('/about')}}"><span class="menu-text">About</span></a>
 

@@ -10,7 +10,7 @@
                 <div class="col-lg-5 learts-mb-40">
                     <div class="widget-about">
                         <img src="{{asset('assets/images/logo/sasha_logo.png')}}" alt="" class="width_footer_logo">
-                        <p>Sasha Gifts, a rapidly acclaimed name in the corporate realm, commenced its journey in 2017, swiftly earning recognition for its unparalleled services.</p>
+                        <p class="footer_color">Sasha Gifts, a rapidly acclaimed name in the corporate realm, commenced its journey in 2017, swiftly earning recognition for its unparalleled services.</p>
                     </div>
                 </div>
 
