@@ -19,7 +19,7 @@
                 <div class="col-xl-7 col-lg-8 col-12 mx-auto">
                     <div class="about-us2">
                         <div class="inner">
-                            <h4 class="title" style="font-size:30px">Your Gifting Haven</h4>
+                            <h4 class="title" style="font-size:30px">Your Gifting Heven</h4>
                             <h5 class="sub-title">Welcome to Sasha Studio</h5>
                             <div class="desc">
                                 <p>Where every present finds its perfect match. Discover a curated selection of
