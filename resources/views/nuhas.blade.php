@@ -26,7 +26,7 @@
     }
 @endphp
 <!-- Page Title/Header Start -->
-<div class="page-title-section section" data-bg-image="assets/images/nuhas_bg.jpg">
+<div class="page-title-section section" data-bg-image="assets/images/nuhas_bg.png">
         <div class="container">
             <div class="row">
                 <div class="col">

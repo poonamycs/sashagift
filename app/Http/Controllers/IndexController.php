@@ -130,7 +130,7 @@ class IndexController extends Controller
                 Session::put('vendorSession', $data['email']);
                 return redirect('/vender_product_listing');
             }else{
-                return redirect('/user_login')->with('flash_message_error','Invalid Email or Password');
+                return redirect('/user_login')->with('success_message_login','Invalid Email or Password');
             }
         }
         $meta_title = config('app.name');

@@ -7,7 +7,7 @@
 </style>
 @endsection('styles')
 <!-- Page Title/Header Start -->
-<div class="page-title-section section" data-bg-image="assets/images/blog/sashaBlogBanner.png">
+<!-- <div class="page-title-section section" data-bg-image="assets/images/blog/sashaBlogBanner.png">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Page Title/Header End -->
 
     <!-- Blog Section Start -->

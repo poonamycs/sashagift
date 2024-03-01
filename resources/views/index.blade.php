@@ -32,7 +32,7 @@
                         <div class="container">
                             <div class="home3-slide-content">
                          
-                                <h5 class="sub-title">{!! $banner->title !!}</h5>
+                                <h5 class="sub-title just_for">{!! $banner->title !!}</h5>
                                 <h2 class="title"> {!! $banner->description !!}</h2>
                                 <!-- <div class="link"></div> -->
                             <!-- <div class=""> <button class="border-0" data-bg-image="assets/images/sashabutton.png" style="height:40px;width:120px">     <a href="{{url('/contact')}}" class="">Connect</a> </button></div> -->
@@ -167,14 +167,14 @@
 
             <!-- Section Title Start -->
             <div class="section-title text-center ">
-                <h3 class="sub-title just" data-aos="fade-up" data-aos-duration="3000">Just for you</h3>
-                <h2 class="title " data-aos="fade-up" data-aos-duration="3000">Gifting & crafting</h2>
+                <h3 class="sub-title just just_for" data-aos="fade-up" data-aos-duration="3000">Just for you</h3>
+                <h2 class="title " data-aos="fade-up" data-aos-duration="3000">Gifting & Crafting</h2>
             </div>
             <!-- Section Title End -->
 
             <div class="row learts-mb-n70 learts-mt-n40">
 
-                <div class="col-lg-5 col-md-6 col-12 me-auto learts-mb-40" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="2000">
+                <div class="col-lg-5 col-md-6 col-12 me-auto learts-mb-40" data-aos="fade-up" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000">
                     <div class="sale-banner1 elevate" data-bg-image="assets/images/sasha.svg">
                         <div class="inner">
                             <img src="assets/images/title/adv.png" alt="Sale Banner Icon">
@@ -187,7 +187,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-12 learts-mb-40" data-aos="fade-left" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="2000">
+                <div class="col-lg-6 col-md-6 col-12 learts-mb-40" data-aos="fade-up" data-aos-offset="100" data-aos-easing="ease-in-sine" data-aos-duration="1000">
                     <div class="sale-banner2 pt-2">
                         <div class="inner">
                             <div class="image"><img src="assets/images/banner/gift_box.png" alt=""></div>
@@ -238,16 +238,42 @@
         </div>
     </div>
     <!-- Deal of the Day Section End -->
+    <div class="section section-padding pt-5 bg-white">
+        <div class="container">
+            <div class="row row-cols-lg-2 row-cols-1 learts-mb-n30">
 
+                <div class="col learts-mb-30">
+                    <div class="sale-banner8">
+                        <img src="assets/images/banner/sale/oranger_bg (1).png" alt="Sale Banner Image">
+                        <div class="content">
+                            <h2 class="title">Little simple <br> things</h2>
+                            <!-- <a href="#" class="link">shop now</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col learts-mb-30">
+                    <div class="sale-banner8">
+                        <img src="assets/images/banner/sale/oranger_bg (2).png" alt="Sale Banner Image">
+                        <div class="content">
+                            <h2 class="title">Holiday <br> Gifts</h2>
+                            <!-- <a href="#" class="link">shop now</a> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 <!-- Shop By Category Section Start -->
-<div class="section section-fluid section-padding bg-white">
+<div class="section section-fluid section-padding ">
         <div class="container">
 
             <!-- Section Title Start -->
             <div class="section-title text-center">
-                <h5 class="sub-title just">Choose By Categories</h5>
-                <h2 class="title ">Making & crafting</h2>
+                <h5 class="sub-title just just_for ">Choose By Categories</h5>
+                <h2 class="title ">Making & Crafting</h2>
             </div>
             <!-- Section Title End -->
 
@@ -338,7 +364,7 @@
 
 
  <!-- Testimonial Section Start -->
- <div class="section section-padding">
+ <div class="section section-padding bg-white">
 
         <div class="container">
 

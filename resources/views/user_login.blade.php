@@ -16,6 +16,15 @@
            
                 <div class="col-lg-5">
                     <div class="user-login-register vender">
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">{{ $error }}</div>
+                    @endforeach
+                    @if (Session::has('success_message_login'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>{!! session('success_message_login') !!}</strong>
+                            <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                         <div class="login-register-title">
                             <h2 class="title">Login</h2>
                             <p class="desc">Great to have you back!</p>

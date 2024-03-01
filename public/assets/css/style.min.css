@@ -1,5 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&display=swap');
 
 
 *,
@@ -384,10 +385,10 @@ hr {
 }
 body.homepage-bg1 {
     padding: 0 15px 15px !important;
-    background-color: #ffead9;
+    background-color: #f8e4d478;
 }
 body.homepage-bg1 .topbar-section {
-    background-color: #ffead9 !important;
+    background-color: #f8e4d478 !important;
 }
 body.homepage-bg1.offcanvas-open {
     padding-right: 32px !important;
@@ -1436,8 +1437,8 @@ body.homepage-bg1.offcanvas-open {
     background-color: rgba(0, 0, 0, 0);
 }
 .btn-outline-secondary:hover {
-    border-color: #f48120;
-    background-color: #f48120;
+    border-color: #727376;
+    background-color: #727376;
     color: #fff;
 }
 .btn-success {
@@ -5560,7 +5561,7 @@ body.offcanvas-open .sticky-header {
     -webkit-transform: translateY(30px);
     -ms-transform: translateY(30px);
     transform: translateY(30px);
-    color: #4c9db3;
+    color: #72a499;
 }
 .home3-slide-content .title {
     font-size: 52px;
@@ -14473,11 +14474,33 @@ input::-webkit-inner-spin-button {
         object-fit: cover;
     }
     .just{
-        font-size: 24px !important;
+        font-size: 36px !important;
     }
     .mil{
         color: #727376;
     }
 .footer_color{
     color:#656668;
+}
+.p_font{
+    font-family: "Futura", sans-serif;
+    color: #7e7e7e;
+    font-weight: 400;
+}
+.just_for{
+    font-family: "Birthstone Bounce", cursive !important;
+  font-weight: 500;
+  font-style: normal;
+}
+.p_font_one{
+    font-family: "Futura", sans-serif;
+    color: #7e7e7e;
+    font-weight: 300;
+    font-size: 20px;
+}
+.p_font_two{
+    font-family: "Futura", sans-serif;
+    color: #7e7e7e;
+    font-weight: 400;
+    font-size: 20px;
 }

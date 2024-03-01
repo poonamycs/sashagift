@@ -152,9 +152,9 @@ ul {
                                                 <div class="row">
                                                 <a href="{{url('/product_detail/'.encrypt($product->id))}}"> <div class="col-12 d-flex justify-content-start align-items-center">
                                                         <span>
-                                                            <h6 class="card-title">{{$product->product_name}}</h6>
+                                                            <h6 class="card-title p_font">{{$product->product_name}}</h6>
                                                         </span>
-                                                        <span class="px-3">
+                                                        <span class="px-3 p_font">
                                                             <i class="fa fa-long-arrow-right"></i>
                                                         </span>
                                                     </div>

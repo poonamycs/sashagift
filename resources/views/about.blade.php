@@ -34,7 +34,7 @@ video {
 @endsection('styles')
 
 <!-- Page Title/Header Start -->
-<div class="page-title-section section" data-bg-image="assets/images/about/about_banner.png" >
+<!-- <div class="page-title-section section" data-bg-image="assets/images/about/about_banner.png" >
     <div class="container">
         <div class="row">
             <div class="col">
@@ -50,7 +50,7 @@ video {
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Page Title/Header End -->
 
 <!-- About Section Start -->
