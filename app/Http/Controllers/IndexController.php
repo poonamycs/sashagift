@@ -68,7 +68,10 @@ class IndexController extends Controller
         $enquiry->email = $request->email;
         $enquiry->message = $request->message;
         $enquiry->save();
-        return redirect()->back()->with('flash_message_error','We will response you shortly');
+
+        return true;
+
+        // return redirect()->back()->with('flash_message_error','We will response you shortly');
     }
     public function blog()
     {
@@ -101,9 +104,11 @@ class IndexController extends Controller
     {
         $id = decrypt($id);
         $product = Product::where('id',$id)->first();
+        $email = Session::get('vendorSession');
+        $user = Admin::where('email',$email)->first();
         $product_imgs = ProductsImage::where('product_id',$product->id)->get();
         $meta_title = config('app.name');
-        return view('product_detail',compact('meta_title','product','product_imgs'));
+        return view('product_detail',compact('meta_title','product','product_imgs','user'));
     }
 
     public function nuhas()

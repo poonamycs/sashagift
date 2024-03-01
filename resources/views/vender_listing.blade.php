@@ -8,7 +8,7 @@
     <div class="section  pt-5 pt-50 ">
         <div class="container">
             <!-- <h3 class=" mil flo"><br><span></span></h3> -->
-            <h3 class="p_font_two"><span>Welcome kartik !</span></h3>
+            <h3 class="p_font_two"><span>Welcome {{ucfirst($user->vname)}} !</span></h3>
 
             <h3 class="p_font_one"><span>Get ready to claim your limited edition gift.</span></h3>
         </div>

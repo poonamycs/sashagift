@@ -9,10 +9,10 @@
 
 <div class="section section-fluid section-padding border-bottom bg-white">
     <div class="container">
-        <div class="row learts-mb-n40 mb-5 pb-5">
+        <div class="row learts-mb-n40">
 
             <!-- Product Images Start -->
-            <div class="col-lg-5 col-12 learts-mb-40 ">
+            <div class="col-lg-5 col-12 learts-mb-40">
                 <div class="product-images vertical">
 
                     <!-- <a href="https://www.youtube.com/watch?v=1jSsy7DtYgc" class="product-video-popup video-popup hintT-left" data-hint="Click to see video"><i class="fas fa-play"></i></a> -->
@@ -132,6 +132,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal" tabindex="-1" id="mymodal">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
@@ -185,8 +186,6 @@
         </div>
     </div>
 </div>
-</div>
-
 @section('scripts')
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js'></script>
