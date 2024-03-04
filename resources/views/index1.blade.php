@@ -455,6 +455,10 @@
     </div>
     <!-- Shop By Brands Section End -->
 
+
+
+
+
 @section('scripts')
 
 @endsection('scripts')

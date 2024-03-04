@@ -17,6 +17,14 @@
     
 }
 
+
+
+
+
+
+
+
+
 </style>
 @endsection('styles')
 
@@ -518,8 +526,133 @@
     </div>
     <!-- Shop By Brands Section End -->
 
+
+    <div class="section section-fluid  bg-white ">
+    <div class="post-grid">
+  <div class="post">
+    <div class="thumb-item">
+      <img src="https://img.freepik.com/premium-photo/diwali-platter-with-sweetmeats_808062-22.jpg?w=740" alt="alt">
+      <img src="https://img.freepik.com/free-photo/gifts-near-box-with-macaroons-flowers_23-2147931536.jpg?t=st=1709551781~exp=1709555381~hmac=5d147e355a003afee970329ef0ffb76df801c5bd1d7cdb7707e64166ab44b29f&w=740" alt="alt">
+      <img src="https://img.freepik.com/free-photo/peeled-walnuts-brown-bowl-dark-table_176474-5496.jpg?t=st=1709551820~exp=1709555420~hmac=fc88d5c6ebae0737a2bce25a63ccde492aedc81ded2c8b4a081e7ec43f96b907&w=740" alt="alt">
+    </div>
+    <div class="title p_font_two">Dry Fruit</div>
+    <!-- <div class="text">
+      <p>Is it possible to come up with something really unusual when designing a bedroom in an elite style? Can! And we are ready to explain it</p>
+    </div> -->
+  </div>
+  <div class="post">
+    <div class="thumb-item">
+      <img src="https://img.freepik.com/premium-photo/flat-lay-with-woman-staff_259348-19318.jpg?w=740" alt="alt">
+      <img src="https://img.freepik.com/premium-photo/black-orange-stylish-leather-purse-driver-s-license-passport-id-card-documents-cover_549949-391.jpg?w=740" alt="alt">
+      <img src="https://img.freepik.com/free-photo/opened-notebook-near-smartphone-glasses_23-2147768857.jpg?t=st=1709551961~exp=1709555561~hmac=80dbf3d5d65c868437b04310df7d9aed62b32a83769fcc26f8da9edcd22f433a&w=740" alt="alt">
+      <img src="https://img.freepik.com/premium-photo/flat-lay-modern-group-stationery-elements-with-pencil-case-stainless-steel-bottle-pencils_156165-34.jpg?w=740" alt="alt">
+    </div>
+    <div class="title p_font_two">Joining Kit</div>
+    <!-- <div class="text">
+      <p>What is important to think about for healthy sleep? How to arrange a rest room? Today we will tell you everything about the current trends in the world of bedroom design.</p>
+    </div> -->
+  </div>
+  <div class="post">
+    <div class="thumb-item">
+   
+      <img src="https://img.freepik.com/free-photo/top-view-grinder-cooking-spices_23-2148601231.jpg?t=st=1709552203~exp=1709555803~hmac=3ab40495f236eeb35b6ce1a6b98a866f6645f4b0bdd0763c2ac7d474120efb23&w=740" alt="alt">
+      <img src="https://img.freepik.com/premium-photo/plastic-bottle-water-isolated-white-background_743855-48333.jpg?w=740" alt="alt">
+      <img src="https://img.freepik.com/premium-photo/bronze-bowl-isolated-white-background_900706-23610.jpg?w=740" alt="alt">
+    </div>
+    <div class="title p_font_two">Nuhas</div>
+    <!-- <div class="text">
+      <p>True, it is important that in addition to white, brighter accent shades are present in the room. Luckily this color goes well together.</p>
+    </div> -->
+  </div>
+</div>
+</div>
+
+
+
+
 @section('scripts')
 
 @endsection('scripts')
+
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js'></script>
+
+<script>
+    (function ($) {
+  $.fn.hoverCarousel = function () {
+    return this.addClass("hover-daddy")
+      .append("<div class='tmb-wrap'><div class='tmb-wrap-table'>")
+      .append("<div class='image-wrap'>")
+      .each(function () {
+        var this_wrapper = $(this);
+        this_wrapper
+          .find("img")
+          .appendTo(this_wrapper.find(".image-wrap"))
+          .each(function () {
+            var this_link = $(this).attr("src");
+            this_wrapper
+              .find(".tmb-wrap-table")
+              .append(
+                "<a href='" + this_link + "' data-fancybox-item class='item'>"
+              );
+          });
+      })
+      .find(".tmb-wrap-table")
+      .bind("touchmove", function (event) {
+        event.preventDefault();
+        var myLocation = event.originalEvent.changedTouches[0];
+        var realTarget = document.elementFromPoint(
+          myLocation.clientX,
+          myLocation.clientY
+        );
+        var this_img = $(realTarget)
+          .parent(".tmb-wrap-table")
+          .closest(".hover-daddy")
+          .find("img");
+        var all_thmbs = $(realTarget).parent(".tmb-wrap-table").find("a");
+        this_img.hide().eq($(realTarget).index()).css("display", "block");
+        all_thmbs.removeClass("active");
+        $(realTarget).addClass("active");
+      })
+      .find("a")
+      .hover(function () {
+        var this_img = $(this)
+          .parent(".tmb-wrap-table")
+          .closest(".hover-daddy")
+          .find("img");
+        var all_thmbs = $(this).parent(".tmb-wrap-table").find("a");
+
+        this_img.hide().eq($(this).index()).css("display", "block");
+        all_thmbs.removeClass("active");
+        $(this).addClass("active");
+      })
+      .parent()
+      .find(":first")
+      .addClass("active");
+  };
+})(jQuery);
+
+$("[data-fancybox-item]").fancybox({
+  transitionEffect: "fade",
+  animationEffect: false,
+  clickContent: false,
+  touch: true,
+  loop: true,
+  selector: ".item",
+  backFocus: false,
+  hideScrollbar: false,
+  buttons: ["zoom", "fullScreen", "close"]
+});
+
+$(".thumb-item")
+  .find("img")
+  .each(function () {
+    var img_link = $(this).attr("src");
+    $(this).wrap("<a href='" + img_link + "' data-fancybox-item class='item'>");
+  });
+
+$(".thumb-item").hoverCarousel();
+
+</script>
 
 @endsection('content')
