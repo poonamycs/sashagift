@@ -288,10 +288,15 @@
             <!-- <div class="row row-cols-xl-5 row-cols-lg-3 row-cols-sm-2 row-cols-1 learts-mb-n40"> -->
             <div class="product-carousel">
                 @foreach($categories as $category)
-                
+                @php 
+                    $product = App\Models\Product::where('category_id',$category->id)->first();
+                    
+                @endphp
                 <div class="col learts-mb-40">
                     <div class="category-banner5">
-                        <a href="shop.html" class="inner">
+                        @if($product)
+                        <a href="{{url('/product_detail/'.encrypt($product->id))}}" class="inner">
+                        @endif
                             <div class="image"><img src="{{ asset('assets/admin/images/frontend_images/category/'.$category->image) }}" alt="category"></div>
                             <div class="content">
                                 <h3 class="title">{{$category->name}}</h3>

@@ -106,6 +106,7 @@ class IndexController extends Controller
         $product = Product::where('id',$id)->first();
         $email = Session::get('vendorSession');
         $user = Admin::where('email',$email)->first();
+        
         $product_imgs = ProductsImage::where('product_id',$product->id)->get();
         $meta_title = config('app.name');
         return view('product_detail',compact('meta_title','product','product_imgs','user'));
@@ -122,8 +123,10 @@ class IndexController extends Controller
         $id = decrypt($id);
         $product = Product::where('id',$id)->first();
         $product_imgs = ProductsImage::where('product_id',$product->id)->get();
+        $email = Session::get('vendorSession');
+        $user = Admin::where('email',$email)->first();
         $meta_title = config('app.name');
-        return view('nuhas_detail',compact('meta_title','product','product_imgs'));
+        return view('nuhas_detail',compact('meta_title','product','product_imgs','user'));
     }
 
     public function user_login(Request $request)

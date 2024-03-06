@@ -211,7 +211,9 @@ class AdminController extends Controller
         return view('admin.users.view_vendors')->with(compact('vendors'));
     }
     public function productVendors(Request $request,$id){
-        $products = Product::where('admin_approved','=',1)->get();
+        // $products = Product::where('admin_approved','=',1)->where('status','=',1)->get();
+        $products = Product::where('status','=',1)->get();
+        
         $vendor_products = VendorProduct::where('vendor_id','=',$id)->get();
         
         return view('admin.users.vendor_product')->with(compact('id','products','vendor_products'));

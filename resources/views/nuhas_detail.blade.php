@@ -175,26 +175,22 @@
 
                                             <!-- <div class="heading-border fs-4 mb-3 px-3 fw-light">Enquire Now</div> -->
                                         </div>
-                                        <form action="{{url('productenquiry')}}" method="Post" id="contactmodal">@csrf
-                                            
-                                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                        <form action="#" method="Post" id="contactmodal">@csrf
+                                            <input type="hidden" name="product_id" id="eproduct_id" value="{{$product->id}}">
+                                            <input type="hidden" name="user_id" id="user_id" @if($user) value="{{$user->id}}" @endif>
                                             <div class="row learts-mb-n30">
                                                 <div class="col-md-6 col-12 learts-mb-30"><input type="text"
-                                                        placeholder="Your Name *" name="name"></div>
+                                                        placeholder="Your Name *" id="ename" name="name"></div>
                                                 <div class="col-md-6 col-12 learts-mb-30"><input type="email"
-                                                        placeholder="Email *" name="email"></div>
+                                                        placeholder="Email *" id="eemail" name="email"></div>
                                                 <div class="col-md-6 col-12 learts-mb-30"><input type="number"
-                                                        placeholder="Phone *" name="phone"></div>
-                                                <div class="col-12 learts-mb-50"><textarea name="message"
+                                                        placeholder="Phone *" id="ephone" name="phone"></div>
+                                                <div class="col-12 learts-mb-50"><textarea id="emessage" name="message"
                                                         placeholder="Message"></textarea></div>
-
-                                            </div>  
-
+                                            </div>
                                             <div class="d-flex justify-content-end">
-
-
-                                                <button class="btn btn-md  btn-outline-secondary" id="submitButton"
-                                                    type="submit"><span class="fa fa-check-circle"></span>
+                                                <button class="btn btn-md btn-outline-secondary" id="esubmitButton"><span
+                                                        class="fa fa-check-circle"></span>
                                                     Submit</button>
                                             </div>
                                         </form>
@@ -271,6 +267,46 @@ $("#contactmodal").validate({
         $(".cbtn").html("<i class='fa fa-spinner fa-spin'></i> Please wait...");
         form.submit();
     }
+});
+$(document).ready ( function () {
+    $('#esubmitButton').on('click', function(event) {
+        event.preventDefault();
+        product_id = $('#eproduct_id').val();
+        user_id = $('#user_id').val(); 
+        name = $('#ename').val();
+        email = $('#eemail').val();
+        phone = $('#ephone').val();
+        message = $('#emessage').val();
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:'post',
+            url:'{{url('/productenquiry')}}',
+            data:{
+                product_id:product_id,
+                name:name,
+                email:email,
+                phone:phone,
+                message:message,
+            },
+            success:function(resp){
+                console.log(resp);
+                if(user_id != '')
+                {
+                    $("#indexModel").modal('hide');
+                    $("#mymodal").modal('show');
+                }
+                else{
+                    $("#indexModel").modal('hide');
+                }
+               
+            },
+            error:function(err){
+                console.log(err);
+            }
+        });
+    });
 });
 </script>
 
